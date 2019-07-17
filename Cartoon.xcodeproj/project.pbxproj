@@ -103,6 +103,8 @@
 		04FA38E722DECBBB004B889B /* YNPageCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FA38D922DECBBA004B889B /* YNPageCollectionView.m */; };
 		04FA38E822DECBBB004B889B /* YNPageScrollMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FA38DB22DECBBA004B889B /* YNPageScrollMenuView.m */; };
 		04FA38EB22DECDA5004B889B /* XXKindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FA38EA22DECDA5004B889B /* XXKindViewController.m */; };
+		04FA38EE22DEE21E004B889B /* XXSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FA38ED22DEE21E004B889B /* XXSearchViewController.m */; };
+		04FA38F122DEE270004B889B /* XPLeftSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FA38F022DEE270004B889B /* XPLeftSearchBar.m */; };
 		44971140226EA41E007B732E /* FYColorTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4497113F226EA41E007B732E /* FYColorTool.m */; };
 		44A1B0A9226DBD64009B28F2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A1B0A8226DBD64009B28F2 /* AppDelegate.m */; };
 		44A1B0AC226DBD64009B28F2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 44A1B0AB226DBD64009B28F2 /* ViewController.m */; };
@@ -368,6 +370,10 @@
 		04FA38DE22DECBBA004B889B /* YNPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YNPageViewController.h; sourceTree = "<group>"; };
 		04FA38E922DECDA5004B889B /* XXKindViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XXKindViewController.h; sourceTree = "<group>"; };
 		04FA38EA22DECDA5004B889B /* XXKindViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XXKindViewController.m; sourceTree = "<group>"; };
+		04FA38EC22DEE21E004B889B /* XXSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XXSearchViewController.h; sourceTree = "<group>"; };
+		04FA38ED22DEE21E004B889B /* XXSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XXSearchViewController.m; sourceTree = "<group>"; };
+		04FA38EF22DEE270004B889B /* XPLeftSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPLeftSearchBar.h; sourceTree = "<group>"; };
+		04FA38F022DEE270004B889B /* XPLeftSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPLeftSearchBar.m; sourceTree = "<group>"; };
 		4497113D226E9A45007B732E /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		4497113E226EA41E007B732E /* FYColorTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FYColorTool.h; sourceTree = "<group>"; };
 		4497113F226EA41E007B732E /* FYColorTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FYColorTool.m; sourceTree = "<group>"; };
@@ -728,10 +734,14 @@
 		04FA2FCB22DEA9CC004B889B /* Xiao1APP */ = {
 			isa = PBXGroup;
 			children = (
+				04FA38EF22DEE270004B889B /* XPLeftSearchBar.h */,
+				04FA38F022DEE270004B889B /* XPLeftSearchBar.m */,
 				04FA38C322DECB7E004B889B /* XXYSViewController.h */,
 				04FA38C422DECB7E004B889B /* XXYSViewController.m */,
 				04FA38E922DECDA5004B889B /* XXKindViewController.h */,
 				04FA38EA22DECDA5004B889B /* XXKindViewController.m */,
+				04FA38EC22DEE21E004B889B /* XXSearchViewController.h */,
+				04FA38ED22DEE21E004B889B /* XXSearchViewController.m */,
 			);
 			path = Xiao1APP;
 			sourceTree = "<group>";
@@ -1339,6 +1349,7 @@
 				04FA38E422DECBBB004B889B /* YNPageTableView.m in Sources */,
 				44A1B0FB226DBE52009B28F2 /* MJFoundation.m in Sources */,
 				04FA385C22DEAFCE004B889B /* View+MASAdditions.m in Sources */,
+				04FA38EE22DEE21E004B889B /* XXSearchViewController.m in Sources */,
 				04FA38BD22DEC035004B889B /* LVPlayVodDetailVC.m in Sources */,
 				04B0C12922BCB69400D55526 /* MJRefreshAutoGifFooter.m in Sources */,
 				04FA38AA22DEC017004B889B /* SPDefaultControlView.m in Sources */,
@@ -1442,6 +1453,7 @@
 				04FA38AD22DEC017004B889B /* J2Obj.m in Sources */,
 				04875B8D22D86682007B71AD /* MovieCell.m in Sources */,
 				44A1B185226DC3D9009B28F2 /* SDWebImageCoder.m in Sources */,
+				04FA38F122DEE270004B889B /* XPLeftSearchBar.m in Sources */,
 				44A1B0A9226DBD64009B28F2 /* AppDelegate.m in Sources */,
 				44A1B0F9226DBE52009B28F2 /* NSString+MJExtension.m in Sources */,
 				44A1B134226DBF2D009B28F2 /* AFSecurityPolicy.m in Sources */,

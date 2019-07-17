@@ -9,6 +9,7 @@
 #import "XXYSViewController.h"
 #import "YNPageViewController.h"
 #import "XXKindViewController.h"
+#import "XXSearchViewController.h"
 
 @interface XXYSViewController ()<YNPageViewControllerDelegate,YNPageViewControllerDataSource>
 @property (nonatomic , strong) NSMutableArray *titleItemArray;
@@ -21,6 +22,12 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.view.backgroundColor = [UIColor lightGrayColor];
     [self navPageVCWithTitles:@[@"推荐",@"电影",@"电视",@"动漫",@"综艺"]];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[[UIImage imageNamed:@"sousuo"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal] style:UIBarButtonItemStylePlain target:self action:@selector(searchClick)];
+}
+
+-(void)searchClick{
+    NSLog(@"searchClick");
+    [self.navigationController pushViewController:[XXSearchViewController new] animated:YES];
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -51,8 +58,9 @@
     configration.normalItemColor = [FYColorTool colorFromHexRGB:@"#666666" alpha:1];
     configration.selectedItemFont = [UIFont systemFontOfSize:15 weight:UIFontWeightSemibold];
     configration.selectedItemColor = [FYColorTool colorFromHexRGB:@"#333333" alpha:1];
-    configration.itemMargin = 30;
+    configration.itemMargin = 20;
     configration.showScrollLine = NO;
+    configration.menuWidth = screenW - 80;
     
     /// 设置菜单栏宽度
     configration.menuWidth = screenW;
