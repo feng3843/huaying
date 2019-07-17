@@ -1,0 +1,21 @@
+//
+//  PrefixHeader.pch
+//  Cartoon
+//
+//  Created by hanyong on 2019/4/23.
+//  Copyright © 2019 hanyong. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "NetTool/XPNetWorkTool.h"
+#import "MJExtension/MJExtension.h"
+#import "MJExtension/MJExtension.h"
+#import "SDWebImage/SDWebImage/UIImageView+WebCache.h"
+#import "FYColorTool.h"
+
+#define screenW [UIScreen mainScreen].bounds.size.width
+#define screenH [UIScreen mainScreen].bounds.size.height
+
+#endif /* PrefixHeader_pch */
