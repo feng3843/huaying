@@ -1,0 +1,4 @@
+module TXLiteAVSDK_UGC_IJK {
+    umbrella header "Headers/TXLiteAVSDK.h"
+    export *
+}

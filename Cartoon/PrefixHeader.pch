@@ -14,6 +14,7 @@
 #import "MJExtension/MJExtension.h"
 #import "SDWebImage/SDWebImage/UIImageView+WebCache.h"
 #import "FYColorTool.h"
+#import "Masonry/Masonry/Masonry.h"
 
 #define screenW [UIScreen mainScreen].bounds.size.width
 #define screenH [UIScreen mainScreen].bounds.size.height

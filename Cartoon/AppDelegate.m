@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "NetTool/XPNetWorkTool.h"
-#import "MovieViewController.h"
+#import "HomeViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -19,11 +19,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
      
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.rootViewController =  [[UINavigationController alloc]initWithRootViewController:[MovieViewController new]];
-
+    self.window.rootViewController =  [[UINavigationController alloc]initWithRootViewController:[[HomeViewController alloc]init] ];
     [self.window makeKeyAndVisible];
-    
-    
     
     return YES;
 }
