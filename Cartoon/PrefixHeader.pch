@@ -15,6 +15,7 @@
 #import "SDWebImage/SDWebImage/UIImageView+WebCache.h"
 #import "FYColorTool.h"
 #import "Masonry/Masonry/Masonry.h"
+#import "SVProgressHUD/SVProgressHUD/SVProgressHUD.h"
 
 #define screenW [UIScreen mainScreen].bounds.size.width
 #define screenH [UIScreen mainScreen].bounds.size.height

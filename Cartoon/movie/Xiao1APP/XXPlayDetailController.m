@@ -1,21 +1,21 @@
 //
-//  LVPlayVodDetailVC.m
-//  XianPao
+//  XXPlayDetailController.m
+//  Cartoon
 //
-//  Created by hanyong on 2019/3/22.
+//  Created by zxh on 2019/7/17.
 //  Copyright © 2019 hanyong. All rights reserved.
 //
 
-#import "LVPlayVodDetailVC.h"
+#import "XXPlayDetailController.h"
 #import "SuperPlayer.h"
 #import "SPWeiboControlView.h"
-#import "PlayModel.h"
-
+#import "XXPlayModel.h"
+#import "XPGoodsTuWenController.h"
 
 #define COMMENT_TV_H 60
 #define DEFAULT_TV_H 33
 
-@interface LVPlayVodDetailVC ()<SuperPlayerDelegate>
+@interface XXPlayDetailController ()<SuperPlayerDelegate>
 
 /** 播放器View的父视图*/
 @property (nonatomic) UIView *playerFatherView;
@@ -27,12 +27,12 @@
 @property (nonatomic , strong) UILabel *urlL;
 @property (nonatomic , strong) UIScrollView *scrollView;
 
-@property (nonatomic , strong) PlayModel *selectedModel;
+@property (nonatomic , strong) XXPlayModel *selectedModel;
 @property (nonatomic , strong) UIButton *selectedBtn;
 
 @end
 
-@implementation LVPlayVodDetailVC
+@implementation XXPlayDetailController
 
 - (void)dealloc {
     [self.playerView resetPlayer];  //非常重要
@@ -69,6 +69,8 @@
     self.playerView.fatherView = self.playerFatherView;
     self.playerView.delegate = self;
     
+    self.playerModel = [[SuperPlayerModel alloc]init];
+    
     self.scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(self.playerFatherView.frame), ScreenWidth, ScreenHeight - CGRectGetMaxY(self.playerFatherView.frame))];
     [self.view addSubview:self.scrollView];
     
@@ -84,26 +86,33 @@
     [self.scrollView addSubview:self.urlL];
     self.urlL.numberOfLines = 1;
     
-    self.intoL = [[UILabel alloc]initWithFrame:CGRectMake(20, 15, 0, 0)];
+    UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(screenW - 60, 5, 60, 20)];
+    [btn setTitle:@"go" forState:UIControlStateNormal];
+    btn.backgroundColor = [UIColor redColor];
+    btn.layer.cornerRadius = 5;
+    [btn addTarget:self action:@selector(goWeb) forControlEvents:UIControlEventTouchUpInside];
+    [self.scrollView addSubview:btn];
+    
+    self.intoL = [[UILabel alloc]initWithFrame:CGRectMake(20, 30, 0, 0)];
     self.intoL.textColor = [UIColor whiteColor];
     self.intoL.font = [UIFont systemFontOfSize:12] ;
     [self.scrollView addSubview:self.intoL];
     self.intoL.numberOfLines = 0;
     
-    self.intoL.text = self.item.info;
-    self.nameL.text = self.item.name;
-    CGSize size = [self.item.info boundingRectWithSize:CGSizeMake(screenW - 40, 100000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:12]} context:nil].size;
+    self.intoL.text = self.model.intro;
+    self.nameL.text = self.model.title;
+    CGSize size = [self.model.intro boundingRectWithSize:CGSizeMake(screenW - 40, 100000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:12]} context:nil].size;
     CGRect frame = self.intoL.frame;
     frame.size = size;
     self.intoL.frame = frame;
-
+    
     float Margin = 20;
     float x = 0;
     float y = CGRectGetMaxY(self.intoL.frame) + 20;
     float h = 34;
     
-    for (int i = 0 ; i < self.item.play.count ;i++) {
-        PlayModel *model = self.item.play[i];
+    for (int i = 0 ; i < self.model.playlist.count ;i++) {
+        XXPlayModel *model = self.model.playlist[i];
         
         UIButton *btn = [[UIButton alloc]init];
         btn.layer.cornerRadius = 5;
@@ -115,7 +124,7 @@
         [btn setBackgroundImage:imgsel forState:UIControlStateSelected];
         btn.selected = NO;
         btn.tag = i;
-        [btn setTitle:model.text forState:UIControlStateNormal];
+        [btn setTitle:model.play_name forState:UIControlStateNormal];
         [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
         [btn sizeToFit];
         CGSize size = CGSizeMake(btn.bounds.size.width + 20 < 45 ? 45 : btn.bounds.size.width + 20, h);
@@ -127,6 +136,7 @@
             self.selectedModel = model;
             self.selectedBtn = btn;
             btn.selected = YES;
+            [self PlayWithPlayModel:self.selectedModel];
         }
         
         //每次X递增Margin
@@ -147,24 +157,25 @@
     }
     UIScrollView *sc = (UIScrollView *)self.scrollView;
     sc.contentSize = CGSizeMake(0, y + 50);
-   
+    
 }
 
 -(void)btnClick:(UIButton *)btn{
-    if (self.selectedBtn != btn) {
-        self.selectedBtn.selected = NO;
+
+    if (self.selectedBtn == btn) {
+        return;
     }
+    self.selectedBtn.selected = NO;
     btn.selected = !btn.selected;
     self.selectedBtn = btn;
-
-    PlayModel *model = self.item.play[btn.tag];
+    
+    XXPlayModel *model = self.model.playlist[btn.tag];
     if (self.selectedModel != model) {
         self.selectedModel = model;
         //播放新的model
         NSLog(@"播放新的model");
         [self PlayWithPlayModel:model];
     }
-    NSLog(@"%@",model.url);
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -174,22 +185,44 @@
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    //创建模型
-    SuperPlayerModel *playerModel = [[SuperPlayerModel alloc] init];
-    playerModel.videoURL = self.selectedModel.url;
-    self.playerModel = playerModel;
-    //播放模型
-    [self.playerView playWithModel:playerModel];
 }
 
--(void)PlayWithPlayModel:(PlayModel *)model{
+-(void)PlayWithPlayModel:(XXPlayModel *)model{
     [self.playerView resetPlayer];
-    self.urlL.text = @"重设播放器";
-    self.playerModel.videoURL = model.url;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        self.urlL.text = model.url;
-    });
-    [self.playerView playWithModel:self.playerModel];
+    self.urlL.text = @"重设播放器！";
+    NSString *url = [NSString stringWithFormat:@"https://ios.xiaoxiaoimg.com/vod/reqplay/%@?playindex=%@",self.model.vodid,model.playindex];
+    [XPNetWorkTool requestWithType:HttpRequestTypeGet withHttpHeaderFieldDict:nil withUrlString:url withParaments:nil withSuccessBlock:^(NSDictionary *responseObject) {
+        NSLog(@"%@",responseObject);
+        NSString *playurl =  responseObject[@"data"][@"httpurl"];
+        
+        
+//        NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:playurl]];
+//        NSString *str = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+//        NSString *keyStr = [str stringByReplacingOccurrencesOfString:@"key.key" withString:[[playurl stringByDeletingLastPathComponent] stringByAppendingPathComponent:@"key.key"]];
+//        NSString *path = [NSHomeDirectory() stringByAppendingString:@"/Documents/index.m3u8"];
+//        bool res =  [keyStr writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:nil];
+//
+        
+        
+        if (playurl) {
+            self.urlL.text = playurl;
+        }else{
+            self.urlL.text = @"地址获取失败";
+        }
+        self.playerModel.videoURL = playurl;
+        [self.playerView playWithModel:self.playerModel];
+    } withFailureBlock:^(NSString *errorMsg) {
+        self.urlL.text = @"地址获取失败";
+    } progress:^(float progress) {
+        
+    }];
+}
+
+-(void)goWeb{
+    NSString *ssss = [NSString stringWithFormat:@"<!DOCTYPE HTML><html style = \"background-color:#000000 \"><body style =\" height:100%%,display:flex;justify-content:center;align-items:center; background-color:#000000\"><video style={} class=\"tvhou\" width=\"100%%\" height=\"100%%\"controls=\"controls\" autoplay=\"autoplay\" x-webkit-airplay=\"true\"  x5-video-player-fullscreen=\"true\" preload=\"auto\" playsinline=\"true\" webkit-playsinline x5-video-player-typ=\"h5\"> <source type=\"application/x-mpegURL\" src=\"%@\"></video></body></html>",self.playerModel.videoURL];
+    XPGoodsTuWenController *vc = [XPGoodsTuWenController new];
+    vc.html = ssss;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - 状态控制
@@ -242,6 +275,7 @@
     UIGraphicsEndImageContext();
     return image;
 }
-
-
 @end
+
+
+

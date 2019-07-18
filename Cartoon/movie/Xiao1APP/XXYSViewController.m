@@ -33,6 +33,7 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
+    self.navigationController.navigationBar.backgroundColor = [UIColor blackColor];
 }
 
 - (void)navPageVCWithTitles:(NSArray *)titles{
@@ -51,13 +52,13 @@
     configration.aligmentModeCenter = NO;
     configration.lineWidthEqualFontWidth = NO;
     configration.showBottomLine = NO;
-    configration.scrollViewBackgroundColor = [UIColor clearColor];
+    configration.scrollViewBackgroundColor = [UIColor blackColor];
     configration.cutOutHeight = 84;
     
     configration.itemFont = [UIFont systemFontOfSize:15 weight:UIFontWeightRegular];
-    configration.normalItemColor = [FYColorTool colorFromHexRGB:@"#666666" alpha:1];
+    configration.normalItemColor = [FYColorTool colorFromHexRGB:@"#999999" alpha:1];
     configration.selectedItemFont = [UIFont systemFontOfSize:15 weight:UIFontWeightSemibold];
-    configration.selectedItemColor = [FYColorTool colorFromHexRGB:@"#333333" alpha:1];
+    configration.selectedItemColor = [FYColorTool colorFromHexRGB:@"#FFFFFF" alpha:1];
     configration.itemMargin = 20;
     configration.showScrollLine = NO;
     configration.menuWidth = screenW - 80;

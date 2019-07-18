@@ -30,7 +30,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+    self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
     [self.navigationController setNavigationBarHidden:YES animated:YES];
     self.textF.delegate = self;
     self.tableView.backgroundColor = [UIColor clearColor];

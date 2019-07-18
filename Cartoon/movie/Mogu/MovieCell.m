@@ -44,4 +44,13 @@
     self.idL.text = [NSString stringWithFormat:@"%d",item.vid];
 }
 
+-(void)setXxModel:(XXMovieListModel *)xxModel{
+    _xxModel = xxModel;
+    [self.imageV sd_setImageWithURL:[NSURL URLWithString:xxModel.coverpic]];
+    self.noteL.text = xxModel.episode_statustext;
+    self.nameL.text = xxModel.title;
+    self.actorL.text = xxModel.intro;
+    self.idL.text = [NSString stringWithFormat:@"%@",xxModel.vodid];
+}
+
 @end

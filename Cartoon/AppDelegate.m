@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "NetTool/XPNetWorkTool.h"
 #import "HomeViewController.h"
+#import "WRNavigation/WRNavigationBar.h"
+
 @interface AppDelegate ()
 
 @end
@@ -21,6 +23,25 @@
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController =  [[UINavigationController alloc]initWithRootViewController:[[HomeViewController alloc]init] ];
     [self.window makeKeyAndVisible];
+    
+
+    [UINavigationBar appearance].backIndicatorTransitionMaskImage = [UIImage imageNamed:@"back_white"];
+    [UINavigationBar appearance].backIndicatorImage = [UIImage imageNamed:@"back_white"];
+    // 设置导航栏默认的背景颜色
+    [WRNavigationBar wr_setDefaultNavBarBarTintColor:[UIColor blackColor]];
+    // 设置导航栏所有按钮的默认颜色
+    [WRNavigationBar wr_setDefaultNavBarTintColor:[FYColorTool colorFromHexRGB:@"#FFFFFF" alpha:1.0f]];
+    // 设置导航栏标题默认颜色
+    [WRNavigationBar wr_setDefaultNavBarTitleColor:[FYColorTool colorFromHexRGB:@"#FFFFFF" alpha:1.0f]];
+    
+    
+    [SVProgressHUD setMinimumDismissTimeInterval:1.5];
+    [SVProgressHUD setMaximumDismissTimeInterval:5];
+    [SVProgressHUD setDefaultStyle:SVProgressHUDStyleCustom];
+    [SVProgressHUD setForegroundColor:[UIColor whiteColor]];// 弹出框内容颜色
+    [SVProgressHUD setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.6]];
+    [SVProgressHUD setInfoImage:nil];
+  
     
     return YES;
 }

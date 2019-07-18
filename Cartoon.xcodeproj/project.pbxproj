@@ -25,6 +25,11 @@
 		04875B8D22D86682007B71AD /* MovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04875B8222D86681007B71AD /* MovieCell.m */; };
 		04875B8E22D86682007B71AD /* MovieViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04875B8522D86681007B71AD /* MovieViewController.xib */; };
 		04875B9022D86682007B71AD /* MovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04875B8822D86682007B71AD /* MovieCell.xib */; };
+		049CC87A22DF1EAB0018CAE0 /* XXMovieListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 049CC87922DF1EAB0018CAE0 /* XXMovieListModel.m */; };
+		049CC87D22DF20420018CAE0 /* XXTabModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 049CC87C22DF20420018CAE0 /* XXTabModel.m */; };
+		049CC88022DF20D00018CAE0 /* XXTabRowsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 049CC87F22DF20D00018CAE0 /* XXTabRowsModel.m */; };
+		049CC88322DF28FE0018CAE0 /* XXPlayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 049CC88222DF28FE0018CAE0 /* XXPlayModel.m */; };
+		049CC88622DF2B170018CAE0 /* XXPlayDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049CC88522DF2B170018CAE0 /* XXPlayDetailController.m */; };
 		04B0C11F22BCB69400D55526 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B0C0EF22BCB69400D55526 /* UIScrollView+MJRefresh.m */; };
 		04B0C12022BCB69400D55526 /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B0C0F022BCB69400D55526 /* MJRefreshConst.m */; };
 		04B0C12122BCB69400D55526 /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 04B0C0F422BCB69400D55526 /* MJRefresh.bundle */; };
@@ -47,6 +52,12 @@
 		04B0C13222BCB69400D55526 /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B0C11A22BCB69400D55526 /* MJRefreshComponent.m */; };
 		04C2695322D58D9B00F24A2C /* WRNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C2694F22D58D9A00F24A2C /* WRNavigationBar.m */; };
 		04C2695422D58D9B00F24A2C /* WRCustomNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C2695222D58D9A00F24A2C /* WRCustomNavigationBar.m */; };
+		04CE41AB22E016890074521C /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CE41A022E016890074521C /* SVRadialGradientLayer.m */; };
+		04CE41AC22E016890074521C /* SVProgressAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CE41A322E016890074521C /* SVProgressAnimatedView.m */; };
+		04CE41AD22E016890074521C /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CE41A522E016890074521C /* SVProgressHUD.m */; };
+		04CE41AE22E016890074521C /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CE41A622E016890074521C /* SVIndefiniteAnimatedView.m */; };
+		04CE41AF22E016890074521C /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 04CE41A722E016890074521C /* SVProgressHUD.bundle */; };
+		04CE41B322E01C950074521C /* XPGoodsTuWenController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CE41B222E01C950074521C /* XPGoodsTuWenController.m */; };
 		04FA383722DEABFC004B889B /* TXLiteAVSDK_UGC_IJK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04FA383622DEABFB004B889B /* TXLiteAVSDK_UGC_IJK.framework */; };
 		04FA385622DEAFCE004B889B /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FA383C22DEAFCD004B889B /* NSLayoutConstraint+MASDebugAdditions.m */; };
 		04FA385722DEAFCE004B889B /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FA384522DEAFCD004B889B /* ViewController+MASAdditions.m */; };
@@ -213,6 +224,16 @@
 		04875B8522D86681007B71AD /* MovieViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieViewController.xib; sourceTree = "<group>"; };
 		04875B8622D86682007B71AD /* MovieItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieItem.h; sourceTree = "<group>"; };
 		04875B8822D86682007B71AD /* MovieCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieCell.xib; sourceTree = "<group>"; };
+		049CC87822DF1EAB0018CAE0 /* XXMovieListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XXMovieListModel.h; sourceTree = "<group>"; };
+		049CC87922DF1EAB0018CAE0 /* XXMovieListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XXMovieListModel.m; sourceTree = "<group>"; };
+		049CC87B22DF20420018CAE0 /* XXTabModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XXTabModel.h; sourceTree = "<group>"; };
+		049CC87C22DF20420018CAE0 /* XXTabModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XXTabModel.m; sourceTree = "<group>"; };
+		049CC87E22DF20D00018CAE0 /* XXTabRowsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XXTabRowsModel.h; sourceTree = "<group>"; };
+		049CC87F22DF20D00018CAE0 /* XXTabRowsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XXTabRowsModel.m; sourceTree = "<group>"; };
+		049CC88122DF28FE0018CAE0 /* XXPlayModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XXPlayModel.h; sourceTree = "<group>"; };
+		049CC88222DF28FE0018CAE0 /* XXPlayModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XXPlayModel.m; sourceTree = "<group>"; };
+		049CC88422DF2B170018CAE0 /* XXPlayDetailController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XXPlayDetailController.h; sourceTree = "<group>"; };
+		049CC88522DF2B170018CAE0 /* XXPlayDetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XXPlayDetailController.m; sourceTree = "<group>"; };
 		04B0C0ED22BCB69400D55526 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		04B0C0EF22BCB69400D55526 /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		04B0C0F022BCB69400D55526 /* MJRefreshConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshConst.m; sourceTree = "<group>"; };
@@ -259,6 +280,17 @@
 		04C2695022D58D9A00F24A2C /* WRCustomNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WRCustomNavigationBar.h; sourceTree = "<group>"; };
 		04C2695122D58D9A00F24A2C /* WRNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WRNavigationBar.h; sourceTree = "<group>"; };
 		04C2695222D58D9A00F24A2C /* WRCustomNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WRCustomNavigationBar.m; sourceTree = "<group>"; };
+		04CE41A022E016890074521C /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVRadialGradientLayer.m; sourceTree = "<group>"; };
+		04CE41A122E016890074521C /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
+		04CE41A222E016890074521C /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
+		04CE41A322E016890074521C /* SVProgressAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressAnimatedView.m; sourceTree = "<group>"; };
+		04CE41A422E016890074521C /* SVRadialGradientLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVRadialGradientLayer.h; sourceTree = "<group>"; };
+		04CE41A522E016890074521C /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
+		04CE41A622E016890074521C /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
+		04CE41A722E016890074521C /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
+		04CE41A822E016890074521C /* SVProgressAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressAnimatedView.h; sourceTree = "<group>"; };
+		04CE41B122E01C950074521C /* XPGoodsTuWenController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPGoodsTuWenController.h; sourceTree = "<group>"; };
+		04CE41B222E01C950074521C /* XPGoodsTuWenController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPGoodsTuWenController.m; sourceTree = "<group>"; };
 		04FA383622DEABFB004B889B /* TXLiteAVSDK_UGC_IJK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TXLiteAVSDK_UGC_IJK.framework; sourceTree = "<group>"; };
 		04FA383922DEAFCD004B889B /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		04FA383B22DEAFCD004B889B /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
@@ -701,6 +733,30 @@
 			path = WRNavigation;
 			sourceTree = "<group>";
 		};
+		04CE419D22E016890074521C /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				04CE419F22E016890074521C /* SVProgressHUD */,
+			);
+			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
+		04CE419F22E016890074521C /* SVProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				04CE41A022E016890074521C /* SVRadialGradientLayer.m */,
+				04CE41A122E016890074521C /* SVIndefiniteAnimatedView.h */,
+				04CE41A222E016890074521C /* SVProgressHUD.h */,
+				04CE41A322E016890074521C /* SVProgressAnimatedView.m */,
+				04CE41A422E016890074521C /* SVRadialGradientLayer.h */,
+				04CE41A522E016890074521C /* SVProgressHUD.m */,
+				04CE41A622E016890074521C /* SVIndefiniteAnimatedView.m */,
+				04CE41A722E016890074521C /* SVProgressHUD.bundle */,
+				04CE41A822E016890074521C /* SVProgressAnimatedView.h */,
+			);
+			path = SVProgressHUD;
+			sourceTree = "<group>";
+		};
 		04FA2FC922DEA999004B889B /* movie */ = {
 			isa = PBXGroup;
 			children = (
@@ -742,6 +798,18 @@
 				04FA38EA22DECDA5004B889B /* XXKindViewController.m */,
 				04FA38EC22DEE21E004B889B /* XXSearchViewController.h */,
 				04FA38ED22DEE21E004B889B /* XXSearchViewController.m */,
+				049CC88122DF28FE0018CAE0 /* XXPlayModel.h */,
+				049CC88222DF28FE0018CAE0 /* XXPlayModel.m */,
+				049CC87822DF1EAB0018CAE0 /* XXMovieListModel.h */,
+				049CC87922DF1EAB0018CAE0 /* XXMovieListModel.m */,
+				049CC87B22DF20420018CAE0 /* XXTabModel.h */,
+				049CC87C22DF20420018CAE0 /* XXTabModel.m */,
+				049CC87E22DF20D00018CAE0 /* XXTabRowsModel.h */,
+				049CC87F22DF20D00018CAE0 /* XXTabRowsModel.m */,
+				049CC88422DF2B170018CAE0 /* XXPlayDetailController.h */,
+				049CC88522DF2B170018CAE0 /* XXPlayDetailController.m */,
+				04CE41B122E01C950074521C /* XPGoodsTuWenController.h */,
+				04CE41B222E01C950074521C /* XPGoodsTuWenController.m */,
 			);
 			path = Xiao1APP;
 			sourceTree = "<group>";
@@ -1032,6 +1100,7 @@
 		44A1B0FC226DBEFE009B28F2 /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				04CE419D22E016890074521C /* SVProgressHUD */,
 				04FA38C822DECBBA004B889B /* YNPageViewController */,
 				04FA383822DEAFCD004B889B /* Masonry */,
 				4497113E226EA41E007B732E /* FYColorTool.h */,
@@ -1315,6 +1384,7 @@
 				04FA38C222DEC7C8004B889B /* HomeViewController.xib in Resources */,
 				04FA38B422DEC017004B889B /* SuperPlayer.bundle in Resources */,
 				44A1B0AF226DBD64009B28F2 /* Main.storyboard in Resources */,
+				04CE41AF22E016890074521C /* SVProgressHUD.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1355,6 +1425,7 @@
 				04FA38AA22DEC017004B889B /* SPDefaultControlView.m in Sources */,
 				04FA38E722DECBBB004B889B /* YNPageCollectionView.m in Sources */,
 				44A1B18A226DC3D9009B28F2 /* SDWebImageTransition.m in Sources */,
+				049CC88622DF2B170018CAE0 /* XXPlayDetailController.m in Sources */,
 				04FA38A622DEC017004B889B /* UIView+MMLayout.m in Sources */,
 				04B0C12B22BCB69400D55526 /* MJRefreshNormalHeader.m in Sources */,
 				04FA38AC22DEC017004B889B /* StrUtils.m in Sources */,
@@ -1365,9 +1436,11 @@
 				04FA385722DEAFCE004B889B /* ViewController+MASAdditions.m in Sources */,
 				44A1B12E226DBF2D009B28F2 /* AFImageDownloader.m in Sources */,
 				04FA38B722DEC017004B889B /* PlayerSlider.m in Sources */,
+				04CE41B322E01C950074521C /* XPGoodsTuWenController.m in Sources */,
 				04FA38C122DEC7C8004B889B /* HomeViewController.m in Sources */,
 				44A1B18E226DC3D9009B28F2 /* SDWebImageGIFCoder.m in Sources */,
 				04FA38AE22DEC017004B889B /* TXBitrateItemHelper.m in Sources */,
+				04CE41AB22E016890074521C /* SVRadialGradientLayer.m in Sources */,
 				04FA38EB22DECDA5004B889B /* XXKindViewController.m in Sources */,
 				04FA385F22DEAFCE004B889B /* MASViewAttribute.m in Sources */,
 				44A1B127226DBF2D009B28F2 /* UIRefreshControl+AFNetworking.m in Sources */,
@@ -1379,6 +1452,7 @@
 				44A1B191226DC3D9009B28F2 /* UIView+WebCache.m in Sources */,
 				44A1B189226DC3D9009B28F2 /* SDWebImageDownloaderOperation.m in Sources */,
 				04FA38AF22DEC017004B889B /* TXCUrl.m in Sources */,
+				04CE41AD22E016890074521C /* SVProgressHUD.m in Sources */,
 				44A1B182226DC3D9009B28F2 /* SDWebImageCoderHelper.m in Sources */,
 				04FA38B922DEC017004B889B /* SuperPlayerFastView.m in Sources */,
 				04FA38B522DEC017004B889B /* SuperPlayerView.m in Sources */,
@@ -1401,6 +1475,8 @@
 				44A1B181226DC3D9009B28F2 /* UIImage+MultiFormat.m in Sources */,
 				44A1B184226DC3D9009B28F2 /* SDWebImagePrefetcher.m in Sources */,
 				04FA38B322DEC017004B889B /* SuperPlayerControlView.m in Sources */,
+				049CC87A22DF1EAB0018CAE0 /* XXMovieListModel.m in Sources */,
+				04CE41AC22E016890074521C /* SVProgressAnimatedView.m in Sources */,
 				04B0C12222BCB69400D55526 /* UIScrollView+MJExtension.m in Sources */,
 				04C2695322D58D9B00F24A2C /* WRNavigationBar.m in Sources */,
 				04B0C13022BCB69400D55526 /* MJRefreshBackFooter.m in Sources */,
@@ -1409,11 +1485,13 @@
 				44A1B192226DC3D9009B28F2 /* SDWebImageImageIOCoder.m in Sources */,
 				44A1B0F4226DBE52009B28F2 /* MJProperty.m in Sources */,
 				04FA38B022DEC017004B889B /* DataReport.m in Sources */,
+				04CE41AE22E016890074521C /* SVIndefiniteAnimatedView.m in Sources */,
 				04B0C12F22BCB69400D55526 /* MJRefreshHeader.m in Sources */,
 				04FA38B222DEC017004B889B /* SuperPlayerModel.m in Sources */,
 				04FA38B622DEC017004B889B /* SuperPlayerViewConfig.m in Sources */,
 				44A1B133226DBF2D009B28F2 /* AFNetworkReachabilityManager.m in Sources */,
 				44A1B180226DC3D9009B28F2 /* UIImage+GIF.m in Sources */,
+				049CC88322DF28FE0018CAE0 /* XXPlayModel.m in Sources */,
 				04FA385A22DEAFCE004B889B /* MASLayoutConstraint.m in Sources */,
 				04C2695422D58D9B00F24A2C /* WRCustomNavigationBar.m in Sources */,
 				04FA38E022DECBBB004B889B /* UIView+YNPageExtend.m in Sources */,
@@ -1440,6 +1518,7 @@
 				04B0C12A22BCB69400D55526 /* MJRefreshAutoNormalFooter.m in Sources */,
 				04B0C12422BCB69400D55526 /* UIView+MJExtension.m in Sources */,
 				04B0C11F22BCB69400D55526 /* UIScrollView+MJRefresh.m in Sources */,
+				049CC87D22DF20420018CAE0 /* XXTabModel.m in Sources */,
 				44A1B18C226DC3D9009B28F2 /* UIImageView+WebCache.m in Sources */,
 				04FA38A822DEC017004B889B /* SuperPlayerWindow.m in Sources */,
 				04B0C12722BCB69400D55526 /* MJRefreshBackNormalFooter.m in Sources */,
@@ -1465,6 +1544,7 @@
 				44A1B0F3226DBE52009B28F2 /* NSObject+MJKeyValue.m in Sources */,
 				44A1B0FA226DBE52009B28F2 /* MJPropertyKey.m in Sources */,
 				44A1B0DB226DBDD9009B28F2 /* VideoListModel.m in Sources */,
+				049CC88022DF20D00018CAE0 /* XXTabRowsModel.m in Sources */,
 				44A1B12F226DBF2D009B28F2 /* AFURLResponseSerialization.m in Sources */,
 				44A1B183226DC3D9009B28F2 /* SDWebImageCompat.m in Sources */,
 				44A1B12D226DBF2D009B28F2 /* AFAutoPurgingImageCache.m in Sources */,

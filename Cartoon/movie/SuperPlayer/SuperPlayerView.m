@@ -1326,6 +1326,7 @@ static UISlider * _volumeSlider;
             if (EvtID == PLAY_ERR_NET_DISCONNECT) {
                 [self showMiddleBtnMsg:kStrBadNetRetry withAction:ActionContinueReplay];
             } else {
+                [SVProgressHUD showErrorWithStatus:@"HLS解密失败"];
                 [self showMiddleBtnMsg:kStrLoadFaildRetry withAction:ActionRetry];
             }
             self.state = StateFailed;
