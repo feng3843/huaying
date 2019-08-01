@@ -10,7 +10,7 @@
 #import "SuperPlayer.h"
 #import "SPWeiboControlView.h"
 #import "PlayModel.h"
-
+#import "XPGoodsTuWenController.h"
 
 #define COMMENT_TV_H 60
 #define DEFAULT_TV_H 33
@@ -84,12 +84,20 @@
     [self.scrollView addSubview:self.urlL];
     self.urlL.numberOfLines = 1;
     
-    self.intoL = [[UILabel alloc]initWithFrame:CGRectMake(20, 15, 0, 0)];
+    UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(screenW - 60, 5, 60, 20)];
+    [btn setTitle:@"go" forState:UIControlStateNormal];
+    btn.backgroundColor = [UIColor redColor];
+    btn.layer.cornerRadius = 5;
+    [btn addTarget:self action:@selector(goWeb) forControlEvents:UIControlEventTouchUpInside];
+    [self.scrollView addSubview:btn];
+    
+    self.intoL = [[UILabel alloc]initWithFrame:CGRectMake(20, 30, 0, 0)];
     self.intoL.textColor = [UIColor whiteColor];
     self.intoL.font = [UIFont systemFontOfSize:12] ;
     [self.scrollView addSubview:self.intoL];
     self.intoL.numberOfLines = 0;
     
+
     self.intoL.text = self.item.info;
     self.nameL.text = self.item.name;
     CGSize size = [self.item.info boundingRectWithSize:CGSizeMake(screenW - 40, 100000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:12]} context:nil].size;
@@ -176,10 +184,15 @@
     [super viewDidAppear:animated];
     //创建模型
     SuperPlayerModel *playerModel = [[SuperPlayerModel alloc] init];
-    playerModel.videoURL = self.selectedModel.url;
     self.playerModel = playerModel;
+//    playerModel.videoURL = self.selectedModel.url;
     //播放模型
-    [self.playerView playWithModel:playerModel];
+    [self PlayWithPlayModel:self.selectedModel];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self.playerView resetPlayer];
 }
 
 -(void)PlayWithPlayModel:(PlayModel *)model{
@@ -190,6 +203,13 @@
         self.urlL.text = model.url;
     });
     [self.playerView playWithModel:self.playerModel];
+}
+
+-(void)goWeb{
+    NSString *ssss = [NSString stringWithFormat:@"<!DOCTYPE HTML><html style = \"background-color:#000000 \"><body style =\" height:100%%,display:flex;justify-content:center;align-items:center; background-color:#000000\"><video style={} class=\"tvhou\" width=\"100%%\" height=\"100%%\"controls=\"controls\" autoplay=\"autoplay\" x-webkit-airplay=\"true\"  x5-video-player-fullscreen=\"true\" preload=\"auto\" playsinline=\"true\" webkit-playsinline x5-video-player-typ=\"h5\"> <source type=\"application/x-mpegURL\" src=\"%@\"></video></body></html>",self.playerModel.videoURL];
+    XPGoodsTuWenController *vc = [XPGoodsTuWenController new];
+    vc.html = ssss;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - 状态控制

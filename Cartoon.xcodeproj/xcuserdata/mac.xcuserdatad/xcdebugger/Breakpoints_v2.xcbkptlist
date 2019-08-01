@@ -19,13 +19,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Cartoon/movie/Xiao1APP/XXPlayDetailController.m"
-            timestampString = "585114914.931535"
+            filePath = "Cartoon/movie/Mogu/MGSearchController.m"
+            timestampString = "586338523.247089"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "215"
-            endingLineNumber = "215"
-            landmarkName = "-PlayWithPlayModel:"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
+            landmarkName = "-requestSearchWithKey:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -35,13 +35,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Cartoon/movie/Xiao1APP/XXPlayDetailController.m"
-            timestampString = "585114916.450332"
+            filePath = "Cartoon/movie/Mogu/MGSearchController.m"
+            timestampString = "586338523.247148"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "207"
-            endingLineNumber = "207"
-            landmarkName = "-PlayWithPlayModel:"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "-requestSearchWithKey:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -7,7 +7,7 @@
 //
 
 #import "HomeViewController.h"
-#import "movie/Mogu/MovieViewController.h"
+#import "movie/Mogu/MoGuController.h"
 #import "movie/Xiao1APP/XXYSViewController.h"
 
 @interface HomeViewController ()
@@ -16,7 +16,7 @@
 
 @implementation HomeViewController
 - (IBAction)moguClick:(id)sender {
-    MovieViewController *vc = [[MovieViewController alloc]init];
+    MoGuController *vc = [[MoGuController alloc]init];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

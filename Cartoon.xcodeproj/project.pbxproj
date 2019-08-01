@@ -58,6 +58,11 @@
 		04CE41AE22E016890074521C /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CE41A622E016890074521C /* SVIndefiniteAnimatedView.m */; };
 		04CE41AF22E016890074521C /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 04CE41A722E016890074521C /* SVProgressHUD.bundle */; };
 		04CE41B322E01C950074521C /* XPGoodsTuWenController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CE41B222E01C950074521C /* XPGoodsTuWenController.m */; };
+		04F7932B22F2B2C80034B610 /* MoGuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F7932A22F2B2C80034B610 /* MoGuController.m */; };
+		04F7932E22F2B2F70034B610 /* MGKindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F7932D22F2B2F70034B610 /* MGKindViewController.m */; };
+		04F7933122F2B7C80034B610 /* MGReboViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F7933022F2B7C80034B610 /* MGReboViewController.m */; };
+		04F7933422F2BAC20034B610 /* MoiveSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F7933322F2BAC20034B610 /* MoiveSectionModel.m */; };
+		04F7933722F2BF600034B610 /* MGSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F7933622F2BF600034B610 /* MGSearchController.m */; };
 		04FA383722DEABFC004B889B /* TXLiteAVSDK_UGC_IJK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04FA383622DEABFB004B889B /* TXLiteAVSDK_UGC_IJK.framework */; };
 		04FA385622DEAFCE004B889B /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FA383C22DEAFCD004B889B /* NSLayoutConstraint+MASDebugAdditions.m */; };
 		04FA385722DEAFCE004B889B /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FA384522DEAFCD004B889B /* ViewController+MASAdditions.m */; };
@@ -291,6 +296,16 @@
 		04CE41A822E016890074521C /* SVProgressAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressAnimatedView.h; sourceTree = "<group>"; };
 		04CE41B122E01C950074521C /* XPGoodsTuWenController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPGoodsTuWenController.h; sourceTree = "<group>"; };
 		04CE41B222E01C950074521C /* XPGoodsTuWenController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPGoodsTuWenController.m; sourceTree = "<group>"; };
+		04F7932922F2B2C80034B610 /* MoGuController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoGuController.h; sourceTree = "<group>"; };
+		04F7932A22F2B2C80034B610 /* MoGuController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoGuController.m; sourceTree = "<group>"; };
+		04F7932C22F2B2F70034B610 /* MGKindViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGKindViewController.h; sourceTree = "<group>"; };
+		04F7932D22F2B2F70034B610 /* MGKindViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGKindViewController.m; sourceTree = "<group>"; };
+		04F7932F22F2B7C80034B610 /* MGReboViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGReboViewController.h; sourceTree = "<group>"; };
+		04F7933022F2B7C80034B610 /* MGReboViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGReboViewController.m; sourceTree = "<group>"; };
+		04F7933222F2BAC20034B610 /* MoiveSectionModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoiveSectionModel.h; sourceTree = "<group>"; };
+		04F7933322F2BAC20034B610 /* MoiveSectionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoiveSectionModel.m; sourceTree = "<group>"; };
+		04F7933522F2BF600034B610 /* MGSearchController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGSearchController.h; sourceTree = "<group>"; };
+		04F7933622F2BF600034B610 /* MGSearchController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGSearchController.m; sourceTree = "<group>"; };
 		04FA383622DEABFB004B889B /* TXLiteAVSDK_UGC_IJK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TXLiteAVSDK_UGC_IJK.framework; sourceTree = "<group>"; };
 		04FA383922DEAFCD004B889B /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		04FA383B22DEAFCD004B889B /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
@@ -760,8 +775,6 @@
 		04FA2FC922DEA999004B889B /* movie */ = {
 			isa = PBXGroup;
 			children = (
-				04FA38BC22DEC034004B889B /* LVPlayVodDetailVC.h */,
-				04FA38BB22DEC034004B889B /* LVPlayVodDetailVC.m */,
 				04FA387122DEC016004B889B /* SuperPlayer */,
 				04FA2FCC22DEAA25004B889B /* Ergeduoduo */,
 				04FA2FCB22DEA9CC004B889B /* Xiao1APP */,
@@ -780,9 +793,18 @@
 				04875B8822D86682007B71AD /* MovieCell.xib */,
 				04875B8622D86682007B71AD /* MovieItem.h */,
 				04875B8122D86681007B71AD /* MovieItem.m */,
-				04875B7D22D86680007B71AD /* MovieViewController.h */,
-				04875B7C22D8667F007B71AD /* MovieViewController.m */,
-				04875B8522D86681007B71AD /* MovieViewController.xib */,
+				04F7933222F2BAC20034B610 /* MoiveSectionModel.h */,
+				04F7933322F2BAC20034B610 /* MoiveSectionModel.m */,
+				04F7932922F2B2C80034B610 /* MoGuController.h */,
+				04F7932A22F2B2C80034B610 /* MoGuController.m */,
+				04F7932C22F2B2F70034B610 /* MGKindViewController.h */,
+				04F7932D22F2B2F70034B610 /* MGKindViewController.m */,
+				04F7932F22F2B7C80034B610 /* MGReboViewController.h */,
+				04F7933022F2B7C80034B610 /* MGReboViewController.m */,
+				04F7933522F2BF600034B610 /* MGSearchController.h */,
+				04F7933622F2BF600034B610 /* MGSearchController.m */,
+				04FA38BC22DEC034004B889B /* LVPlayVodDetailVC.h */,
+				04FA38BB22DEC034004B889B /* LVPlayVodDetailVC.m */,
 			);
 			path = Mogu;
 			sourceTree = "<group>";
@@ -1039,6 +1061,9 @@
 				04FA38BF22DEC7C8004B889B /* HomeViewController.m */,
 				04FA38C022DEC7C8004B889B /* HomeViewController.xib */,
 				04367B86229CD9B9001F1769 /* XPHongBaoView.m */,
+				04875B7D22D86680007B71AD /* MovieViewController.h */,
+				04875B7C22D8667F007B71AD /* MovieViewController.m */,
+				04875B8522D86681007B71AD /* MovieViewController.xib */,
 				44A1B0AD226DBD64009B28F2 /* Main.storyboard */,
 				44A1B0B0226DBD76009B28F2 /* Assets.xcassets */,
 				44A1B0B2226DBD76009B28F2 /* LaunchScreen.storyboard */,
@@ -1421,6 +1446,7 @@
 				04FA385C22DEAFCE004B889B /* View+MASAdditions.m in Sources */,
 				04FA38EE22DEE21E004B889B /* XXSearchViewController.m in Sources */,
 				04FA38BD22DEC035004B889B /* LVPlayVodDetailVC.m in Sources */,
+				04F7933122F2B7C80034B610 /* MGReboViewController.m in Sources */,
 				04B0C12922BCB69400D55526 /* MJRefreshAutoGifFooter.m in Sources */,
 				04FA38AA22DEC017004B889B /* SPDefaultControlView.m in Sources */,
 				04FA38E722DECBBB004B889B /* YNPageCollectionView.m in Sources */,
@@ -1470,6 +1496,7 @@
 				04367B87229CD9B9001F1769 /* XPHongBaoView.m in Sources */,
 				44A1B126226DBF2D009B28F2 /* UIProgressView+AFNetworking.m in Sources */,
 				04B0C12322BCB69400D55526 /* NSBundle+MJRefresh.m in Sources */,
+				04F7932B22F2B2C80034B610 /* MoGuController.m in Sources */,
 				04FA38E122DECBBB004B889B /* UIScrollView+YNPageExtend.m in Sources */,
 				44A1B17F226DC3D9009B28F2 /* SDWebImageDownloader.m in Sources */,
 				44A1B181226DC3D9009B28F2 /* UIImage+MultiFormat.m in Sources */,
@@ -1478,6 +1505,7 @@
 				049CC87A22DF1EAB0018CAE0 /* XXMovieListModel.m in Sources */,
 				04CE41AC22E016890074521C /* SVProgressAnimatedView.m in Sources */,
 				04B0C12222BCB69400D55526 /* UIScrollView+MJExtension.m in Sources */,
+				04F7932E22F2B2F70034B610 /* MGKindViewController.m in Sources */,
 				04C2695322D58D9B00F24A2C /* WRNavigationBar.m in Sources */,
 				04B0C13022BCB69400D55526 /* MJRefreshBackFooter.m in Sources */,
 				04FA38A522DEC017004B889B /* UINavigationController+SuperPlayerRotation.m in Sources */,
@@ -1537,6 +1565,7 @@
 				44A1B0F9226DBE52009B28F2 /* NSString+MJExtension.m in Sources */,
 				44A1B134226DBF2D009B28F2 /* AFSecurityPolicy.m in Sources */,
 				04FA38E222DECBBB004B889B /* YNPageViewController.m in Sources */,
+				04F7933722F2BF600034B610 /* MGSearchController.m in Sources */,
 				04FA38E822DECBBB004B889B /* YNPageScrollMenuView.m in Sources */,
 				44A1B0F7226DBE52009B28F2 /* NSObject+MJProperty.m in Sources */,
 				44A1B12C226DBF2D009B28F2 /* UIWebView+AFNetworking.m in Sources */,
@@ -1549,6 +1578,7 @@
 				44A1B183226DC3D9009B28F2 /* SDWebImageCompat.m in Sources */,
 				44A1B12D226DBF2D009B28F2 /* AFAutoPurgingImageCache.m in Sources */,
 				04FA38E622DECBBB004B889B /* YNPageHeaderScrollView.m in Sources */,
+				04F7933422F2BAC20034B610 /* MoiveSectionModel.m in Sources */,
 				04B0C13122BCB69400D55526 /* MJRefreshAutoFooter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

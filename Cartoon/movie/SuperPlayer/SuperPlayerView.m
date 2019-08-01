@@ -881,7 +881,7 @@ static UISlider * _volumeSlider;
 - (void)horizontalMoved:(CGFloat)value {
     // 每次滑动需要叠加时间
     CGFloat totalMovieDuration = [self playDuration];
-    self.sumTime += value / 10000 * totalMovieDuration;
+    self.sumTime += value / 10000 * totalMovieDuration*0.1;
     
     if (self.sumTime > totalMovieDuration) { self.sumTime = totalMovieDuration;}
     if (self.sumTime < 0) { self.sumTime = 0; }

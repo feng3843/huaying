@@ -136,7 +136,6 @@
             self.selectedModel = model;
             self.selectedBtn = btn;
             btn.selected = YES;
-            [self PlayWithPlayModel:self.selectedModel];
         }
         
         //每次X递增Margin
@@ -185,6 +184,12 @@
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
+    [self PlayWithPlayModel:self.selectedModel];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [self.playerView resetPlayer];
 }
 
 -(void)PlayWithPlayModel:(XXPlayModel *)model{
@@ -194,16 +199,7 @@
     [XPNetWorkTool requestWithType:HttpRequestTypeGet withHttpHeaderFieldDict:nil withUrlString:url withParaments:nil withSuccessBlock:^(NSDictionary *responseObject) {
         NSLog(@"%@",responseObject);
         NSString *playurl =  responseObject[@"data"][@"httpurl"];
-        
-        
-//        NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:playurl]];
-//        NSString *str = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-//        NSString *keyStr = [str stringByReplacingOccurrencesOfString:@"key.key" withString:[[playurl stringByDeletingLastPathComponent] stringByAppendingPathComponent:@"key.key"]];
-//        NSString *path = [NSHomeDirectory() stringByAppendingString:@"/Documents/index.m3u8"];
-//        bool res =  [keyStr writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:nil];
-//
-        
-        
+
         if (playurl) {
             self.urlL.text = playurl;
         }else{

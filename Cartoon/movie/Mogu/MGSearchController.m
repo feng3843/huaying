@@ -1,19 +1,20 @@
 //
-//  XXSearchViewController.m
+//  MGSearchController.m
 //  Cartoon
 //
-//  Created by zxh on 2019/7/17.
+//  Created by zxh on 2019/8/1.
 //  Copyright © 2019 hanyong. All rights reserved.
 //
 
-#import "XXSearchViewController.h"
+#import "MGSearchController.h"
 #import "XPLeftSearchBar.h"
-#import "XXMovieListModel.h"
+#import "MovieItem.h"
 #import "MovieCell.h"
-#import "XXPlayDetailController.h"
+#import "LVPlayVodDetailVC.h"
+#import "PlayModel.h"
 #import "MJRefresh.h"
 
-@interface XXSearchViewController ()<UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate>
+@interface MGSearchController ()<UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate>
 //tableView
 @property (strong, nonatomic)  UITableView *tableView;
 
@@ -25,7 +26,7 @@
 
 @end
 
-@implementation XXSearchViewController{
+@implementation MGSearchController{
     int _page;
 }
 
@@ -70,8 +71,10 @@
     footer.onlyRefreshPerDrag = YES;
     footer.triggerAutomaticallyRefreshPercent = 2;
     [footer setTitle:@"没有更多" forState:MJRefreshStateNoMoreData];
+    [footer setTintColor:[UIColor whiteColor]];
+    footer.stateLabel.textColor = [UIColor whiteColor];
+   
     self.tableView.mj_footer = footer;
-    self.tableView.mj_footer.automaticallyChangeAlpha = YES;
     
 }
 
@@ -82,20 +85,17 @@
         _page++;
     }
     NSString *keyWord = self.searchBar.text;
-    NSString *url = [[NSString stringWithFormat:@"https://ios.xiaoxiaoimg.com/search?page=%d&wd=%@",_page,keyWord] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *url = [[NSString stringWithFormat:@"https://v.kan321.com/api/search?query=%@&page=%d",keyWord,_page] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     [XPNetWorkTool requestWithType:HttpRequestTypeGet withHttpHeaderFieldDict:nil withUrlString:url withParaments:nil withSuccessBlock:^(NSDictionary *responseObject) {
         NSLog(@"%@",responseObject);
-        NSMutableArray *array = [XXMovieListModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"vodrows"]];
-        if (sender == nil) {
-            [self.dataList addObjectsFromArray:array];
-            [self.tableView.mj_footer endRefreshing];
+        NSMutableArray *array = [MovieItem mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"data"]];
+        [self.dataList addObjectsFromArray: array];
+        if (array.count < [responseObject[@"data"][@"page_size"] integerValue] || _page >= [responseObject[@"data"][@"page_total"] integerValue]) {
+            [self.tableView.mj_footer endRefreshingWithNoMoreData];
+                [SVProgressHUD showInfoWithStatus:@"没有更多数据了～！"];
         }else{
-            if (array.count == 0) {
-                [self.tableView.mj_footer endRefreshingWithNoMoreData];
-            }else{
-                [self.dataList addObjectsFromArray:array];
-                [self.tableView.mj_footer endRefreshing];
-            }
+            
+            [self.tableView.mj_footer endRefreshing];
         }
         [self.tableView reloadData];
     } withFailureBlock:^(NSString *errorMsg) {
@@ -116,8 +116,8 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     MovieCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MovieCell" forIndexPath:indexPath];
-    XXMovieListModel *model = self.dataList[indexPath.row];
-    cell.xxModel = model;
+    MovieItem *model = self.dataList[indexPath.row];
+    cell.item = model;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
@@ -128,12 +128,24 @@
 
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    XXMovieListModel *model = self.dataList[indexPath.row];
-    XXPlayDetailController *vc = [[XXPlayDetailController alloc]init];
-    vc.model = model;
-    [self.navigationController pushViewController:vc animated:YES];
+    MovieItem *item = self.dataList[indexPath.row];
+    NSString *url = [NSString stringWithFormat:@"https://v.kan321.com/api/info?id=%d",item.vid];
+    
+    [XPNetWorkTool requestWithType:HttpRequestTypeGet withHttpHeaderFieldDict:nil withUrlString:url withParaments:nil withSuccessBlock:^(NSDictionary *responseObject) {
+        NSLog(@"%@",responseObject[@"data"][@"play"]);
+        NSArray *model = [PlayModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"play"]];
+        item.info = responseObject[@"data"][@"info"];
+        item.play = model;
+        LVPlayVodDetailVC *vc = [LVPlayVodDetailVC new];
+        vc.item = item;
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    } withFailureBlock:^(NSString *errorMsg) {
+        
+    } progress:^(float progress) {
+        
+    }];
 }
-
 
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
@@ -155,5 +167,4 @@
     [self requestSearchWithKey:nil];
     
 }
-
 @end
