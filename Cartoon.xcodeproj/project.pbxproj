@@ -63,6 +63,7 @@
 		04F7933122F2B7C80034B610 /* MGReboViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F7933022F2B7C80034B610 /* MGReboViewController.m */; };
 		04F7933422F2BAC20034B610 /* MoiveSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F7933322F2BAC20034B610 /* MoiveSectionModel.m */; };
 		04F7933722F2BF600034B610 /* MGSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F7933622F2BF600034B610 /* MGSearchController.m */; };
+		04F7933B22F2D2310034B610 /* KKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F7933A22F2D2310034B610 /* KKViewController.m */; };
 		04FA383722DEABFC004B889B /* TXLiteAVSDK_UGC_IJK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04FA383622DEABFB004B889B /* TXLiteAVSDK_UGC_IJK.framework */; };
 		04FA385622DEAFCE004B889B /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FA383C22DEAFCD004B889B /* NSLayoutConstraint+MASDebugAdditions.m */; };
 		04FA385722DEAFCE004B889B /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FA384522DEAFCD004B889B /* ViewController+MASAdditions.m */; };
@@ -306,6 +307,8 @@
 		04F7933322F2BAC20034B610 /* MoiveSectionModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoiveSectionModel.m; sourceTree = "<group>"; };
 		04F7933522F2BF600034B610 /* MGSearchController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MGSearchController.h; sourceTree = "<group>"; };
 		04F7933622F2BF600034B610 /* MGSearchController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGSearchController.m; sourceTree = "<group>"; };
+		04F7933922F2D2310034B610 /* KKViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KKViewController.h; sourceTree = "<group>"; };
+		04F7933A22F2D2310034B610 /* KKViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KKViewController.m; sourceTree = "<group>"; };
 		04FA383622DEABFB004B889B /* TXLiteAVSDK_UGC_IJK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TXLiteAVSDK_UGC_IJK.framework; sourceTree = "<group>"; };
 		04FA383922DEAFCD004B889B /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		04FA383B22DEAFCD004B889B /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
@@ -772,6 +775,15 @@
 			path = SVProgressHUD;
 			sourceTree = "<group>";
 		};
+		04F7933822F2D1AC0034B610 /* kuaikan */ = {
+			isa = PBXGroup;
+			children = (
+				04F7933922F2D2310034B610 /* KKViewController.h */,
+				04F7933A22F2D2310034B610 /* KKViewController.m */,
+			);
+			path = kuaikan;
+			sourceTree = "<group>";
+		};
 		04FA2FC922DEA999004B889B /* movie */ = {
 			isa = PBXGroup;
 			children = (
@@ -779,6 +791,7 @@
 				04FA2FCC22DEAA25004B889B /* Ergeduoduo */,
 				04FA2FCB22DEA9CC004B889B /* Xiao1APP */,
 				04FA2FCA22DEA9C3004B889B /* Mogu */,
+				04F7933822F2D1AC0034B610 /* kuaikan */,
 			);
 			path = movie;
 			sourceTree = "<group>";
@@ -1575,6 +1588,7 @@
 				44A1B0DB226DBDD9009B28F2 /* VideoListModel.m in Sources */,
 				049CC88022DF20D00018CAE0 /* XXTabRowsModel.m in Sources */,
 				44A1B12F226DBF2D009B28F2 /* AFURLResponseSerialization.m in Sources */,
+				04F7933B22F2D2310034B610 /* KKViewController.m in Sources */,
 				44A1B183226DC3D9009B28F2 /* SDWebImageCompat.m in Sources */,
 				44A1B12D226DBF2D009B28F2 /* AFAutoPurgingImageCache.m in Sources */,
 				04FA38E622DECBBB004B889B /* YNPageHeaderScrollView.m in Sources */,

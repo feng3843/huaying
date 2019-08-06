@@ -12,4 +12,5 @@
 +(NSDictionary *)mj_replacedKeyFromPropertyName{
     return @{@"vid":@"id"};
 }
+MJCodingImplementation
 @end

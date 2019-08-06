@@ -9,7 +9,7 @@
 #import "HomeViewController.h"
 #import "movie/Mogu/MoGuController.h"
 #import "movie/Xiao1APP/XXYSViewController.h"
-
+#import "movie/kuaikan/KKViewController.h"
 @interface HomeViewController ()
 
 @end
@@ -22,6 +22,11 @@
 
 - (IBAction)xiaoxiaoClick:(id)sender {
     XXYSViewController *vc = [[XXYSViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+- (IBAction)kuaikanclick:(id)sender {
+    KKViewController *vc = [[KKViewController alloc]init];
+    vc.url = @"http://app123.66s.cc/qian50m.html";
     [self.navigationController pushViewController:vc animated:YES];
 }
 
