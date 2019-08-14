@@ -70,8 +70,17 @@
     self.playerView.fatherView = self.playerFatherView;
     self.playerView.delegate = self;
     
-    self.scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(self.playerFatherView.frame), ScreenWidth, ScreenHeight - CGRectGetMaxY(self.playerFatherView.frame))];
+    self.scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(self.playerFatherView.frame), ScreenWidth, ScreenHeight - CGRectGetMaxY(self.playerFatherView.frame) - 60)];
     [self.view addSubview:self.scrollView];
+    
+    UIButton *bottombtn = [[UIButton alloc]initWithFrame:CGRectMake(40, CGRectGetMaxY(self.scrollView.frame), screenW - 80, 30)];
+    [bottombtn setTitle:@"隐藏" forState:UIControlStateNormal];
+    [bottombtn setTitle:@"显示" forState:UIControlStateSelected];
+    [bottombtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+    [bottombtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateSelected];
+    [bottombtn addTarget:self action:@selector(bottombtnclick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:bottombtn];
+    
     
     self.nameL = [[UILabel alloc]initWithFrame:CGRectMake(20, 0, ScreenWidth - 150, 15)];
     self.nameL.textColor = [UIColor whiteColor];
@@ -279,5 +288,14 @@
     return image;
 }
 
+
+-(void)bottombtnclick:(UIButton *)btn{
+    btn.selected = !btn.selected;
+    if (btn.selected) {
+        self.scrollView.hidden = YES;
+    }else{
+        self.scrollView.hidden = NO;
+    }
+}
 
 @end
