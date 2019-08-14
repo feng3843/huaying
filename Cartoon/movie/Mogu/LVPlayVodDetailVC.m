@@ -24,6 +24,7 @@
 
 @property (nonatomic , strong) UILabel *intoL;
 @property (nonatomic , strong) UILabel *nameL;
+@property (nonatomic , strong) UILabel *lastL;
 @property (nonatomic , strong) UILabel *urlL;
 @property (nonatomic , strong) UIScrollView *scrollView;
 
@@ -72,26 +73,34 @@
     self.scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(self.playerFatherView.frame), ScreenWidth, ScreenHeight - CGRectGetMaxY(self.playerFatherView.frame))];
     [self.view addSubview:self.scrollView];
     
-    self.nameL = [[UILabel alloc]initWithFrame:CGRectMake(20, 0, ScreenWidth - 20, 15)];
+    self.nameL = [[UILabel alloc]initWithFrame:CGRectMake(20, 0, ScreenWidth - 150, 15)];
     self.nameL.textColor = [UIColor whiteColor];
     self.nameL.font = [UIFont systemFontOfSize:12] ;
     [self.scrollView addSubview:self.nameL];
     self.nameL.numberOfLines = 1;
     
-    self.urlL = [[UILabel alloc]initWithFrame:CGRectMake(20, 15, ScreenWidth - 20, 15)];
+    self.lastL = [[UILabel alloc]initWithFrame:CGRectMake(ScreenWidth - 130, 0, 130, 15)];
+    self.lastL.textColor = [UIColor whiteColor];
+    self.lastL.font = [UIFont systemFontOfSize:9 weight:UIFontWeightMedium];
+    NSString *mid = [NSString stringWithFormat:@"%d",self.item.vid];
+    NSString *str = [[NSUserDefaults standardUserDefaults] valueForKey:mid];
+    self.lastL.text = [NSString stringWithFormat:@"上次观看:%@",str];
+    [self.scrollView addSubview:self.lastL];
+    
+    self.urlL = [[UILabel alloc]initWithFrame:CGRectMake(20, 15, ScreenWidth - 100, 20)];
     self.urlL.textColor = [UIColor whiteColor];
     self.urlL.font = [UIFont systemFontOfSize:8] ;
     [self.scrollView addSubview:self.urlL];
-    self.urlL.numberOfLines = 1;
+    self.urlL.numberOfLines = 2;
     
-    UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(screenW - 60, 5, 60, 20)];
+    UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(screenW - 60, 15, 60, 20)];
     [btn setTitle:@"go" forState:UIControlStateNormal];
     btn.backgroundColor = [UIColor redColor];
     btn.layer.cornerRadius = 5;
     [btn addTarget:self action:@selector(goWeb) forControlEvents:UIControlEventTouchUpInside];
     [self.scrollView addSubview:btn];
     
-    self.intoL = [[UILabel alloc]initWithFrame:CGRectMake(20, 30, 0, 0)];
+    self.intoL = [[UILabel alloc]initWithFrame:CGRectMake(20, 35, 0, 0)];
     self.intoL.textColor = [UIColor whiteColor];
     self.intoL.font = [UIFont systemFontOfSize:12] ;
     [self.scrollView addSubview:self.intoL];
@@ -170,7 +179,7 @@
         self.selectedModel = model;
         //播放新的model
         NSLog(@"播放新的model");
-        [self PlayWithPlayModel:model];
+        [self PlayWithPlayModel:model needSave:YES];
     }
     NSLog(@"%@",model.url);
 }
@@ -187,7 +196,7 @@
     self.playerModel = playerModel;
 //    playerModel.videoURL = self.selectedModel.url;
     //播放模型
-    [self PlayWithPlayModel:self.selectedModel];
+    [self PlayWithPlayModel:self.selectedModel needSave:NO];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -195,8 +204,15 @@
     [self.playerView resetPlayer];
 }
 
--(void)PlayWithPlayModel:(PlayModel *)model{
+-(void)PlayWithPlayModel:(PlayModel *)model needSave:(BOOL)save{
     [self.playerView resetPlayer];
+    if (save) {
+        NSString *mid = [NSString stringWithFormat:@"%d",self.item.vid];
+        NSString *str = model.text;
+        self.lastL.text = [NSString stringWithFormat:@"上次观看:%@",str];
+        [[NSUserDefaults standardUserDefaults] setValue:str forKey:mid];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
     self.urlL.text = @"重设播放器";
     self.playerModel.videoURL = model.url;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{

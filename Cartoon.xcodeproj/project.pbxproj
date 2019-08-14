@@ -30,6 +30,7 @@
 		049CC88022DF20D00018CAE0 /* XXTabRowsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 049CC87F22DF20D00018CAE0 /* XXTabRowsModel.m */; };
 		049CC88322DF28FE0018CAE0 /* XXPlayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 049CC88222DF28FE0018CAE0 /* XXPlayModel.m */; };
 		049CC88622DF2B170018CAE0 /* XXPlayDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049CC88522DF2B170018CAE0 /* XXPlayDetailController.m */; };
+		04AA66AC2303B67300E9770F /* TXLiteAVSDK_UGC_IJK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04AA66AB2303B67300E9770F /* TXLiteAVSDK_UGC_IJK.framework */; };
 		04B0C11F22BCB69400D55526 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B0C0EF22BCB69400D55526 /* UIScrollView+MJRefresh.m */; };
 		04B0C12022BCB69400D55526 /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B0C0F022BCB69400D55526 /* MJRefreshConst.m */; };
 		04B0C12122BCB69400D55526 /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 04B0C0F422BCB69400D55526 /* MJRefresh.bundle */; };
@@ -64,7 +65,6 @@
 		04F7933422F2BAC20034B610 /* MoiveSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F7933322F2BAC20034B610 /* MoiveSectionModel.m */; };
 		04F7933722F2BF600034B610 /* MGSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F7933622F2BF600034B610 /* MGSearchController.m */; };
 		04F7933B22F2D2310034B610 /* KKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F7933A22F2D2310034B610 /* KKViewController.m */; };
-		04FA383722DEABFC004B889B /* TXLiteAVSDK_UGC_IJK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04FA383622DEABFB004B889B /* TXLiteAVSDK_UGC_IJK.framework */; };
 		04FA385622DEAFCE004B889B /* NSLayoutConstraint+MASDebugAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FA383C22DEAFCD004B889B /* NSLayoutConstraint+MASDebugAdditions.m */; };
 		04FA385722DEAFCE004B889B /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FA384522DEAFCD004B889B /* ViewController+MASAdditions.m */; };
 		04FA385822DEAFCE004B889B /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 04FA384922DEAFCD004B889B /* MASCompositeConstraint.m */; };
@@ -240,6 +240,7 @@
 		049CC88222DF28FE0018CAE0 /* XXPlayModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XXPlayModel.m; sourceTree = "<group>"; };
 		049CC88422DF2B170018CAE0 /* XXPlayDetailController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XXPlayDetailController.h; sourceTree = "<group>"; };
 		049CC88522DF2B170018CAE0 /* XXPlayDetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XXPlayDetailController.m; sourceTree = "<group>"; };
+		04AA66AB2303B67300E9770F /* TXLiteAVSDK_UGC_IJK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TXLiteAVSDK_UGC_IJK.framework; sourceTree = "<group>"; };
 		04B0C0ED22BCB69400D55526 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		04B0C0EF22BCB69400D55526 /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		04B0C0F022BCB69400D55526 /* MJRefreshConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshConst.m; sourceTree = "<group>"; };
@@ -309,7 +310,6 @@
 		04F7933622F2BF600034B610 /* MGSearchController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MGSearchController.m; sourceTree = "<group>"; };
 		04F7933922F2D2310034B610 /* KKViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KKViewController.h; sourceTree = "<group>"; };
 		04F7933A22F2D2310034B610 /* KKViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KKViewController.m; sourceTree = "<group>"; };
-		04FA383622DEABFB004B889B /* TXLiteAVSDK_UGC_IJK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TXLiteAVSDK_UGC_IJK.framework; sourceTree = "<group>"; };
 		04FA383922DEAFCD004B889B /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		04FA383B22DEAFCD004B889B /* MASCompositeConstraint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MASCompositeConstraint.h; sourceTree = "<group>"; };
 		04FA383C22DEAFCD004B889B /* NSLayoutConstraint+MASDebugAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+MASDebugAdditions.m"; sourceTree = "<group>"; };
@@ -580,12 +580,12 @@
 				04FA386422DEB3D2004B889B /* libiconv.tbd in Frameworks */,
 				04FA386222DEB39D004B889B /* libsqlite3.tbd in Frameworks */,
 				0481C84722B1F924003DB6A9 /* CoreMotion.framework in Frameworks */,
+				04AA66AC2303B67300E9770F /* TXLiteAVSDK_UGC_IJK.framework in Frameworks */,
 				0481C84522B1F91E003DB6A9 /* Foundation.framework in Frameworks */,
 				0481C84322B1F917003DB6A9 /* CFNetwork.framework in Frameworks */,
 				0481C84122B1F90F003DB6A9 /* UIKit.framework in Frameworks */,
 				0481C83D22B1F901003DB6A9 /* CoreText.framework in Frameworks */,
 				0481C83B22B1F8F9003DB6A9 /* QuartzCore.framework in Frameworks */,
-				04FA383722DEABFC004B889B /* TXLiteAVSDK_UGC_IJK.framework in Frameworks */,
 				0481C83722B1F8EC003DB6A9 /* SystemConfiguration.framework in Frameworks */,
 				0481C83522B1F8E6003DB6A9 /* libz.tbd in Frameworks */,
 				0481C83322B1F8DD003DB6A9 /* libc++.tbd in Frameworks */,
@@ -1063,7 +1063,7 @@
 		44A1B0A6226DBD64009B28F2 /* Cartoon */ = {
 			isa = PBXGroup;
 			children = (
-				04FA383622DEABFB004B889B /* TXLiteAVSDK_UGC_IJK.framework */,
+				04AA66AB2303B67300E9770F /* TXLiteAVSDK_UGC_IJK.framework */,
 				04FA2FC922DEA999004B889B /* movie */,
 				041D7603228915BC004108E9 /* Cartoon.entitlements */,
 				4497113D226E9A45007B732E /* PrefixHeader.pch */,
@@ -1771,6 +1771,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Cartoon",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Cartoon/PrefixHeader.pch";
@@ -1804,6 +1805,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Cartoon",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/Cartoon/PrefixHeader.pch";
