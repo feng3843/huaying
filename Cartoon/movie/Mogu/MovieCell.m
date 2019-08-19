@@ -53,4 +53,13 @@
     self.idL.text = [NSString stringWithFormat:@"%@",xxModel.vodid];
 }
 
+-(void)setWmModel:(WMModel *)wmModel{
+    _wmModel = wmModel;
+    [self.imageV sd_setImageWithURL:[NSURL URLWithString:wmModel.d_pic]];
+    self.noteL.text = wmModel.d_remarks;
+    self.nameL.text = wmModel.d_name;
+    self.actorL.text = @"";
+    self.idL.text = [NSString stringWithFormat:@"%@",wmModel.d_id];
+}
+
 @end

@@ -10,6 +10,7 @@
 #import "movie/Mogu/MoGuController.h"
 #import "movie/Xiao1APP/XXYSViewController.h"
 #import "movie/kuaikan/KKViewController.h"
+#import "movie/wanmei/WMViewController.h"
 @interface HomeViewController ()
 
 @end
@@ -29,6 +30,11 @@
     vc.url = @"http://app123.66s.cc/qian50m.html";
     [self.navigationController pushViewController:vc animated:YES];
 }
+- (IBAction)wanmeiClick:(id)sender {
+    WMViewController *vc = [[WMViewController alloc]init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];

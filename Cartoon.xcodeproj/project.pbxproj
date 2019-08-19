@@ -55,6 +55,13 @@
 		04B0C13222BCB69400D55526 /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B0C11A22BCB69400D55526 /* MJRefreshComponent.m */; };
 		04C2695322D58D9B00F24A2C /* WRNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C2694F22D58D9A00F24A2C /* WRNavigationBar.m */; };
 		04C2695422D58D9B00F24A2C /* WRCustomNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 04C2695222D58D9A00F24A2C /* WRCustomNavigationBar.m */; };
+		04CCA384230A54C900514BAA /* WMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CCA383230A54C900514BAA /* WMViewController.m */; };
+		04CCA387230A5BE600514BAA /* WMKindController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CCA386230A5BE600514BAA /* WMKindController.m */; };
+		04CCA38A230A985B00514BAA /* WMModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CCA389230A985B00514BAA /* WMModel.m */; };
+		04CCA38D230A992200514BAA /* WMHotVCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CCA38C230A992200514BAA /* WMHotVCViewController.m */; };
+		04CCA390230AA5F100514BAA /* WMMovieModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CCA38F230AA5F100514BAA /* WMMovieModel.m */; };
+		04CCA393230AA74C00514BAA /* WMPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CCA392230AA74C00514BAA /* WMPlayViewController.m */; };
+		04CCA396230AA95B00514BAA /* WMSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CCA395230AA95B00514BAA /* WMSearchViewController.m */; };
 		04CE41AB22E016890074521C /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CE41A022E016890074521C /* SVRadialGradientLayer.m */; };
 		04CE41AC22E016890074521C /* SVProgressAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CE41A322E016890074521C /* SVProgressAnimatedView.m */; };
 		04CE41AD22E016890074521C /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CE41A522E016890074521C /* SVProgressHUD.m */; };
@@ -292,6 +299,20 @@
 		04C2695022D58D9A00F24A2C /* WRCustomNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WRCustomNavigationBar.h; sourceTree = "<group>"; };
 		04C2695122D58D9A00F24A2C /* WRNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WRNavigationBar.h; sourceTree = "<group>"; };
 		04C2695222D58D9A00F24A2C /* WRCustomNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WRCustomNavigationBar.m; sourceTree = "<group>"; };
+		04CCA382230A54C900514BAA /* WMViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WMViewController.h; sourceTree = "<group>"; };
+		04CCA383230A54C900514BAA /* WMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WMViewController.m; sourceTree = "<group>"; };
+		04CCA385230A5BE600514BAA /* WMKindController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WMKindController.h; sourceTree = "<group>"; };
+		04CCA386230A5BE600514BAA /* WMKindController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WMKindController.m; sourceTree = "<group>"; };
+		04CCA388230A985B00514BAA /* WMModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WMModel.h; sourceTree = "<group>"; };
+		04CCA389230A985B00514BAA /* WMModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WMModel.m; sourceTree = "<group>"; };
+		04CCA38B230A992200514BAA /* WMHotVCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WMHotVCViewController.h; sourceTree = "<group>"; };
+		04CCA38C230A992200514BAA /* WMHotVCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WMHotVCViewController.m; sourceTree = "<group>"; };
+		04CCA38E230AA5F100514BAA /* WMMovieModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WMMovieModel.h; sourceTree = "<group>"; };
+		04CCA38F230AA5F100514BAA /* WMMovieModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WMMovieModel.m; sourceTree = "<group>"; };
+		04CCA391230AA74C00514BAA /* WMPlayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WMPlayViewController.h; sourceTree = "<group>"; };
+		04CCA392230AA74C00514BAA /* WMPlayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WMPlayViewController.m; sourceTree = "<group>"; };
+		04CCA394230AA95B00514BAA /* WMSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WMSearchViewController.h; sourceTree = "<group>"; };
+		04CCA395230AA95B00514BAA /* WMSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WMSearchViewController.m; sourceTree = "<group>"; };
 		04CE41A022E016890074521C /* SVRadialGradientLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVRadialGradientLayer.m; sourceTree = "<group>"; };
 		04CE41A122E016890074521C /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
 		04CE41A222E016890074521C /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
@@ -756,6 +777,27 @@
 			path = WRNavigation;
 			sourceTree = "<group>";
 		};
+		04CCA381230A548D00514BAA /* wanmei */ = {
+			isa = PBXGroup;
+			children = (
+				04CCA382230A54C900514BAA /* WMViewController.h */,
+				04CCA383230A54C900514BAA /* WMViewController.m */,
+				04CCA385230A5BE600514BAA /* WMKindController.h */,
+				04CCA386230A5BE600514BAA /* WMKindController.m */,
+				04CCA388230A985B00514BAA /* WMModel.h */,
+				04CCA389230A985B00514BAA /* WMModel.m */,
+				04CCA38E230AA5F100514BAA /* WMMovieModel.h */,
+				04CCA38F230AA5F100514BAA /* WMMovieModel.m */,
+				04CCA38B230A992200514BAA /* WMHotVCViewController.h */,
+				04CCA38C230A992200514BAA /* WMHotVCViewController.m */,
+				04CCA391230AA74C00514BAA /* WMPlayViewController.h */,
+				04CCA392230AA74C00514BAA /* WMPlayViewController.m */,
+				04CCA394230AA95B00514BAA /* WMSearchViewController.h */,
+				04CCA395230AA95B00514BAA /* WMSearchViewController.m */,
+			);
+			path = wanmei;
+			sourceTree = "<group>";
+		};
 		04CE419D22E016890074521C /* SVProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
@@ -796,6 +838,7 @@
 				04FA2FCC22DEAA25004B889B /* Ergeduoduo */,
 				04FA2FCB22DEA9CC004B889B /* Xiao1APP */,
 				04FA2FCA22DEA9C3004B889B /* Mogu */,
+				04CCA381230A548D00514BAA /* wanmei */,
 				04F7933822F2D1AC0034B610 /* kuaikan */,
 			);
 			path = movie;
@@ -1462,6 +1505,7 @@
 				04B0C12C22BCB69400D55526 /* MJRefreshStateHeader.m in Sources */,
 				44A1B17A226DC3D9009B28F2 /* SDWebImageManager.m in Sources */,
 				04FA385622DEAFCE004B889B /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				04CCA390230AA5F100514BAA /* WMMovieModel.m in Sources */,
 				44A1B0F2226DBE52009B28F2 /* MJPropertyType.m in Sources */,
 				04FA38E422DECBBB004B889B /* YNPageTableView.m in Sources */,
 				44A1B0FB226DBE52009B28F2 /* MJFoundation.m in Sources */,
@@ -1498,6 +1542,7 @@
 				04FA385922DEAFCE004B889B /* MASConstraintMaker.m in Sources */,
 				44A1B18D226DC3D9009B28F2 /* NSImage+WebCache.m in Sources */,
 				44A1B191226DC3D9009B28F2 /* UIView+WebCache.m in Sources */,
+				04CCA384230A54C900514BAA /* WMViewController.m in Sources */,
 				44A1B189226DC3D9009B28F2 /* SDWebImageDownloaderOperation.m in Sources */,
 				04FA38AF22DEC017004B889B /* TXCUrl.m in Sources */,
 				04CE41AD22E016890074521C /* SVProgressHUD.m in Sources */,
@@ -1516,6 +1561,7 @@
 				44A1B187226DC3D9009B28F2 /* SDAnimatedImageRep.m in Sources */,
 				04FA385822DEAFCE004B889B /* MASCompositeConstraint.m in Sources */,
 				04367B87229CD9B9001F1769 /* XPHongBaoView.m in Sources */,
+				04CCA396230AA95B00514BAA /* WMSearchViewController.m in Sources */,
 				44A1B126226DBF2D009B28F2 /* UIProgressView+AFNetworking.m in Sources */,
 				04B0C12322BCB69400D55526 /* NSBundle+MJRefresh.m in Sources */,
 				04F7932B22F2B2C80034B610 /* MoGuController.m in Sources */,
@@ -1548,9 +1594,11 @@
 				04FA38E022DECBBB004B889B /* UIView+YNPageExtend.m in Sources */,
 				04875B8B22D86682007B71AD /* PlayModel.m in Sources */,
 				44A1B193226DC3D9009B28F2 /* UIButton+WebCache.m in Sources */,
+				04CCA393230AA74C00514BAA /* WMPlayViewController.m in Sources */,
 				04FA38DF22DECBBB004B889B /* UIViewController+YNPageExtend.m in Sources */,
 				44A1B17E226DC3D9009B28F2 /* SDWebImageCodersManager.m in Sources */,
 				04FA38E322DECBBB004B889B /* YNPageConfigration.m in Sources */,
+				04CCA38A230A985B00514BAA /* WMModel.m in Sources */,
 				44A1B129226DBF2D009B28F2 /* UIImageView+AFNetworking.m in Sources */,
 				44A1B138226DBF4A009B28F2 /* XPNetWorkTool.m in Sources */,
 				04B0C12E22BCB69400D55526 /* MJRefreshFooter.m in Sources */,
@@ -1586,10 +1634,12 @@
 				04FA38F122DEE270004B889B /* XPLeftSearchBar.m in Sources */,
 				44A1B0A9226DBD64009B28F2 /* AppDelegate.m in Sources */,
 				44A1B0F9226DBE52009B28F2 /* NSString+MJExtension.m in Sources */,
+				04CCA387230A5BE600514BAA /* WMKindController.m in Sources */,
 				44A1B134226DBF2D009B28F2 /* AFSecurityPolicy.m in Sources */,
 				04FA38E222DECBBB004B889B /* YNPageViewController.m in Sources */,
 				04F7933722F2BF600034B610 /* MGSearchController.m in Sources */,
 				04FA38E822DECBBB004B889B /* YNPageScrollMenuView.m in Sources */,
+				04CCA38D230A992200514BAA /* WMHotVCViewController.m in Sources */,
 				44A1B0F7226DBE52009B28F2 /* NSObject+MJProperty.m in Sources */,
 				44A1B12C226DBF2D009B28F2 /* UIWebView+AFNetworking.m in Sources */,
 				04FA38E522DECBBB004B889B /* YNPageScrollView.m in Sources */,
