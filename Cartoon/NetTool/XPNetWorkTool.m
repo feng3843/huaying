@@ -73,7 +73,6 @@
         //
         //        [self.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
         
-        
         /**设置接受的类型*/
         [self.responseSerializer setAcceptableContentTypes:[NSSet setWithObjects:@"text/plain",@"application/json",@"text/json",@"text/javascript",@"text/html", nil]];
         
@@ -127,6 +126,10 @@
                 
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                 NSString *reason = [NSString stringWithFormat:@"%@",[error.userInfo objectForKey:NSLocalizedDescriptionKey]];
+                
+                [SVProgressHUD showInfoWithStatus:[NSString stringWithFormat:@"请求失败 %@",reason]];
+                
+                
                 if (IsNilOrNull(reason) || [reason isEqualToString:@"(null)"]) {
 
                     failureBlock(reason);
@@ -168,56 +171,9 @@
                 
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                 //处理服务器自定义返回的错误
-//                NSData *data = [error.userInfo objectForKey:@"com.alamofire.serialization.response.error.data"];
-//                NSString * str  =[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-//                NSDictionary *dic = [str mj_JSONObject];
-//                if (dic) {//后台返回的错误事件
-//                    BOOL error_description_isNULL = IsNilOrNull(dic[@"error_description"]);
-//                    if([dic[@"error"] isEqualToString:@"invalid_token"] || ([dic[@"error"] isEqualToString:@"unauthorized"] && !error_description_isNULL && [dic[@"error_description"] hasPrefix:@"Full authentication"])){//token失效  || 用户未授权
-//                        GDDLog(@"token失效！！！需要重新登录！！！！");
-//                        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_NEED_REFRESH_TOKEN object:nil];
-//                        failureBlock(@"服务器开小差了,再试一次");
-//                        return ;
-//                    }else if([dic[@"status"] intValue] == 401){//新用户注册
-//                        failureBlock(@"401");//新用户登录返回401
-//                        return ;
-//                    }else if ([dic[@"error"] isEqualToString:@"invalid_grant"] && !error_description_isNULL && [dic[@"error_description"] hasPrefix:@"Invalid refresh token:"]){
-//                        [SVProgressHUD showInfoWithStatus:@"登录过期"];//本地refresh_token也失效
-//                        [CommParms shareInstance].user = nil;
-//                        [[CommParms shareInstance] saveUser];
-//                        failureBlock(@"登录过期");
-//                        return;
-//                    }else if ([dic[@"error"] isEqualToString:@"invalid_grant"] && !error_description_isNULL && ([dic[@"error_description"] hasPrefix:@"User is disabled"] || [dic[@"error_description"] hasPrefix:@"账号已被禁用"])){//账号被封禁
-//                         [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_USER_IS_DISABLED object:nil];
-//                        failureBlock(@"用户被封禁");
-//                        return;
-//                    }else if ([dic[@"code"] intValue] == 1 && [dic[@"msg"] isEqualToString:@"授权失败，禁止访问"] ){//账号被封禁
-//                        [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_USER_IS_DISABLED object:nil];
-//                        failureBlock(@"用户被封禁");
-//                        return;
-//                    }else if ([dic[@"status"] intValue] == 500 && [dic[@"error"] isEqualToString:@"Internal Server Error"] ){//服务器出错
-//                        [SVProgressHUD showInfoWithStatus:@"服务器错误"];
-//                    }else if ([dic[@"error"] isEqualToString:@"invalid_grant"] && !error_description_isNULL && [dic[@"error_description"] hasPrefix:@"用户名不存在"] ){//用户名或密码错误
-//                        failureBlock(@"用户名或密码错误");
-//                        return ;
-//                    }else if ([dic[@"error"] isEqualToString:@"unauthorized"] && error_description_isNULL){//用户名不存在
-//                        failureBlock(@"用户名不存在");
-//                        return ;
-//                    }
-//                }else{
-//                    //处理网络请求失败
-//                    NSString *reason = [NSString stringWithFormat:@"%@",[error.userInfo objectForKey:NSLocalizedDescriptionKey]];
-//                        if (IsNilOrNull(reason) || [reason isEqualToString:@"(null)"]) {
-//                             [SVProgressHUD showInfoWithStatus:@"服务器异常"];
-//                             failureBlock(@"服务器异常");
-//                             return;
-//                        }else{
-//                            [SVProgressHUD showInfoWithStatus:reason];
-//                             failureBlock(reason);
-//                             return;
-//                        }
-//                }
-//                failureBlock(dic[@"msg"] ? dic[@"msg"] :[NSString stringWithFormat:@"%@", dic[@"error"]]);
+                NSData *data = [error.userInfo objectForKey:@"com.alamofire.serialization.response.error.data"];
+                NSString * str  =[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                [SVProgressHUD showInfoWithStatus:[NSString stringWithFormat:@"请求失败 %@",str]];
             }];
             break;
         }

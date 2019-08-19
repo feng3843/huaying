@@ -110,4 +110,6 @@ typedef NS_ENUM(NSInteger, SuperPlayerState) {
  */
 - (void)pause;
 
+- (void)seek:(float)startTime;
+
 @end

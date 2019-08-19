@@ -12,6 +12,9 @@
 #import "XXPlayModel.h"
 #import "XPGoodsTuWenController.h"
 
+#import "M3u8ResourceLoader_OC.h"
+#import <AVFoundation/AVFoundation.h>
+
 #define COMMENT_TV_H 60
 #define DEFAULT_TV_H 33
 
@@ -30,6 +33,9 @@
 
 @property (nonatomic , strong) XXPlayModel *selectedModel;
 @property (nonatomic , strong) UIButton *selectedBtn;
+
+@property (nonatomic , strong) AVPlayer *player;
+@property (nonatomic , strong)AVPlayerLayer *playerLayer;
 
 @end
 
@@ -84,7 +90,7 @@
     self.lastL = [[UILabel alloc]initWithFrame:CGRectMake(ScreenWidth - 130, 0, 130, 15)];
     self.lastL.textColor = [UIColor whiteColor];
     self.lastL.font = [UIFont systemFontOfSize:9 weight:UIFontWeightMedium];
-    NSString *mid = [NSString stringWithFormat:@"%d",self.model.vodid];
+    NSString *mid = [NSString stringWithFormat:@"xiao%@",self.model.vodid];
     NSString *str = [[NSUserDefaults standardUserDefaults] valueForKey:mid];
     self.lastL.text = [NSString stringWithFormat:@"上次观看:%@",str];
     [self.scrollView addSubview:self.lastL];
@@ -205,7 +211,7 @@
     [self.playerView resetPlayer];
     self.urlL.text = @"重设播放器！";
     if (save) {
-        NSString *mid = [NSString stringWithFormat:@"%@",self.model.vodid];
+        NSString *mid = [NSString stringWithFormat:@"xiao%@",self.model.vodid];
         NSString *str = model.play_name;
         self.lastL.text = [NSString stringWithFormat:@"上次观看:%@",str];
         [[NSUserDefaults standardUserDefaults] setValue:str forKey:mid];
@@ -230,12 +236,15 @@
     }];
 }
 
+
+
 -(void)goWeb{
-    NSString *ssss = [NSString stringWithFormat:@"<!DOCTYPE HTML><html style = \"background-color:#000000 \"><body style =\" height:100%%,display:flex;justify-content:center;align-items:center; background-color:#000000\"><video style={} class=\"tvhou\" width=\"100%%\" height=\"100%%\"controls=\"controls\" autoplay=\"autoplay\" x-webkit-airplay=\"true\"  x5-video-player-fullscreen=\"true\" preload=\"auto\" playsinline=\"true\" webkit-playsinline x5-video-player-typ=\"h5\"> <source type=\"application/x-mpegURL\" src=\"%@\"></video></body></html>",self.playerModel.videoURL];
+    NSString *ssss = [NSString stringWithFormat:@"<!DOCTYPE HTML><html style = \"background-color:#000000 \"><body style =\" height:100%%,display:flex;justify-content:center;align-items:center; background-color:#000000\"><video style={} class=\"tvhou\" width=\"100%%\" height=\"100%%\"controls=\"controls\" autoplay=\"autoplay\" x-webkit-airplay=\"true\" preload=\"auto\"> <source type=\"application/x-mpegURL\" src=\"%@\"></video></body></html>",self.playerModel.videoURL];
     XPGoodsTuWenController *vc = [XPGoodsTuWenController new];
     vc.html = ssss;
     [self.navigationController pushViewController:vc animated:YES];
 }
+
 
 #pragma mark - 状态控制
 // 返回值要必须为NO

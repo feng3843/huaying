@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		04367B87229CD9B9001F1769 /* XPHongBaoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04367B86229CD9B9001F1769 /* XPHongBaoView.m */; };
+		04411A8E2305029B005B9B8E /* index.json in Resources */ = {isa = PBXBuildFile; fileRef = 04411A8D2305029A005B9B8E /* index.json */; };
+		04411A9123051E40005B9B8E /* M3u8ResourceLoader_OC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04411A9023051E40005B9B8E /* M3u8ResourceLoader_OC.m */; };
+		0474289723067F9E00558D0F /* TXLiteAVSDK_Player.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0474289623067F9D00558D0F /* TXLiteAVSDK_Player.framework */; };
 		0481C83322B1F8DD003DB6A9 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0481C83222B1F8DD003DB6A9 /* libc++.tbd */; };
 		0481C83522B1F8E6003DB6A9 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0481C83422B1F8E6003DB6A9 /* libz.tbd */; };
 		0481C83722B1F8EC003DB6A9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0481C83622B1F8EC003DB6A9 /* SystemConfiguration.framework */; };
@@ -30,7 +33,6 @@
 		049CC88022DF20D00018CAE0 /* XXTabRowsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 049CC87F22DF20D00018CAE0 /* XXTabRowsModel.m */; };
 		049CC88322DF28FE0018CAE0 /* XXPlayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 049CC88222DF28FE0018CAE0 /* XXPlayModel.m */; };
 		049CC88622DF2B170018CAE0 /* XXPlayDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049CC88522DF2B170018CAE0 /* XXPlayDetailController.m */; };
-		04AA66AC2303B67300E9770F /* TXLiteAVSDK_UGC_IJK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04AA66AB2303B67300E9770F /* TXLiteAVSDK_UGC_IJK.framework */; };
 		04B0C11F22BCB69400D55526 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B0C0EF22BCB69400D55526 /* UIScrollView+MJRefresh.m */; };
 		04B0C12022BCB69400D55526 /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B0C0F022BCB69400D55526 /* MJRefreshConst.m */; };
 		04B0C12122BCB69400D55526 /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 04B0C0F422BCB69400D55526 /* MJRefresh.bundle */; };
@@ -209,6 +211,10 @@
 		041D7603228915BC004108E9 /* Cartoon.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cartoon.entitlements; sourceTree = "<group>"; };
 		04367B85229CD9B9001F1769 /* XPHongBaoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XPHongBaoView.h; sourceTree = "<group>"; };
 		04367B86229CD9B9001F1769 /* XPHongBaoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XPHongBaoView.m; sourceTree = "<group>"; };
+		04411A8D2305029A005B9B8E /* index.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = index.json; sourceTree = "<group>"; };
+		04411A8F23051E3F005B9B8E /* M3u8ResourceLoader_OC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = M3u8ResourceLoader_OC.h; sourceTree = "<group>"; };
+		04411A9023051E40005B9B8E /* M3u8ResourceLoader_OC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = M3u8ResourceLoader_OC.m; sourceTree = "<group>"; };
+		0474289623067F9D00558D0F /* TXLiteAVSDK_Player.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TXLiteAVSDK_Player.framework; sourceTree = "<group>"; };
 		0481C83222B1F8DD003DB6A9 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		0481C83422B1F8E6003DB6A9 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		0481C83622B1F8EC003DB6A9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -240,7 +246,6 @@
 		049CC88222DF28FE0018CAE0 /* XXPlayModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XXPlayModel.m; sourceTree = "<group>"; };
 		049CC88422DF2B170018CAE0 /* XXPlayDetailController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XXPlayDetailController.h; sourceTree = "<group>"; };
 		049CC88522DF2B170018CAE0 /* XXPlayDetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XXPlayDetailController.m; sourceTree = "<group>"; };
-		04AA66AB2303B67300E9770F /* TXLiteAVSDK_UGC_IJK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TXLiteAVSDK_UGC_IJK.framework; sourceTree = "<group>"; };
 		04B0C0ED22BCB69400D55526 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		04B0C0EF22BCB69400D55526 /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		04B0C0F022BCB69400D55526 /* MJRefreshConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshConst.m; sourceTree = "<group>"; };
@@ -574,13 +579,13 @@
 				04FA386E22DEB83C004B889B /* CoreMedia.framework in Frameworks */,
 				04FA386C22DEB836004B889B /* AVFoundation.framework in Frameworks */,
 				0481C83922B1F8F3003DB6A9 /* CoreTelephony.framework in Frameworks */,
+				0474289723067F9E00558D0F /* TXLiteAVSDK_Player.framework in Frameworks */,
 				04FA386A22DEB75E004B889B /* CoreImage.framework in Frameworks */,
 				04FA386822DEB73E004B889B /* VideoToolbox.framework in Frameworks */,
 				04FA386622DEB3DB004B889B /* libresolv.tbd in Frameworks */,
 				04FA386422DEB3D2004B889B /* libiconv.tbd in Frameworks */,
 				04FA386222DEB39D004B889B /* libsqlite3.tbd in Frameworks */,
 				0481C84722B1F924003DB6A9 /* CoreMotion.framework in Frameworks */,
-				04AA66AC2303B67300E9770F /* TXLiteAVSDK_UGC_IJK.framework in Frameworks */,
 				0481C84522B1F91E003DB6A9 /* Foundation.framework in Frameworks */,
 				0481C84322B1F917003DB6A9 /* CFNetwork.framework in Frameworks */,
 				0481C84122B1F90F003DB6A9 /* UIKit.framework in Frameworks */,
@@ -845,6 +850,8 @@
 				049CC88522DF2B170018CAE0 /* XXPlayDetailController.m */,
 				04CE41B122E01C950074521C /* XPGoodsTuWenController.h */,
 				04CE41B222E01C950074521C /* XPGoodsTuWenController.m */,
+				04411A8F23051E3F005B9B8E /* M3u8ResourceLoader_OC.h */,
+				04411A9023051E40005B9B8E /* M3u8ResourceLoader_OC.m */,
 			);
 			path = Xiao1APP;
 			sourceTree = "<group>";
@@ -1063,7 +1070,7 @@
 		44A1B0A6226DBD64009B28F2 /* Cartoon */ = {
 			isa = PBXGroup;
 			children = (
-				04AA66AB2303B67300E9770F /* TXLiteAVSDK_UGC_IJK.framework */,
+				0474289623067F9D00558D0F /* TXLiteAVSDK_Player.framework */,
 				04FA2FC922DEA999004B889B /* movie */,
 				041D7603228915BC004108E9 /* Cartoon.entitlements */,
 				4497113D226E9A45007B732E /* PrefixHeader.pch */,
@@ -1073,6 +1080,7 @@
 				04FA38BE22DEC7C8004B889B /* HomeViewController.h */,
 				04FA38BF22DEC7C8004B889B /* HomeViewController.m */,
 				04FA38C022DEC7C8004B889B /* HomeViewController.xib */,
+				04411A8D2305029A005B9B8E /* index.json */,
 				04367B86229CD9B9001F1769 /* XPHongBaoView.m */,
 				04875B7D22D86680007B71AD /* MovieViewController.h */,
 				04875B7C22D8667F007B71AD /* MovieViewController.m */,
@@ -1414,6 +1422,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				44A1B0B4226DBD76009B28F2 /* LaunchScreen.storyboard in Resources */,
+				04411A8E2305029B005B9B8E /* index.json in Resources */,
 				44A1B0B1226DBD76009B28F2 /* Assets.xcassets in Resources */,
 				04875B8E22D86682007B71AD /* MovieViewController.xib in Resources */,
 				44A1B13D226DC2C1009B28F2 /* VideoListCell.xib in Resources */,
@@ -1514,6 +1523,7 @@
 				44A1B17F226DC3D9009B28F2 /* SDWebImageDownloader.m in Sources */,
 				44A1B181226DC3D9009B28F2 /* UIImage+MultiFormat.m in Sources */,
 				44A1B184226DC3D9009B28F2 /* SDWebImagePrefetcher.m in Sources */,
+				04411A9123051E40005B9B8E /* M3u8ResourceLoader_OC.m in Sources */,
 				04FA38B322DEC017004B889B /* SuperPlayerControlView.m in Sources */,
 				049CC87A22DF1EAB0018CAE0 /* XXMovieListModel.m in Sources */,
 				04CE41AC22E016890074521C /* SVProgressAnimatedView.m in Sources */,
@@ -1781,7 +1791,7 @@
 					"$(PROJECT_DIR)/**",
 				);
 				INFOPLIST_FILE = Cartoon/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1815,7 +1825,7 @@
 					"$(PROJECT_DIR)/**",
 				);
 				INFOPLIST_FILE = Cartoon/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
