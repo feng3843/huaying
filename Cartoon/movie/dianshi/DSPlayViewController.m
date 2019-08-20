@@ -19,6 +19,7 @@
 @property (nonatomic , strong) SuperPlayerModel *playerModel;
 
 @property (nonatomic , strong) UILabel *urlL;
+@property (nonatomic , strong) UITextView *textView;
 
 
 @end
@@ -28,6 +29,7 @@
 - (void)dealloc {
     [self.playerView resetPlayer];  //非常重要
     [self.navigationController setNavigationBarHidden:NO];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     NSLog(@"%@释放了",self.class);
 }
 
@@ -82,13 +84,30 @@
     [view1 addSubview:self.urlL];
     self.urlL.text = self.playUrl;
     self.urlL.numberOfLines = 2;
+    
+    self.textView = [[UITextView alloc]initWithFrame:CGRectMake(10, 45, screenW - 20, 300)];
+    self.textView.textColor = [UIColor whiteColor];
+    self.textView.font = [UIFont systemFontOfSize:8] ;
+    self.textView.backgroundColor = [UIColor blackColor];
+    [view1 addSubview:self.textView];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getInfo:) name:@"VOD_LOG_INFO" object:nil];
 }
 
+-(void)getInfo:(NSNotification *)notify{
+    NSDictionary *dict = notify.userInfo;
+    NSString *str = dict[@"logText"];
+    NSMutableString *strText = [NSMutableString stringWithFormat:@"%@\n",self.textView.text];
+    [strText appendString:str];
+    self.textView.text = strText;
+    [self.textView scrollRangeToVisible:NSMakeRange(strText.length - 1, 1)];
+}
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
-    [self.playerView resume];
+    if (self.playerModel) {
+        [self.playerView resume];
+    }
 }
 
 

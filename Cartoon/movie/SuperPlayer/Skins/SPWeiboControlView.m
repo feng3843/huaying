@@ -68,7 +68,7 @@
     [self.backBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self).offset(5);
         make.top.equalTo(self).offset(3);
-        make.width.mas_equalTo(@60);
+        make.width.mas_equalTo(@57);
     }];
     
     [self.moreBtn mas_makeConstraints:^(MASConstraintMaker *make) {

@@ -1263,7 +1263,9 @@ static UISlider * _volumeSlider;
     dispatch_async(dispatch_get_main_queue(), ^{
         if (EvtID != PLAY_EVT_PLAY_PROGRESS) {
             NSString *desc = [param description];
-            NSLog(@"%@", [NSString stringWithCString:[desc cStringUsingEncoding:NSUTF8StringEncoding] encoding:NSNonLossyASCIIStringEncoding]);
+            NSString *logText = [NSString stringWithCString:[desc cStringUsingEncoding:NSUTF8StringEncoding] encoding:NSNonLossyASCIIStringEncoding];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"VOD_LOG_INFO" object:nil userInfo:@{@"logText" : logText}];
+            NSLog(@"%@", logText);
         }
         if (EvtID == PLAY_EVT_RCV_FIRST_I_FRAME) {
             [self setNeedsLayout];
@@ -1366,7 +1368,10 @@ static UISlider * _volumeSlider;
 
         if (EvtID != PLAY_EVT_PLAY_PROGRESS) {
             NSString *desc = [param description];
-            NSLog(@"%@", [NSString stringWithCString:[desc cStringUsingEncoding:NSUTF8StringEncoding] encoding:NSNonLossyASCIIStringEncoding]);
+            NSLog(@"---%@", [NSString stringWithCString:[desc cStringUsingEncoding:NSUTF8StringEncoding] encoding:NSNonLossyASCIIStringEncoding]);
+            NSString *logText = [NSString stringWithCString:[desc cStringUsingEncoding:NSUTF8StringEncoding] encoding:NSNonLossyASCIIStringEncoding];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"VOD_LOG_INFO" object:nil userInfo:@{@"logText" : logText}];
+            NSLog(@"%@", logText);
         }
         
         if (EvtID == PLAY_EVT_PLAY_BEGIN) {
