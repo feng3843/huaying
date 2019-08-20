@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0428FD64230B9170003C0EFF /* DianshiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0428FD63230B9170003C0EFF /* DianshiViewController.m */; };
+		0428FD67230B95ED003C0EFF /* DSPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0428FD66230B95ED003C0EFF /* DSPlayViewController.m */; };
 		04367B87229CD9B9001F1769 /* XPHongBaoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04367B86229CD9B9001F1769 /* XPHongBaoView.m */; };
 		04411A8E2305029B005B9B8E /* index.json in Resources */ = {isa = PBXBuildFile; fileRef = 04411A8D2305029A005B9B8E /* index.json */; };
 		04411A9123051E40005B9B8E /* M3u8ResourceLoader_OC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04411A9023051E40005B9B8E /* M3u8ResourceLoader_OC.m */; };
@@ -216,6 +218,10 @@
 
 /* Begin PBXFileReference section */
 		041D7603228915BC004108E9 /* Cartoon.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cartoon.entitlements; sourceTree = "<group>"; };
+		0428FD62230B9170003C0EFF /* DianshiViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DianshiViewController.h; sourceTree = "<group>"; };
+		0428FD63230B9170003C0EFF /* DianshiViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DianshiViewController.m; sourceTree = "<group>"; };
+		0428FD65230B95ED003C0EFF /* DSPlayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DSPlayViewController.h; sourceTree = "<group>"; };
+		0428FD66230B95ED003C0EFF /* DSPlayViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DSPlayViewController.m; sourceTree = "<group>"; };
 		04367B85229CD9B9001F1769 /* XPHongBaoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XPHongBaoView.h; sourceTree = "<group>"; };
 		04367B86229CD9B9001F1769 /* XPHongBaoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XPHongBaoView.m; sourceTree = "<group>"; };
 		04411A8D2305029A005B9B8E /* index.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = index.json; sourceTree = "<group>"; };
@@ -635,6 +641,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0428FD61230B9152003C0EFF /* dianshi */ = {
+			isa = PBXGroup;
+			children = (
+				0428FD62230B9170003C0EFF /* DianshiViewController.h */,
+				0428FD63230B9170003C0EFF /* DianshiViewController.m */,
+				0428FD65230B95ED003C0EFF /* DSPlayViewController.h */,
+				0428FD66230B95ED003C0EFF /* DSPlayViewController.m */,
+			);
+			path = dianshi;
+			sourceTree = "<group>";
+		};
 		0481C83122B1F8DD003DB6A9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -840,6 +857,7 @@
 				04FA2FCA22DEA9C3004B889B /* Mogu */,
 				04CCA381230A548D00514BAA /* wanmei */,
 				04F7933822F2D1AC0034B610 /* kuaikan */,
+				0428FD61230B9152003C0EFF /* dianshi */,
 			);
 			path = movie;
 			sourceTree = "<group>";
@@ -1500,6 +1518,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04FA38AB22DEC017004B889B /* UIView+Fade.m in Sources */,
+				0428FD64230B9170003C0EFF /* DianshiViewController.m in Sources */,
 				04FA385E22DEAFCE004B889B /* MASViewConstraint.m in Sources */,
 				44A1B132226DBF2D009B28F2 /* AFURLRequestSerialization.m in Sources */,
 				04B0C12C22BCB69400D55526 /* MJRefreshStateHeader.m in Sources */,
@@ -1565,6 +1584,7 @@
 				44A1B126226DBF2D009B28F2 /* UIProgressView+AFNetworking.m in Sources */,
 				04B0C12322BCB69400D55526 /* NSBundle+MJRefresh.m in Sources */,
 				04F7932B22F2B2C80034B610 /* MoGuController.m in Sources */,
+				0428FD67230B95ED003C0EFF /* DSPlayViewController.m in Sources */,
 				04FA38E122DECBBB004B889B /* UIScrollView+YNPageExtend.m in Sources */,
 				44A1B17F226DC3D9009B28F2 /* SDWebImageDownloader.m in Sources */,
 				44A1B181226DC3D9009B28F2 /* UIImage+MultiFormat.m in Sources */,
