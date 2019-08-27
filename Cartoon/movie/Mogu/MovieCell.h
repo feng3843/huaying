@@ -10,12 +10,14 @@
 #import "MovieItem.h"
 #import "XXMovieListModel.h"
 #import "WMModel.h"
+#import "DWSJModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MovieCell : UITableViewCell
 @property (nonatomic , strong) MovieItem *item;
 @property (nonatomic , strong) XXMovieListModel *xxModel;
 @property (nonatomic , strong) WMModel *wmModel;
+@property (nonatomic , strong) DWSJModel *dwsjModel;
 @end
 
 NS_ASSUME_NONNULL_END

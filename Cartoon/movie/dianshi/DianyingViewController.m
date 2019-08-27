@@ -1,33 +1,33 @@
 //
-//  DianshiViewController.m
+//  DianyingViewController.m
 //  Cartoon
 //
-//  Created by zxh on 2019/8/20.
+//  Created by zxh on 2019/8/27.
 //  Copyright © 2019 hanyong. All rights reserved.
 //
 
-#import "DianshiViewController.h"
+#import "DianyingViewController.h"
 #import "DSPlayViewController.h"
-@interface DianshiViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface DianyingViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic , strong) NSMutableArray *playList;
 @property (nonatomic , strong) UITableView *tableView;
 @property (nonatomic , strong) NSMutableArray *nameList;
 @end
 
-@implementation DianshiViewController
+@implementation DianyingViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"tv2.json" ofType:nil];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"index.json" ofType:nil];
     NSData *data = [NSData dataWithContentsOfFile:path];
     NSString *str = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
     NSArray *array = [str componentsSeparatedByString:@"\n"];
     self.playList = [NSMutableArray array];
     self.nameList = [NSMutableArray array];
     for (NSString *str in array) {
-       NSArray *mods = [str componentsSeparatedByString:@","];
-       [self.nameList addObject: [mods firstObject]];
-       [self.playList addObject:[mods lastObject]];
+        NSArray *mods = [str componentsSeparatedByString:@","];
+        [self.nameList addObject: [mods firstObject]];
+        [self.playList addObject:[mods lastObject]];
     }
     
     self.view.backgroundColor = [UIColor blackColor];
@@ -49,8 +49,6 @@
     } else {
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
-    
-    
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -98,6 +96,4 @@
     vc.name = name;
     [self.navigationController pushViewController:vc animated:YES];
 }
-
-
 @end

@@ -54,7 +54,6 @@
     self.playerFatherView = [[UIView alloc] initWithFrame:CGRectMake(0, 128, ScreenWidth, ScreenWidth*9.0f/16.0f)];
     self.playerFatherView.backgroundColor = [UIColor blackColor];
     [self.view addSubview:self.playerFatherView];
-    
     //设置播放器
     self.playerView = [[SuperPlayerView alloc] init];
     // 设置代理
@@ -87,6 +86,7 @@
     
     self.textView = [[UITextView alloc]initWithFrame:CGRectMake(10, 45, screenW - 20, 300)];
     self.textView.textColor = [UIColor whiteColor];
+    self.textView.userInteractionEnabled = NO;
     self.textView.font = [UIFont systemFontOfSize:8] ;
     self.textView.backgroundColor = [UIColor blackColor];
     [view1 addSubview:self.textView];
@@ -168,7 +168,7 @@
 }
 
 -(void)superPlayerPlayBtnClick:(SuperPlayerView *)player{
-    [self.playerView playWithModel:self.playerModel];
+//    [self.playerView playWithModel:self.playerModel];
 }
 
 

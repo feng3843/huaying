@@ -42,9 +42,9 @@
     [SVProgressHUD setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.6]];
     [SVProgressHUD setInfoImage:nil];
   
-    
     return YES;
 }
+
 
 
 -(void)xiazai{

@@ -25,12 +25,12 @@
                             <constraint firstAttribute="height" constant="120" id="h55-HT-4dd"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标题" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cf7-UJ-WhL">
-                        <rect key="frame" x="122" y="4" width="294" height="22"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="标题" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cf7-UJ-WhL">
+                        <rect key="frame" x="122" y="4" width="294" height="36"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="22" id="vAe-It-Toq"/>
+                            <constraint firstAttribute="height" constant="36" id="vAe-It-Toq"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -45,7 +45,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" keyboardDismissMode="onDrag" editable="NO" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisici" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kEW-50-DPA">
-                        <rect key="frame" x="122" y="34" width="294" height="70"/>
+                        <rect key="frame" x="122" y="48" width="294" height="70"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="70" id="xyC-Yl-iyg"/>

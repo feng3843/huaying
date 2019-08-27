@@ -58,8 +58,18 @@
     [self.imageV sd_setImageWithURL:[NSURL URLWithString:wmModel.d_pic]];
     self.noteL.text = wmModel.d_remarks;
     self.nameL.text = wmModel.d_name;
-    self.actorL.text = @"";
+    
     self.idL.text = [NSString stringWithFormat:@"%@",wmModel.d_id];
+}
+
+-(void)setDwsjModel:(DWSJModel *)dwsjModel{
+    _dwsjModel = dwsjModel;
+    NSString *baseUrl = @"http://www.cctv1zhibo.com/";
+    self.actorL.text = @"";
+    self.noteL.hidden = YES;
+    self.idL.text = @"";
+    [self.imageV sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",baseUrl,dwsjModel.src]] placeholderImage:[UIImage imageNamed:@"电台"]];
+    self.nameL.text = dwsjModel.title;
 }
 
 @end
