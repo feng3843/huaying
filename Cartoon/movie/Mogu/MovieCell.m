@@ -72,4 +72,13 @@
     self.nameL.text = dwsjModel.title;
 }
 
+-(void)setKkModel:(KKModel *)kkModel{
+    _kkModel = kkModel;
+    self.actorL.text = @"";
+    self.noteL.hidden = YES;
+    self.idL.text = @"";
+    [self.imageV sd_setImageWithURL:[NSURL URLWithString:kkModel.src] placeholderImage:[UIImage imageNamed:@"电台"]];
+    self.nameL.text = kkModel.title;
+}
+
 @end

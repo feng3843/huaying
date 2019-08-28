@@ -10,12 +10,15 @@
 #import "movie/Mogu/MoGuController.h"
 #import "movie/Xiao1APP/XXYSViewController.h"
 #import "movie/kuaikan/KKViewController.h"
-#import "movie/wanmei/WMViewController.h"
+#import "WMViewController.h"
 #import "movie/dianshi/DianshiViewController.h"
 #import "movie/dianshi/DianyingViewController.h"
 #import "DWSJViewController.h"
 #import "RYZRViewController.h"
 #import "ZRFXViewController.h"
+#import "HomeCell.h"
+#import "XPGoodsTuWenController.h"
+#import "KanKanViewController.h"
 @interface HomeViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic , strong) NSArray *titleArray;
 @property (nonatomic , strong) UITableView *tableView;
@@ -25,7 +28,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.titleArray = @[@"蘑菇影视",@"小小影视",@"快看",@"完美",@"电影频道",@"电视台",@"动物世界",@"人与自然",@"自然发现"];
+    self.titleArray = @[@"蘑菇影视",@"小小影视",@"快看",@"今日影视",@"电影频道",@"电视台",@"动物世界",@"人与自然",@"自然发现"];
     self.view.backgroundColor = [UIColor blackColor];
     UITableView *table = [[UITableView alloc]initWithFrame:CGRectMake(0,88, screenW, screenH - 88 - 34) style:UITableViewStylePlain];
     self.tableView = table;
@@ -37,6 +40,7 @@
     table.rowHeight = UITableViewAutomaticDimension;
     table.backgroundColor = [UIColor blackColor];
     table.tableFooterView = [UIView new];
+    [table registerNib:[UINib nibWithNibName:@"HomeCell" bundle:nil] forCellReuseIdentifier:@"HomeCell"];
     [self.view addSubview:table];
     
     if (@available(iOS 11.0, *)) {
@@ -55,33 +59,30 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
-    }
-    cell.textLabel.text = self.titleArray[indexPath.row];
+    HomeCell *cell = [tableView dequeueReusableCellWithIdentifier:@"HomeCell" forIndexPath:indexPath];
+    cell.textL.text = self.titleArray[indexPath.row];
     cell.backgroundColor = [UIColor blackColor];
-    cell.textLabel.textColor = [UIColor whiteColor];
+    cell.textL.textColor = [UIColor whiteColor];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     switch (indexPath.row) {
         case 0:{
-            cell.imageView.image = [UIImage imageNamed:@"mogu"];
+            cell.imgV.image = [UIImage imageNamed:@"mogu"];
             break;
         }
         case 1:{
-            cell.imageView.image = [UIImage imageNamed:@"xiaoxiao"];
+            cell.imgV.image = [UIImage imageNamed:@"xiaoxiao"];
             break;
         }
         case 2:{
-            cell.imageView.image = [UIImage imageNamed:@"快看漫画"];
+            cell.imgV.image = [UIImage imageNamed:@"快看漫画"];
             break;
         }
         case 3:{
-           cell.imageView.image = [UIImage imageNamed:@"简直完美"];
+           cell.imgV.image = [UIImage imageNamed:@"简直完美"];
             break;
         }
         default:
-            cell.imageView.image = [UIImage imageNamed:@"电台"];
+            cell.imgV.image = [UIImage imageNamed:@"电台"];
             break;
     }
     return cell;
@@ -105,8 +106,13 @@
         }
         case 2:{
             KKViewController *vc = [[KKViewController alloc]init];
-            vc.url = @"http://app123.66s.cc/qian50m.html";
+            vc.url = @"http://app123.66s.cc";
             [self.navigationController pushViewController:vc animated:YES];
+            
+//            KanKanViewController *vc = [[KanKanViewController alloc]init];
+//            [self.navigationController pushViewController:vc animated:YES];
+//            
+
             break;
         }
         case 3:{

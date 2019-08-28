@@ -82,6 +82,11 @@
 		04CE41AE22E016890074521C /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CE41A622E016890074521C /* SVIndefiniteAnimatedView.m */; };
 		04CE41AF22E016890074521C /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 04CE41A722E016890074521C /* SVProgressHUD.bundle */; };
 		04CE41B322E01C950074521C /* XPGoodsTuWenController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CE41B222E01C950074521C /* XPGoodsTuWenController.m */; };
+		04E35478231613E000FA9571 /* HomeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E35476231613E000FA9571 /* HomeCell.m */; };
+		04E35479231613E000FA9571 /* HomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04E35477231613E000FA9571 /* HomeCell.xib */; };
+		04E3547C231667F400FA9571 /* KanKanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E3547B231667F400FA9571 /* KanKanViewController.m */; };
+		04E3547F2316760100FA9571 /* KKModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E3547E2316760100FA9571 /* KKModel.m */; };
+		04E3548223167ADC00FA9571 /* KKPlayListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E3548123167ADC00FA9571 /* KKPlayListController.m */; };
 		04F5FCCD230D2460006D101F /* beiyong.json in Resources */ = {isa = PBXBuildFile; fileRef = 04F5FCCC230D2460006D101F /* beiyong.json */; };
 		04F7932B22F2B2C80034B610 /* MoGuController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F7932A22F2B2C80034B610 /* MoGuController.m */; };
 		04F7932E22F2B2F70034B610 /* MGKindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04F7932D22F2B2F70034B610 /* MGKindViewController.m */; };
@@ -363,6 +368,15 @@
 		04CE41A822E016890074521C /* SVProgressAnimatedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressAnimatedView.h; sourceTree = "<group>"; };
 		04CE41B122E01C950074521C /* XPGoodsTuWenController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XPGoodsTuWenController.h; sourceTree = "<group>"; };
 		04CE41B222E01C950074521C /* XPGoodsTuWenController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPGoodsTuWenController.m; sourceTree = "<group>"; };
+		04E35475231613E000FA9571 /* HomeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeCell.h; sourceTree = "<group>"; };
+		04E35476231613E000FA9571 /* HomeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeCell.m; sourceTree = "<group>"; };
+		04E35477231613E000FA9571 /* HomeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCell.xib; sourceTree = "<group>"; };
+		04E3547A231667F400FA9571 /* KanKanViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KanKanViewController.h; sourceTree = "<group>"; };
+		04E3547B231667F400FA9571 /* KanKanViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KanKanViewController.m; sourceTree = "<group>"; };
+		04E3547D2316760100FA9571 /* KKModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KKModel.h; sourceTree = "<group>"; };
+		04E3547E2316760100FA9571 /* KKModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KKModel.m; sourceTree = "<group>"; };
+		04E3548023167ADC00FA9571 /* KKPlayListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KKPlayListController.h; sourceTree = "<group>"; };
+		04E3548123167ADC00FA9571 /* KKPlayListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KKPlayListController.m; sourceTree = "<group>"; };
 		04F5FCCC230D2460006D101F /* beiyong.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = beiyong.json; sourceTree = "<group>"; };
 		04F7932922F2B2C80034B610 /* MoGuController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoGuController.h; sourceTree = "<group>"; };
 		04F7932A22F2B2C80034B610 /* MoGuController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoGuController.m; sourceTree = "<group>"; };
@@ -831,7 +845,7 @@
 			path = WRNavigation;
 			sourceTree = "<group>";
 		};
-		04CCA381230A548D00514BAA /* wanmei */ = {
+		04CCA381230A548D00514BAA /* jinriyingshi */ = {
 			isa = PBXGroup;
 			children = (
 				04CCA382230A54C900514BAA /* WMViewController.h */,
@@ -849,7 +863,7 @@
 				04CCA394230AA95B00514BAA /* WMSearchViewController.h */,
 				04CCA395230AA95B00514BAA /* WMSearchViewController.m */,
 			);
-			path = wanmei;
+			path = jinriyingshi;
 			sourceTree = "<group>";
 		};
 		04CD1DEC2314D4BE00E32ABF /* TFhpple */ = {
@@ -894,6 +908,12 @@
 			children = (
 				04F7933922F2D2310034B610 /* KKViewController.h */,
 				04F7933A22F2D2310034B610 /* KKViewController.m */,
+				04E3547A231667F400FA9571 /* KanKanViewController.h */,
+				04E3547B231667F400FA9571 /* KanKanViewController.m */,
+				04E3548023167ADC00FA9571 /* KKPlayListController.h */,
+				04E3548123167ADC00FA9571 /* KKPlayListController.m */,
+				04E3547D2316760100FA9571 /* KKModel.h */,
+				04E3547E2316760100FA9571 /* KKModel.m */,
 			);
 			path = kuaikan;
 			sourceTree = "<group>";
@@ -905,7 +925,7 @@
 				04FA2FCC22DEAA25004B889B /* Ergeduoduo */,
 				04FA2FCB22DEA9CC004B889B /* Xiao1APP */,
 				04FA2FCA22DEA9C3004B889B /* Mogu */,
-				04CCA381230A548D00514BAA /* wanmei */,
+				04CCA381230A548D00514BAA /* jinriyingshi */,
 				04F7933822F2D1AC0034B610 /* kuaikan */,
 				0428FD61230B9152003C0EFF /* dianshi */,
 			);
@@ -1201,6 +1221,9 @@
 				04367B85229CD9B9001F1769 /* XPHongBaoView.h */,
 				04FA38BE22DEC7C8004B889B /* HomeViewController.h */,
 				04FA38BF22DEC7C8004B889B /* HomeViewController.m */,
+				04E35475231613E000FA9571 /* HomeCell.h */,
+				04E35476231613E000FA9571 /* HomeCell.m */,
+				04E35477231613E000FA9571 /* HomeCell.xib */,
 				04CD1DFF2315206400E32ABF /* dwsj.plist */,
 				04411A8D2305029A005B9B8E /* index.json */,
 				04CD1DE72314B58B00E32ABF /* tv2.json */,
@@ -1545,6 +1568,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04E35479231613E000FA9571 /* HomeCell.xib in Resources */,
 				04CD1DE82314B58B00E32ABF /* tv2.json in Resources */,
 				44A1B0B4226DBD76009B28F2 /* LaunchScreen.storyboard in Resources */,
 				04411A8E2305029B005B9B8E /* index.json in Resources */,
@@ -1601,12 +1625,14 @@
 				04F7933122F2B7C80034B610 /* MGReboViewController.m in Sources */,
 				04B0C12922BCB69400D55526 /* MJRefreshAutoGifFooter.m in Sources */,
 				04FA38AA22DEC017004B889B /* SPDefaultControlView.m in Sources */,
+				04E3548223167ADC00FA9571 /* KKPlayListController.m in Sources */,
 				04CD1DE22314B3AC00E32ABF /* DianyingViewController.m in Sources */,
 				04FA38E722DECBBB004B889B /* YNPageCollectionView.m in Sources */,
 				04CD1DEB2314CF4800E32ABF /* DWSJViewController.m in Sources */,
 				44A1B18A226DC3D9009B28F2 /* SDWebImageTransition.m in Sources */,
 				049CC88622DF2B170018CAE0 /* XXPlayDetailController.m in Sources */,
 				04CD1E032315256500E32ABF /* DwsjStaticViewController.m in Sources */,
+				04E35478231613E000FA9571 /* HomeCell.m in Sources */,
 				04FA38A622DEC017004B889B /* UIView+MMLayout.m in Sources */,
 				04B0C12B22BCB69400D55526 /* MJRefreshNormalHeader.m in Sources */,
 				04FA38AC22DEC017004B889B /* StrUtils.m in Sources */,
@@ -1651,6 +1677,7 @@
 				44A1B13C226DC2C1009B28F2 /* VideoListCell.m in Sources */,
 				44A1B0AC226DBD64009B28F2 /* ViewController.m in Sources */,
 				44A1B187226DC3D9009B28F2 /* SDAnimatedImageRep.m in Sources */,
+				04E3547F2316760100FA9571 /* KKModel.m in Sources */,
 				04FA385822DEAFCE004B889B /* MASCompositeConstraint.m in Sources */,
 				04367B87229CD9B9001F1769 /* XPHongBaoView.m in Sources */,
 				04CCA396230AA95B00514BAA /* WMSearchViewController.m in Sources */,
@@ -1697,6 +1724,7 @@
 				04B0C12E22BCB69400D55526 /* MJRefreshFooter.m in Sources */,
 				04B0C12022BCB69400D55526 /* MJRefreshConst.m in Sources */,
 				04B0C12822BCB69400D55526 /* MJRefreshAutoStateFooter.m in Sources */,
+				04E3547C231667F400FA9571 /* KanKanViewController.m in Sources */,
 				04FA38B122DEC017004B889B /* NetWatcher.m in Sources */,
 				44A1B188226DC3D9009B28F2 /* SDImageCache.m in Sources */,
 				44A1B128226DBF2D009B28F2 /* AFNetworkActivityIndicatorManager.m in Sources */,
