@@ -19,6 +19,7 @@
 #import "HomeCell.h"
 #import "XPGoodsTuWenController.h"
 #import "KanKanViewController.h"
+#import "CCTVViewController.h"
 @interface HomeViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic , strong) NSArray *titleArray;
 @property (nonatomic , strong) UITableView *tableView;
@@ -28,7 +29,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.titleArray = @[@"蘑菇影视",@"小小影视",@"快看",@"今日影视",@"电影频道",@"电视台",@"动物世界",@"人与自然",@"自然发现"];
+    self.titleArray = @[@"蘑菇影视",@"小小影视",@"快看",@"今日影视",@"电影频道",@"电视台",@"CCTV"];
     self.view.backgroundColor = [UIColor blackColor];
     UITableView *table = [[UITableView alloc]initWithFrame:CGRectMake(0,88, screenW, screenH - 88 - 34) style:UITableViewStylePlain];
     self.tableView = table;
@@ -134,21 +135,12 @@
             break;
         }
         case 6:{
-            DWSJViewController *vc = [DWSJViewController new];
+            CCTVViewController *vc = [CCTVViewController new];
             [self.navigationController pushViewController:vc animated:YES];
             
             break;
         }
-        case 7:{
-            RYZRViewController *vc = [RYZRViewController new];
-            [self.navigationController pushViewController:vc animated:YES];
-            break;
-        }
-        case 8:{
-            ZRFXViewController *vc = [ZRFXViewController new];
-            [self.navigationController pushViewController:vc animated:YES];
-            break;
-        }
+        
             
         default:
             break;

@@ -39,7 +39,7 @@
     [SVProgressHUD setMaximumDismissTimeInterval:5];
     [SVProgressHUD setDefaultStyle:SVProgressHUDStyleCustom];
     [SVProgressHUD setForegroundColor:[UIColor whiteColor]];// 弹出框内容颜色
-    [SVProgressHUD setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.6]];
+    [SVProgressHUD setBackgroundColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:0.6]];
     [SVProgressHUD setInfoImage:nil];
   
     return YES;

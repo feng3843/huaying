@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0425259623175847003EECC3 /* CCTVViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0425259523175847003EECC3 /* CCTVViewController.m */; };
+		04252599231758F1003EECC3 /* CCTVListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 04252598231758F1003EECC3 /* CCTVListVC.m */; };
 		0428FD64230B9170003C0EFF /* DianshiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0428FD63230B9170003C0EFF /* DianshiViewController.m */; };
 		0428FD67230B95ED003C0EFF /* DSPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0428FD66230B95ED003C0EFF /* DSPlayViewController.m */; };
 		04367B87229CD9B9001F1769 /* XPHongBaoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04367B86229CD9B9001F1769 /* XPHongBaoView.m */; };
@@ -235,6 +237,10 @@
 
 /* Begin PBXFileReference section */
 		041D7603228915BC004108E9 /* Cartoon.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cartoon.entitlements; sourceTree = "<group>"; };
+		0425259423175847003EECC3 /* CCTVViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCTVViewController.h; sourceTree = "<group>"; };
+		0425259523175847003EECC3 /* CCTVViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCTVViewController.m; sourceTree = "<group>"; };
+		04252597231758F1003EECC3 /* CCTVListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCTVListVC.h; sourceTree = "<group>"; };
+		04252598231758F1003EECC3 /* CCTVListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCTVListVC.m; sourceTree = "<group>"; };
 		0428FD62230B9170003C0EFF /* DianshiViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DianshiViewController.h; sourceTree = "<group>"; };
 		0428FD63230B9170003C0EFF /* DianshiViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DianshiViewController.m; sourceTree = "<group>"; };
 		0428FD65230B95ED003C0EFF /* DSPlayViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DSPlayViewController.h; sourceTree = "<group>"; };
@@ -689,6 +695,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		042525902317576C003EECC3 /* CCTV1zhibo */ = {
+			isa = PBXGroup;
+			children = (
+				04CD1E0723152C2800E32ABF /* ZRFXViewController.h */,
+				04CD1E0823152C2800E32ABF /* ZRFXViewController.m */,
+				04CD1E04231527A700E32ABF /* RYZRViewController.h */,
+				04CD1E05231527A700E32ABF /* RYZRViewController.m */,
+				04CD1DE92314CF4800E32ABF /* DWSJViewController.h */,
+				04CD1DEA2314CF4800E32ABF /* DWSJViewController.m */,
+				04CD1DF82314F4C100E32ABF /* DWSJModel.h */,
+				04CD1DF92314F4C100E32ABF /* DWSJModel.m */,
+				0425259423175847003EECC3 /* CCTVViewController.h */,
+				0425259523175847003EECC3 /* CCTVViewController.m */,
+				04252597231758F1003EECC3 /* CCTVListVC.h */,
+				04252598231758F1003EECC3 /* CCTVListVC.m */,
+			);
+			path = CCTV1zhibo;
+			sourceTree = "<group>";
+		};
 		0428FD61230B9152003C0EFF /* dianshi */ = {
 			isa = PBXGroup;
 			children = (
@@ -921,6 +946,7 @@
 		04FA2FC922DEA999004B889B /* movie */ = {
 			isa = PBXGroup;
 			children = (
+				042525902317576C003EECC3 /* CCTV1zhibo */,
 				04FA387122DEC016004B889B /* SuperPlayer */,
 				04FA2FCC22DEAA25004B889B /* Ergeduoduo */,
 				04FA2FCB22DEA9CC004B889B /* Xiao1APP */,
@@ -935,14 +961,6 @@
 		04FA2FCA22DEA9C3004B889B /* Mogu */ = {
 			isa = PBXGroup;
 			children = (
-				04CD1E0723152C2800E32ABF /* ZRFXViewController.h */,
-				04CD1E0823152C2800E32ABF /* ZRFXViewController.m */,
-				04CD1E04231527A700E32ABF /* RYZRViewController.h */,
-				04CD1E05231527A700E32ABF /* RYZRViewController.m */,
-				04CD1DE92314CF4800E32ABF /* DWSJViewController.h */,
-				04CD1DEA2314CF4800E32ABF /* DWSJViewController.m */,
-				04CD1DF82314F4C100E32ABF /* DWSJModel.h */,
-				04CD1DF92314F4C100E32ABF /* DWSJModel.m */,
 				04875B8422D86681007B71AD /* PlayModel.h */,
 				04875B8022D86680007B71AD /* PlayModel.m */,
 				04875B8322D86681007B71AD /* MovieCell.h */,
@@ -1659,6 +1677,8 @@
 				44A1B18D226DC3D9009B28F2 /* NSImage+WebCache.m in Sources */,
 				44A1B191226DC3D9009B28F2 /* UIView+WebCache.m in Sources */,
 				04CCA384230A54C900514BAA /* WMViewController.m in Sources */,
+				0425259623175847003EECC3 /* CCTVViewController.m in Sources */,
+				04252599231758F1003EECC3 /* CCTVListVC.m in Sources */,
 				44A1B189226DC3D9009B28F2 /* SDWebImageDownloaderOperation.m in Sources */,
 				04FA38AF22DEC017004B889B /* TXCUrl.m in Sources */,
 				04CE41AD22E016890074521C /* SVProgressHUD.m in Sources */,
