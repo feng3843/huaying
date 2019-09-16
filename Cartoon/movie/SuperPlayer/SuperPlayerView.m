@@ -338,7 +338,7 @@ static UISlider * _volumeSlider;
         TXVodPlayConfig *config = [[TXVodPlayConfig alloc] init];
         config.cacheFolderPath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingString:@"/TXCache"];
         config.progressInterval = 0.02;
-        //        config.playerType = PLAYER_AVPLAYER;
+        config.playerType = self.playerConfig.playerType;// PLAYER_AVPLAYER;//zzxxhh zxh
         config.headers = self.playerConfig.headers;
         config.maxCacheItems = (int)self.playerConfig.maxCacheItem;
 

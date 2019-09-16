@@ -17,6 +17,7 @@
     self.renderMode = RENDER_MODE_FILL_EDGE;
     self.maxCacheItem = 5;
     self.playShiftDomain = @"playtimeshift.live.myqcloud.com";
+    self.playerType = PLAYER_AVPLAYER;
     self.enableLog = YES;
     return self;
 }

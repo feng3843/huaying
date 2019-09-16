@@ -56,6 +56,13 @@
     [self.view addSubview:self.playerFatherView];
     //设置播放器
     self.playerView = [[SuperPlayerView alloc] init];
+    
+    SuperPlayerViewConfig *config = [[SuperPlayerViewConfig alloc]init];
+    config.hwAcceleration = NO;
+    config.maxCacheItem = 20;
+    config.playerType = PLAYER_AVPLAYER;//zxh zzxxhh 启用avplayer可以减少某些卡顿
+    self.playerView.playerConfig = config;
+    
     // 设置代理
     self.playerView.fatherView = self.playerFatherView;
     self.playerView.delegate = self;

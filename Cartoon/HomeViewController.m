@@ -119,11 +119,6 @@
             KKViewController *vc = [[KKViewController alloc]init];
             vc.url = @"http://app123.66s.cc";
             [self.navigationController pushViewController:vc animated:YES];
-            
-//            KanKanViewController *vc = [[KanKanViewController alloc]init];
-//            [self.navigationController pushViewController:vc animated:YES];
-//            
-
             break;
         }
         case 4:{
