@@ -1,24 +1,22 @@
 //
-//  XXPlayDetailController.m
+//  DDDetailVC.m
 //  Cartoon
 //
-//  Created by zxh on 2019/7/17.
+//  Created by zxh on 2019/9/16.
 //  Copyright © 2019 hanyong. All rights reserved.
 //
 
-#import "XXPlayDetailController.h"
+#import "DDDetailVC.h"
 #import "SuperPlayer.h"
 #import "SPWeiboControlView.h"
-#import "XXPlayModel.h"
+#import "PlayModel.h"
 #import "XPGoodsTuWenController.h"
-
-#import "M3u8ResourceLoader_OC.h"
-#import <AVFoundation/AVFoundation.h>
+#import "DDPlayModel.h"
 
 #define COMMENT_TV_H 60
 #define DEFAULT_TV_H 33
 
-@interface XXPlayDetailController ()<SuperPlayerDelegate>
+@interface DDDetailVC ()<SuperPlayerDelegate>
 
 /** 播放器View的父视图*/
 @property (nonatomic) UIView *playerFatherView;
@@ -27,19 +25,17 @@
 
 @property (nonatomic , strong) UILabel *intoL;
 @property (nonatomic , strong) UILabel *nameL;
-@property (nonatomic , strong) UILabel *urlL;
 @property (nonatomic , strong) UILabel *lastL;
+@property (nonatomic , strong) UILabel *urlL;
 @property (nonatomic , strong) UIScrollView *scrollView;
 
-@property (nonatomic , strong) XXPlayModel *selectedModel;
+@property (nonatomic , strong) DDPlayModel *selectedModel;
 @property (nonatomic , strong) UIButton *selectedBtn;
-
-@property (nonatomic , strong) AVPlayer *player;
-@property (nonatomic , strong)AVPlayerLayer *playerLayer;
+@property (nonatomic , strong) NSMutableArray *playLists;
 
 @end
 
-@implementation XXPlayDetailController
+@implementation DDDetailVC
 
 - (void)dealloc {
     [self.playerView resetPlayer];  //非常重要
@@ -58,6 +54,44 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    [self getVodDetailInfo];
+}
+
+-(void)getVodDetailInfo{
+    NSString *url = [NSString stringWithFormat:@"http://kkapp.dingdang.tv:8089//ajax/getDetail?mid=1&id=%@",self.vodModel.vod_id];
+    [XPNetWorkTool requestWithType:HttpRequestTypeGet withHttpHeaderFieldDict:nil withUrlString:url withParaments:nil withSuccessBlock:^(NSDictionary *responseObject) {
+        NSDictionary *info = responseObject[@"info"];
+        if (info) {
+            self.vodModel = [DDMovieItem mj_objectWithKeyValues:info];
+            NSDictionary *playlist = info[@"vod_play_list"];
+            NSDictionary *child = [[playlist allValues] firstObject];
+            if (child) {
+                NSString *urlstr = child[@"url"];
+                NSArray *urlArray = [urlstr componentsSeparatedByString:@"#"];
+                self.playLists = [NSMutableArray array];
+                for (NSString *url in urlArray) {
+                    DDPlayModel *model = [DDPlayModel new];
+                    NSArray *modelList = [url componentsSeparatedByString:@"$"];
+                    if (modelList.count > 1) {
+                        model.name = modelList[0];
+                         model.url = modelList[1];
+                        [self.playLists addObject:model];
+                    }
+                }
+                [self setUI];
+                return ;
+            }
+        }
+        [SVProgressHUD showInfoWithStatus:@"获取详情失败！！！！"];
+       
+    } withFailureBlock:^(NSString *errorMsg) {
+       
+    } progress:^(float progress) {
+        
+    }];
+}
+
+-(void)setUI{
     self.view.backgroundColor = [UIColor blackColor];
     
     //显示的播放界面
@@ -76,10 +110,17 @@
     self.playerView.fatherView = self.playerFatherView;
     self.playerView.delegate = self;
     
-    self.playerModel = [[SuperPlayerModel alloc]init];
-    
-    self.scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(self.playerFatherView.frame), ScreenWidth, ScreenHeight - CGRectGetMaxY(self.playerFatherView.frame))];
+    self.scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(self.playerFatherView.frame), ScreenWidth, ScreenHeight - CGRectGetMaxY(self.playerFatherView.frame) - 60)];
     [self.view addSubview:self.scrollView];
+    
+    UIButton *bottombtn = [[UIButton alloc]initWithFrame:CGRectMake(40, CGRectGetMaxY(self.scrollView.frame), screenW - 80, 30)];
+    [bottombtn setTitle:@"隐藏" forState:UIControlStateNormal];
+    [bottombtn setTitle:@"显示" forState:UIControlStateSelected];
+    [bottombtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+    [bottombtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateSelected];
+    [bottombtn addTarget:self action:@selector(bottombtnclick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:bottombtn];
+    
     
     self.nameL = [[UILabel alloc]initWithFrame:CGRectMake(20, 0, ScreenWidth - 150, 15)];
     self.nameL.textColor = [UIColor whiteColor];
@@ -90,7 +131,7 @@
     self.lastL = [[UILabel alloc]initWithFrame:CGRectMake(ScreenWidth - 130, 0, 130, 15)];
     self.lastL.textColor = [UIColor whiteColor];
     self.lastL.font = [UIFont systemFontOfSize:9 weight:UIFontWeightMedium];
-    NSString *mid = [NSString stringWithFormat:@"xiao%@",self.model.vodid];
+    NSString *mid = [NSString stringWithFormat:@"DD%@",self.vodModel.vod_id];
     NSString *str = [[NSUserDefaults standardUserDefaults] valueForKey:mid];
     self.lastL.text = [NSString stringWithFormat:@"上次观看:%@",str];
     [self.scrollView addSubview:self.lastL];
@@ -114,9 +155,10 @@
     [self.scrollView addSubview:self.intoL];
     self.intoL.numberOfLines = 0;
     
-    self.intoL.text = self.model.intro;
-    self.nameL.text = self.model.title;
-    CGSize size = [self.model.intro boundingRectWithSize:CGSizeMake(screenW - 40, 100000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:12]} context:nil].size;
+    
+    self.intoL.text = self.vodModel.vod_content;
+    self.nameL.text = self.vodModel.vod_name;
+    CGSize size = [self.vodModel.vod_content boundingRectWithSize:CGSizeMake(screenW - 40, 100000) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:12]} context:nil].size;
     CGRect frame = self.intoL.frame;
     frame.size = size;
     self.intoL.frame = frame;
@@ -126,8 +168,8 @@
     float y = CGRectGetMaxY(self.intoL.frame) + 20;
     float h = 34;
     
-    for (int i = 0 ; i < self.model.playlist.count ;i++) {
-        XXPlayModel *model = self.model.playlist[i];
+    for (int i = 0 ; i < self.self.playLists.count ;i++) {
+        DDPlayModel *model = self.playLists[i];
         
         UIButton *btn = [[UIButton alloc]init];
         btn.layer.cornerRadius = 5;
@@ -139,7 +181,7 @@
         [btn setBackgroundImage:imgsel forState:UIControlStateSelected];
         btn.selected = NO;
         btn.tag = i;
-        [btn setTitle:model.play_name forState:UIControlStateNormal];
+        [btn setTitle:model.name forState:UIControlStateNormal];
         [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
         [btn sizeToFit];
         CGSize size = CGSizeMake(btn.bounds.size.width + 20 < 45 ? 45 : btn.bounds.size.width + 20, h);
@@ -171,25 +213,23 @@
     }
     UIScrollView *sc = (UIScrollView *)self.scrollView;
     sc.contentSize = CGSizeMake(0, y + 50);
-    
 }
 
 -(void)btnClick:(UIButton *)btn{
-
-    if (self.selectedBtn == btn) {
-        return;
+    if (self.selectedBtn != btn) {
+        self.selectedBtn.selected = NO;
     }
-    self.selectedBtn.selected = NO;
     btn.selected = !btn.selected;
     self.selectedBtn = btn;
     
-    XXPlayModel *model = self.model.playlist[btn.tag];
+    DDPlayModel *model = self.playLists[btn.tag];
     if (self.selectedModel != model) {
         self.selectedModel = model;
         //播放新的model
         NSLog(@"播放新的model");
         [self PlayWithPlayModel:model needSave:YES];
     }
+    NSLog(@"%@",model.url);
 }
 
 -(void)viewWillAppear:(BOOL)animated{
@@ -199,6 +239,11 @@
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
+    //创建模型
+    SuperPlayerModel *playerModel = [[SuperPlayerModel alloc] init];
+    self.playerModel = playerModel;
+    //    playerModel.videoURL = self.selectedModel.url;
+    //播放模型
     [self PlayWithPlayModel:self.selectedModel needSave:NO];
 }
 
@@ -207,47 +252,29 @@
     [self.playerView resetPlayer];
 }
 
--(void)PlayWithPlayModel:(XXPlayModel *)model needSave:(BOOL)save{
+-(void)PlayWithPlayModel:(DDPlayModel *)model needSave:(BOOL)save{
     [self.playerView resetPlayer];
-    self.urlL.text = @"重设播放器！";
     if (save) {
-        NSString *mid = [NSString stringWithFormat:@"xiao%@",self.model.vodid];
-        NSString *str = model.play_name;
+        NSString *mid = [NSString stringWithFormat:@"DD%@",self.vodModel.vod_id];
+        NSString *str = model.name;
         self.lastL.text = [NSString stringWithFormat:@"上次观看:%@",str];
         [[NSUserDefaults standardUserDefaults] setValue:str forKey:mid];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
-    NSString *url = [NSString stringWithFormat:@"https://ios.xiaoxiaoimg.com/vod/reqplay/%@?playindex=%@",self.model.vodid,model.playindex];
-    [XPNetWorkTool requestWithType:HttpRequestTypeGet withHttpHeaderFieldDict:nil withUrlString:url withParaments:nil withSuccessBlock:^(NSDictionary *responseObject) {
-        NSLog(@"%@",responseObject);
-        NSString *playurl =  responseObject[@"data"][@"httpurl"];
-
-        if (playurl) {
-            self.urlL.text = playurl;
-        }else{
-            self.urlL.text = @"地址获取失败";
-        }
-        self.playerModel.videoURL = playurl;
-        [self.playerView playWithModel:self.playerModel];
-    } withFailureBlock:^(NSString *errorMsg) {
-        self.urlL.text = @"地址获取失败";
-    } progress:^(float progress) {
-        
-    }];
+    self.urlL.text = @"重设播放器";
+    self.playerModel.videoURL = model.url;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.urlL.text = model.url;
+    });
+    [self.playerView playWithModel:self.playerModel];
 }
 
-
-
 -(void)goWeb{
-    NSString *ssss = [NSString stringWithFormat:@"<!DOCTYPE HTML><html style = \"background-color:#000000 \"><body style =\" height:100%%,display:flex;justify-content:center;align-items:center; background-color:#000000\"><video style={} class=\"tvhou\" width=\"100%%\" height=\"100%%\"controls=\"controls\" autoplay=\"autoplay\" x-webkit-airplay=\"true\" preload=\"auto\"> <source type=\"application/x-mpegURL\" src=\"%@\"></video></body></html>",self.playerModel.videoURL];
-    
-//      ssss = @"<iframe width='100%%' height='483' src='http://1717.kkkkmao.com/1717yun/index.php?url=1006_ff75f5f8ac284fa5b8fe369e9348181b&?Next=http://www.kkkkmao.com/Domestic/luzhanzhiwang/player-0-1.html' frameborder='0' border='0' marginwidth='0' marginheight='0' scrolling='no' allowfullscreen='allowfullscreen' mozallowfullscreen='mozallowfullscreen' msallowfullscreen='msallowfullscreen' oallowfullscreen='oallowfullscreen' webkitallowfullscreen='webkitallowfullscreen'></iframe>";
-    
+    NSString *ssss = [NSString stringWithFormat:@"<!DOCTYPE HTML><html style = \"background-color:#000000 \"><body style =\" height:100%%,display:flex;justify-content:center;align-items:center; background-color:#000000\"><video style={} class=\"tvhou\" width=\"100%%\" height=\"100%%\"controls=\"controls\" autoplay=\"autoplay\" x-webkit-airplay=\"true\"  x5-video-player-fullscreen=\"true\" preload=\"auto\" playsinline=\"true\" webkit-playsinline x5-video-player-typ=\"h5\"> <source type=\"application/x-mpegURL\" src=\"%@\"></video></body></html>",self.playerModel.videoURL];
     XPGoodsTuWenController *vc = [XPGoodsTuWenController new];
     vc.html = ssss;
     [self.navigationController pushViewController:vc animated:YES];
 }
-
 
 #pragma mark - 状态控制
 // 返回值要必须为NO
@@ -299,7 +326,15 @@
     UIGraphicsEndImageContext();
     return image;
 }
+
+
+-(void)bottombtnclick:(UIButton *)btn{
+    btn.selected = !btn.selected;
+    if (btn.selected) {
+        self.scrollView.hidden = YES;
+    }else{
+        self.scrollView.hidden = NO;
+    }
+}
+
 @end
-
-
-

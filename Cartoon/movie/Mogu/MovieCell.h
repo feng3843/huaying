@@ -12,6 +12,7 @@
 #import "WMModel.h"
 #import "DWSJModel.h"
 #import "KKModel.h"
+#import "DDMovieItem.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MovieCell : UITableViewCell
@@ -20,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic , strong) WMModel *wmModel;
 @property (nonatomic , strong) DWSJModel *dwsjModel;
 @property (nonatomic , strong) KKModel *kkModel;
+@property (nonatomic , strong) DDMovieItem *ddModel;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -20,6 +20,7 @@
 #import "XPGoodsTuWenController.h"
 #import "KanKanViewController.h"
 #import "CCTVViewController.h"
+#import "DDViewController.h"
 @interface HomeViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic , strong) NSArray *titleArray;
 @property (nonatomic , strong) UITableView *tableView;
@@ -29,7 +30,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.titleArray = @[@"蘑菇影视",@"小小影视",@"快看",@"今日影视",@"电影频道",@"电视台",@"CCTV"];
+    self.titleArray = @[@"叮当影视",@"蘑菇影视",@"小小影视",@"快看",@"今日影视",@"电影频道",@"电视台",@"CCTV"];
     self.view.backgroundColor = [UIColor blackColor];
     UITableView *table = [[UITableView alloc]initWithFrame:CGRectMake(0,88, screenW, screenH - 88 - 34) style:UITableViewStylePlain];
     self.tableView = table;
@@ -67,18 +68,22 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     switch (indexPath.row) {
         case 0:{
-            cell.imgV.image = [UIImage imageNamed:@"mogu"];
+            cell.imgV.image = [UIImage imageNamed:@"叮当"];
             break;
         }
         case 1:{
-            cell.imgV.image = [UIImage imageNamed:@"xiaoxiao"];
+            cell.imgV.image = [UIImage imageNamed:@"mogu"];
             break;
         }
         case 2:{
-            cell.imgV.image = [UIImage imageNamed:@"快看漫画"];
+            cell.imgV.image = [UIImage imageNamed:@"xiaoxiao"];
             break;
         }
         case 3:{
+            cell.imgV.image = [UIImage imageNamed:@"快看漫画"];
+            break;
+        }
+        case 4:{
            cell.imgV.image = [UIImage imageNamed:@"简直完美"];
             break;
         }
@@ -96,16 +101,21 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     switch (indexPath.row) {
         case 0:{
-            MoGuController *vc = [[MoGuController alloc]init];
+            DDViewController *vc = [[DDViewController alloc]init];
             [self.navigationController pushViewController:vc animated:YES];
             break;
         }
         case 1:{
-            XXYSViewController *vc = [[XXYSViewController alloc]init];
+            MoGuController *vc = [[MoGuController alloc]init];
             [self.navigationController pushViewController:vc animated:YES];
             break;
         }
         case 2:{
+            XXYSViewController *vc = [[XXYSViewController alloc]init];
+            [self.navigationController pushViewController:vc animated:YES];
+            break;
+        }
+        case 3:{
             KKViewController *vc = [[KKViewController alloc]init];
             vc.url = @"http://app123.66s.cc";
             [self.navigationController pushViewController:vc animated:YES];
@@ -116,25 +126,25 @@
 
             break;
         }
-        case 3:{
+        case 4:{
             WMViewController *vc = [[WMViewController alloc]init];
             [self.navigationController pushViewController:vc animated:YES];
             
             break;
         }
-        case 4:{
+        case 5:{
             DianyingViewController *vc = [DianyingViewController new];
             [self.navigationController pushViewController:vc animated:YES];
             
             break;
         }
-        case 5:{
+        case 6:{
             DianshiViewController *vc = [DianshiViewController new];
             [self.navigationController pushViewController:vc animated:YES];
             
             break;
         }
-        case 6:{
+        case 7:{
             CCTVViewController *vc = [CCTVViewController new];
             [self.navigationController pushViewController:vc animated:YES];
             

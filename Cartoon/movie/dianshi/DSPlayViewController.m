@@ -120,6 +120,7 @@
 // 返回值要必须为NO
 - (BOOL)shouldAutorotate {
     return NO;
+
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {

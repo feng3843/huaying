@@ -81,4 +81,13 @@
     self.nameL.text = kkModel.title;
 }
 
+-(void)setDdModel:(DDMovieItem *)ddModel{
+    _ddModel = ddModel;
+    self.actorL.text = ddModel.vod_content;
+    self.noteL.text = ddModel.vod_remarks;
+    self.idL.text = [NSString stringWithFormat:@"%@",ddModel.vod_id];
+    [self.imageV sd_setImageWithURL:[NSURL URLWithString:ddModel.vod_pic] placeholderImage:[UIImage imageNamed:@"电台"]];
+    self.nameL.text = ddModel.vod_name;
+}
+
 @end

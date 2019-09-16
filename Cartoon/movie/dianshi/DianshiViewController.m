@@ -8,6 +8,8 @@
 
 #import "DianshiViewController.h"
 #import "DSPlayViewController.h"
+#import "TestMp3ViewController.h"
+
 @interface DianshiViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic , strong) NSMutableArray *playList;
 @property (nonatomic , strong) UITableView *tableView;

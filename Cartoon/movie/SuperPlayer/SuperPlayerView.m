@@ -1265,7 +1265,7 @@ static UISlider * _volumeSlider;
             NSString *desc = [param description];
             NSString *logText = [NSString stringWithCString:[desc cStringUsingEncoding:NSUTF8StringEncoding] encoding:NSNonLossyASCIIStringEncoding];
             [[NSNotificationCenter defaultCenter] postNotificationName:@"VOD_LOG_INFO" object:nil userInfo:@{@"logText" : logText}];
-            NSLog(@"%@", logText);
+            NSLog(@"%@   %d", logText,EvtID);
         }
         if (EvtID == PLAY_EVT_RCV_FIRST_I_FRAME) {
             [self setNeedsLayout];
