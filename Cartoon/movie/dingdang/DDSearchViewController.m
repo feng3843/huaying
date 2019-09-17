@@ -121,17 +121,19 @@
             item.vod_name = dict[@"name"];
             [array addObject:item];
         }
-        if (sender == nil) {
-            [self.dataList addObjectsFromArray:array];
-            [self.tableView.mj_footer endRefreshing];
+        if (array.count == 0) {
+            [self.tableView.mj_footer endRefreshingWithNoMoreData];
+            [SVProgressHUD showInfoWithStatus:@"没有更多数据了～！"];
         }else{
-            if (array.count == 0) {
-                [self.tableView.mj_footer endRefreshingWithNoMoreData];
+            if (sender == nil) {
+                self.dataList  = [array mutableCopy];
+                [self.tableView.mj_footer endRefreshing];
             }else{
                 [self.dataList addObjectsFromArray:array];
                 [self.tableView.mj_footer endRefreshing];
             }
         }
+        
         [self.tableView reloadData];
         [self.view bringSubviewToFront:self.tableView];
     } withFailureBlock:^(NSString *errorMsg) {

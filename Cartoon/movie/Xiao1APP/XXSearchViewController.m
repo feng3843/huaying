@@ -112,12 +112,12 @@
     [XPNetWorkTool requestWithType:HttpRequestTypeGet withHttpHeaderFieldDict:nil withUrlString:url withParaments:nil withSuccessBlock:^(NSDictionary *responseObject) {
         NSLog(@"%@",responseObject);
         NSMutableArray *array = [XXMovieListModel mj_objectArrayWithKeyValuesArray:responseObject[@"data"][@"vodrows"]];
-        if (sender == nil) {
-            [self.dataList addObjectsFromArray:array];
-            [self.tableView.mj_footer endRefreshing];
+        if (array.count == 0) {
+            [self.tableView.mj_footer endRefreshingWithNoMoreData];
         }else{
-            if (array.count == 0) {
-                [self.tableView.mj_footer endRefreshingWithNoMoreData];
+            if (sender == nil) {
+                self.dataList = [array mutableCopy];
+                [self.tableView.mj_footer endRefreshing];
             }else{
                 [self.dataList addObjectsFromArray:array];
                 [self.tableView.mj_footer endRefreshing];

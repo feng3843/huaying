@@ -54,6 +54,10 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    //创建模型
+    SuperPlayerModel *playerModel = [[SuperPlayerModel alloc] init];
+    self.playerModel = playerModel;
+    
     [self getVodDetailInfo];
 }
 
@@ -194,7 +198,12 @@
             self.selectedBtn = btn;
             btn.selected = YES;
         }
-        
+        if (str && [str isEqualToString:model.name]) {
+            self.selectedModel = model;
+            self.selectedBtn.selected = NO;
+            self.selectedBtn = btn;
+            btn.selected = YES;
+        }
         //每次X递增Margin
         x = Margin + x;
         //计算btn的X
@@ -213,6 +222,11 @@
     }
     UIScrollView *sc = (UIScrollView *)self.scrollView;
     sc.contentSize = CGSizeMake(0, y + 50);
+    BOOL flag = NO;
+    if (self.selectedModel == [self.playLists firstObject]) {
+        flag = YES;
+    }
+    [self PlayWithPlayModel:self.selectedModel needSave:flag];
 }
 
 -(void)btnClick:(UIButton *)btn{
@@ -237,15 +251,6 @@
     [self.navigationController setNavigationBarHidden:YES animated:YES];
 }
 
-- (void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
-    //创建模型
-    SuperPlayerModel *playerModel = [[SuperPlayerModel alloc] init];
-    self.playerModel = playerModel;
-    //    playerModel.videoURL = self.selectedModel.url;
-    //播放模型
-    [self PlayWithPlayModel:self.selectedModel needSave:NO];
-}
 
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
