@@ -10,6 +10,7 @@
 #import "NetTool/XPNetWorkTool.h"
 #import "HomeViewController.h"
 #import "WRNavigation/WRNavigationBar.h"
+#import <CoreFoundation/CoreFoundation.h>
 
 @interface AppDelegate ()
 
@@ -41,6 +42,10 @@
     [SVProgressHUD setForegroundColor:[UIColor whiteColor]];// 弹出框内容颜色
     [SVProgressHUD setBackgroundColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:0.6]];
     [SVProgressHUD setInfoImage:nil];
+    
+    NSString *str = [NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970]];
+    NSMutableDictionary * dataDic = [NSMutableDictionary dictionaryWithCapacity:0];
+    dataDic[@"aaa"] = nil;
   
     return YES;
 }
