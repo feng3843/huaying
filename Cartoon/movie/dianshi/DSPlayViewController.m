@@ -98,6 +98,25 @@
     self.textView.backgroundColor = [UIColor blackColor];
     [view1 addSubview:self.textView];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getInfo:) name:@"VOD_LOG_INFO" object:nil];
+    
+    UIButton *bottombtn = [[UIButton alloc]initWithFrame:CGRectMake(40, view1.frame.size.height - 60, screenW - 80, 60)];
+    [bottombtn setTitle:@"隐藏" forState:UIControlStateNormal];
+    [bottombtn setTitle:@"显示" forState:UIControlStateSelected];
+    [bottombtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+    [bottombtn setTitleColor:[UIColor lightGrayColor] forState:UIControlStateSelected];
+    [bottombtn addTarget:self action:@selector(bottombtnclick:) forControlEvents:UIControlEventTouchUpInside];
+    [view1 addSubview:bottombtn];
+}
+
+-(void)bottombtnclick:(UIButton *)btn{
+    btn.selected = !btn.selected;
+    if (btn.selected) {
+        self.urlL.hidden = YES;
+        self.textView.hidden = YES;
+    }else{
+        self.urlL.hidden = NO;
+        self.textView.hidden = NO;
+    }
 }
 
 -(void)getInfo:(NSNotification *)notify{
