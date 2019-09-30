@@ -30,7 +30,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.titleArray = @[@"叮当影视",@"蘑菇影视",@"小小影视",@"快看",@"今日影视",@"电影频道",@"电视台",@"CCTV"];
+    self.titleArray = @[@"叮当影视",@"今日影视",@"电影频道",@"电视台",@"CCTV-动物世界"];
     self.view.backgroundColor = [UIColor blackColor];
     UITableView *table = [[UITableView alloc]initWithFrame:CGRectMake(0,88, screenW, screenH - 88 - 34) style:UITableViewStylePlain];
     self.tableView = table;
@@ -71,19 +71,19 @@
             cell.imgV.image = [UIImage imageNamed:@"叮当"];
             break;
         }
+//        case 1:{
+//            cell.imgV.image = [UIImage imageNamed:@"mogu"];
+//            break;
+//        }
+//        case 2:{
+//            cell.imgV.image = [UIImage imageNamed:@"xiaoxiao"];
+//            break;
+//        }
+//        case 3:{
+//            cell.imgV.image = [UIImage imageNamed:@"快看漫画"];
+//            break;
+//        }
         case 1:{
-            cell.imgV.image = [UIImage imageNamed:@"mogu"];
-            break;
-        }
-        case 2:{
-            cell.imgV.image = [UIImage imageNamed:@"xiaoxiao"];
-            break;
-        }
-        case 3:{
-            cell.imgV.image = [UIImage imageNamed:@"快看漫画"];
-            break;
-        }
-        case 4:{
            cell.imgV.image = [UIImage imageNamed:@"简直完美"];
             break;
         }
@@ -105,41 +105,41 @@
             [self.navigationController pushViewController:vc animated:YES];
             break;
         }
+//        case 1:{
+//            MoGuController *vc = [[MoGuController alloc]init];
+//            [self.navigationController pushViewController:vc animated:YES];
+//            break;
+//        }
+//        case 2:{
+//            XXYSViewController *vc = [[XXYSViewController alloc]init];
+//            [self.navigationController pushViewController:vc animated:YES];
+//            break;
+//        }
+//        case 3:{
+//            KKViewController *vc = [[KKViewController alloc]init];
+//            vc.url = @"http://app123.66s.cc";
+//            [self.navigationController pushViewController:vc animated:YES];
+//            break;
+//        }
         case 1:{
-            MoGuController *vc = [[MoGuController alloc]init];
+            WMViewController *vc = [[WMViewController alloc]init];
             [self.navigationController pushViewController:vc animated:YES];
+
             break;
         }
         case 2:{
-            XXYSViewController *vc = [[XXYSViewController alloc]init];
-            [self.navigationController pushViewController:vc animated:YES];
-            break;
-        }
-        case 3:{
-            KKViewController *vc = [[KKViewController alloc]init];
-            vc.url = @"http://app123.66s.cc";
-            [self.navigationController pushViewController:vc animated:YES];
-            break;
-        }
-        case 4:{
-            WMViewController *vc = [[WMViewController alloc]init];
-            [self.navigationController pushViewController:vc animated:YES];
-            
-            break;
-        }
-        case 5:{
             DianyingViewController *vc = [DianyingViewController new];
             [self.navigationController pushViewController:vc animated:YES];
             
             break;
         }
-        case 6:{
+        case 3:{
             DianshiViewController *vc = [DianshiViewController new];
             [self.navigationController pushViewController:vc animated:YES];
             
             break;
         }
-        case 7:{
+        case 4:{
             CCTVViewController *vc = [CCTVViewController new];
             [self.navigationController pushViewController:vc animated:YES];
             
