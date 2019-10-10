@@ -96,6 +96,11 @@
 }
 
 -(void)setUI{
+    
+    NSLog(@"%@,%@",self.playLists,self.vodModel);
+    
+    
+    
     self.view.backgroundColor = [UIColor blackColor];
     
     //显示的播放界面

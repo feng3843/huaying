@@ -11,14 +11,44 @@
 #import "DDKindController.h"
 #import "DDSearchViewController.h"
 #import "DDZJViewController.h"
+#import "FMDB.h"
+//docment路径
+#define DOCUMENT_PATH [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]
+
 @interface DDViewController ()<YNPageViewControllerDelegate,YNPageViewControllerDataSource>
 @property (nonatomic , strong) NSMutableArray *titleItemArray;
 @end
 
-@implementation DDViewController
+@implementation DDViewController{
+     FMDatabase * _db;//消息数据库对象
+    NSString   * _docPath;//沙盒路径
+}
+
+-(void)openDb{
+    _docPath = DOCUMENT_PATH;
+    //设置消息的数据库名称
+    NSString *fileName = [_docPath stringByAppendingPathComponent:@"dingdang.sqlite"];
+    //2.获取数据库
+    _db = [FMDatabase databaseWithPath:fileName];
+    BOOL res = [_db open];
+    if (res) {
+        NSLog(@"打开数据库成功");
+        BOOL result = [_db executeUpdate:@"CREATE TABLE IF NOT EXISTS t_DINGDANG_VIDEO (id Integer PRIMARY KEY AUTOINCREMENT,vodId text UNIQUE , vodContent text , vodpic text , vodactor text, voddirector text , vodremarks text , vodname text ,vodurl text ,vodYear text , vodtimeadd text);"];
+        if (result) {
+            NSLog(@"success!");
+        }else{
+            NSLog(@"error!");
+        }
+        [_db close];
+    } else {
+        NSLog(@"打开数据库失败");
+    }
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self openDb];
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.view.backgroundColor = [UIColor lightGrayColor];
     [self navPageVCWithTitles:@[@"推荐",@"电影",@"电视",@"综艺",@"动漫",@"专题"]];

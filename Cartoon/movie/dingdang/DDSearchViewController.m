@@ -13,6 +13,12 @@
 #import "DDDetailVC.h"
 #import "MJRefresh.h"
 #define historePath [NSHomeDirectory() stringByAppendingPathComponent:@"Documents/dingdanghistory.plist"]
+
+//docment路径
+#define DOCUMENT_PATH [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject]
+
+#import "FMDB.h"
+
 @interface DDSearchViewController ()<UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate>
 //tableView
 @property (strong, nonatomic)  UITableView *tableView;
@@ -31,7 +37,71 @@
 
 @implementation DDSearchViewController{
     int _page;
+    FMDatabase * _db;//消息数据库对象
 }
+
+//-(void)insertDbWithDict:(NSDictionary *)videoDict{
+//    NSString *vodId = videoDict[@"vodId"];
+//    NSString *vodContent = videoDict[@"vodContent"];
+//    NSString * vodpic = videoDict[@"vodpic"];
+//    NSString *vodactor = videoDict[@"vodactor"];
+//    NSString *voddirector = videoDict[@"voddirector"];
+//    NSString *vodremarks = videoDict[@"vodremarks"];
+//    NSString *vodname = videoDict[@"vodname"];
+//    NSString *vodurl = videoDict[@"vodurl"];
+//    
+//    //设置消息的数据库名称
+//    NSString *fileName = [DOCUMENT_PATH stringByAppendingPathComponent:@"dingdang.sqlite"];
+//    //2.获取数据库
+//    _db = [FMDatabase databaseWithPath:fileName];
+//    if ([_db open]) {
+//        //1.executeUpdate:不确定的参数用？来占位（后面参数必须是oc对象，；代表语句结束）
+//        BOOL result = [_db executeUpdate:@"INSERT OR REPLACE INTO t_DINGDANG_VIDEO (vodId,vodContent, vodpic, vodactor, voddirector, vodremarks, vodname, vodurl) VALUES (?,?,?,?,?,?,?,?)",vodId,vodContent, vodpic, vodactor, voddirector, vodremarks, vodname, vodurl];
+//        if (result) {
+//            NSLog(@"---插入成功");
+//        } else {
+//            NSLog(@"---插入失败");
+//        }
+//        [_db close];
+//    }
+//}
+//
+//-(void)saveUrl{
+//    if (self.dataList.count == 0) {
+//        [SVProgressHUD showInfoWithStatus:@"无数据"];
+//        return;
+//    }
+//    
+//    for (DDMovieItem *model in self.dataList) {
+//        NSString *url = [NSString stringWithFormat:@"http://kkapp.dingdang.tv:8089//ajax/getDetail?mid=1&id=%@",model.vod_id];
+//           [XPNetWorkTool requestWithType:HttpRequestTypeGet withHttpHeaderFieldDict:nil withUrlString:url withParaments:nil withSuccessBlock:^(NSDictionary *responseObject) {
+//               NSDictionary *info = responseObject[@"info"];
+//               if (info) {
+//                   NSDictionary *playlist = info[@"vod_play_list"];
+//                   NSDictionary *child = [[playlist allValues] firstObject];
+//                   if (child) {
+//                       NSString *urlstr = child[@"url"];
+//                       NSMutableDictionary *videoDict = [NSMutableDictionary dictionary];
+//                       videoDict[@"vodId"] = model.vod_id;
+//                       videoDict[@"vodContent"] = model.vod_content;
+//                       videoDict[@"vodpic"] = model.vod_pic;
+//                       videoDict[@"vodactor"] = model.vod_actor;
+//                       videoDict[@"voddirector"] = model.vod_director;
+//                       videoDict[@"vodremarks"] = model.vod_remarks;
+//                       videoDict[@"vodname"] = model.vod_name;
+//                       videoDict[@"vodurl"] = urlstr;
+//                       [self insertDbWithDict:videoDict];
+//                   }
+//               }else{
+//                   [SVProgressHUD showInfoWithStatus:@"获取详情失败！！！！"];
+//               }
+//           } withFailureBlock:^(NSString *errorMsg) {
+//              
+//           } progress:^(float progress) {
+//               
+//           }];
+//    }
+//}
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -45,6 +115,8 @@
     _dataList = [NSMutableArray array];
     self.title = @"搜索";
     
+//    UIBarButtonItem *right = [[UIBarButtonItem alloc]initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(saveUrl)];
+//    self.navigationItem.rightBarButtonItem = right;
     
     _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 84,screenW ,screenH - 84)];
     _tableView.delegate = self;
@@ -108,7 +180,7 @@
         _page++;
     }
     NSString *keyWord = self.searchBar.text;
-    NSString *url = [[NSString stringWithFormat:@"http://kkapp.dingdang.tv:8089//ajax/suggest?mid=1&tid=0&page=%d&limit=15&wd=%@",_page,keyWord] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *url = [[NSString stringWithFormat:@"http://kkapp.dingdang.tv:8089//ajax/suggest?mid=1&tid=0&page=%d&limit=100&wd=%@",_page,keyWord] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     [XPNetWorkTool requestWithType:HttpRequestTypeGet withHttpHeaderFieldDict:nil withUrlString:url withParaments:nil withSuccessBlock:^(NSDictionary *responseObject) {
         NSLog(@"%@",responseObject);
         NSMutableArray *array = [NSMutableArray array];

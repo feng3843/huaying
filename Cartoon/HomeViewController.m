@@ -21,6 +21,8 @@
 #import "KanKanViewController.h"
 #import "CCTVViewController.h"
 #import "DDViewController.h"
+#import "DDOffsearchViewController.h"
+#import "DDOfflineViewController.h"
 @interface HomeViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic , strong) NSArray *titleArray;
 @property (nonatomic , strong) UITableView *tableView;
@@ -30,7 +32,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.titleArray = @[@"叮当影视",@"今日影视",@"电影频道",@"电视台",@"CCTV-动物世界"];
+    self.titleArray = @[@"叮当影视",@"今日影视",@"电影频道",@"电视台",@"CCTV-动物世界",@"离线电影"];
     self.view.backgroundColor = [UIColor blackColor];
     UITableView *table = [[UITableView alloc]initWithFrame:CGRectMake(0,88, screenW, screenH - 88 - 34) style:UITableViewStylePlain];
     self.tableView = table;
@@ -147,8 +149,12 @@
         }
         
             
-        default:
+        default:{
+            DDOfflineViewController *vc = [DDOfflineViewController new];
+            [self.navigationController pushViewController:vc animated:YES];
+            
             break;
+        }
     }
 }
 
