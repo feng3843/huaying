@@ -64,20 +64,6 @@
     _dataList = [NSMutableArray array];
     self.title = @"搜索";
     
-    UIBarButtonItem *right = [[UIBarButtonItem alloc]initWithTitle:@"保存数据" style:UIBarButtonItemStylePlain target:self action:@selector(saveUrl)];
-    self.navigationItem.rightBarButtonItem = right;
-    
-    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 84,screenW ,screenH - 84)];
-    _tableView.delegate = self;
-    _tableView.dataSource = self;
-    _tableView.separatorStyle = UITableViewCellSelectionStyleNone;
-    _tableView.backgroundColor = [UIColor blackColor];
-    self.view.backgroundColor = [UIColor blackColor];
-    [_tableView registerNib:[UINib nibWithNibName:@"MovieCell"  bundle:nil] forCellReuseIdentifier:@"MovieCell"];
-    if (@available(iOS 11, *)) {
-        _tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-    }
-    
     //创建UISearchController
     UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 84, screenW, 54)];
     _searchBar = [[XPLeftSearchBar alloc] initWithFrame:CGRectMake(10, 5, screenW - 20, 44)];
@@ -88,7 +74,7 @@
     [self.view addSubview:view];
     
     
-    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 84 + 54,screenW ,screenH - 84)];
+    _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 84 + 54,screenW ,screenH - 84 - 54)];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     _tableView.separatorStyle = UITableViewCellSelectionStyleNone;
