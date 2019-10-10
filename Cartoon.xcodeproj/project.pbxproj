@@ -52,6 +52,22 @@
 		04A25E792328DA3F00248B57 /* TestMp3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A25E782328DA3F00248B57 /* TestMp3ViewController.m */; };
 		04A6B101234EBEFF00593F0F /* dingdang.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 04A6B100234EBEFF00593F0F /* dingdang.sqlite */; };
 		04A6B104234EBFF900593F0F /* DDOfflineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A6B103234EBFF900593F0F /* DDOfflineViewController.m */; };
+		04A6B126234F2BF400593F0F /* UIViewController+BackItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A6B108234F2BF400593F0F /* UIViewController+BackItem.m */; };
+		04A6B127234F2BF400593F0F /* TopLeftLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A6B109234F2BF400593F0F /* TopLeftLabel.m */; };
+		04A6B128234F2BF400593F0F /* NSObject+CommonBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A6B110234F2BF400593F0F /* NSObject+CommonBlock.m */; };
+		04A6B129234F2BF400593F0F /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A6B111234F2BF400593F0F /* UIView+Additions.m */; };
+		04A6B12A234F2BF400593F0F /* UIButton+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A6B113234F2BF400593F0F /* UIButton+Additions.m */; };
+		04A6B12B234F2BF400593F0F /* NSData+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A6B114234F2BF400593F0F /* NSData+Common.m */; };
+		04A6B12C234F2BF400593F0F /* UIViewController+BackButtonHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A6B115234F2BF400593F0F /* UIViewController+BackButtonHandler.m */; };
+		04A6B12D234F2BF400593F0F /* NSString+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A6B116234F2BF400593F0F /* NSString+Common.m */; };
+		04A6B12E234F2BF400593F0F /* UIButton+Glossy.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A6B119234F2BF400593F0F /* UIButton+Glossy.m */; };
+		04A6B12F234F2BF400593F0F /* UIView+CustomAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A6B11A234F2BF400593F0F /* UIView+CustomAutoLayout.m */; };
+		04A6B130234F2BF400593F0F /* UIView+ColorCradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A6B11B234F2BF400593F0F /* UIView+ColorCradient.m */; };
+		04A6B131234F2BF400593F0F /* UIButton+Gradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A6B11C234F2BF400593F0F /* UIButton+Gradient.m */; };
+		04A6B132234F2BF400593F0F /* UIImage+compressIMG.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A6B11D234F2BF400593F0F /* UIImage+compressIMG.m */; };
+		04A6B133234F2BF400593F0F /* UIImage+Gradient.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A6B121234F2BF400593F0F /* UIImage+Gradient.m */; };
+		04A6B134234F2BF400593F0F /* UIImage+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A6B123234F2BF400593F0F /* UIImage+Additions.m */; };
+		04A6B135234F2BF400593F0F /* UIImage+Color.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A6B124234F2BF400593F0F /* UIImage+Color.m */; };
 		04B0C11F22BCB69400D55526 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B0C0EF22BCB69400D55526 /* UIScrollView+MJRefresh.m */; };
 		04B0C12022BCB69400D55526 /* MJRefreshConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 04B0C0F022BCB69400D55526 /* MJRefreshConst.m */; };
 		04B0C12122BCB69400D55526 /* MJRefresh.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 04B0C0F422BCB69400D55526 /* MJRefresh.bundle */; };
@@ -331,6 +347,38 @@
 		04A6B100234EBEFF00593F0F /* dingdang.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = dingdang.sqlite; sourceTree = "<group>"; };
 		04A6B102234EBFF900593F0F /* DDOfflineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDOfflineViewController.h; sourceTree = "<group>"; };
 		04A6B103234EBFF900593F0F /* DDOfflineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDOfflineViewController.m; sourceTree = "<group>"; };
+		04A6B106234F2BF400593F0F /* UIView+CustomAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CustomAutoLayout.h"; sourceTree = "<group>"; };
+		04A6B107234F2BF400593F0F /* UIButton+Glossy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Glossy.h"; sourceTree = "<group>"; };
+		04A6B108234F2BF400593F0F /* UIViewController+BackItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BackItem.m"; sourceTree = "<group>"; };
+		04A6B109234F2BF400593F0F /* TopLeftLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopLeftLabel.m; sourceTree = "<group>"; };
+		04A6B10A234F2BF400593F0F /* NSString+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Common.h"; sourceTree = "<group>"; };
+		04A6B10B234F2BF400593F0F /* UIImage+compressIMG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+compressIMG.h"; sourceTree = "<group>"; };
+		04A6B10C234F2BF400593F0F /* UIButton+Gradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Gradient.h"; sourceTree = "<group>"; };
+		04A6B10D234F2BF400593F0F /* UIView+ColorCradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ColorCradient.h"; sourceTree = "<group>"; };
+		04A6B10E234F2BF400593F0F /* UIImage+Color.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Color.h"; sourceTree = "<group>"; };
+		04A6B10F234F2BF400593F0F /* UIImage+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Additions.h"; sourceTree = "<group>"; };
+		04A6B110234F2BF400593F0F /* NSObject+CommonBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+CommonBlock.m"; sourceTree = "<group>"; };
+		04A6B111234F2BF400593F0F /* UIView+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Additions.m"; sourceTree = "<group>"; };
+		04A6B112234F2BF400593F0F /* UIImage+Gradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Gradient.h"; sourceTree = "<group>"; };
+		04A6B113234F2BF400593F0F /* UIButton+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Additions.m"; sourceTree = "<group>"; };
+		04A6B114234F2BF400593F0F /* NSData+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Common.m"; sourceTree = "<group>"; };
+		04A6B115234F2BF400593F0F /* UIViewController+BackButtonHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BackButtonHandler.m"; sourceTree = "<group>"; };
+		04A6B116234F2BF400593F0F /* NSString+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Common.m"; sourceTree = "<group>"; };
+		04A6B117234F2BF400593F0F /* TopLeftLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopLeftLabel.h; sourceTree = "<group>"; };
+		04A6B118234F2BF400593F0F /* UIViewController+BackItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BackItem.h"; sourceTree = "<group>"; };
+		04A6B119234F2BF400593F0F /* UIButton+Glossy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Glossy.m"; sourceTree = "<group>"; };
+		04A6B11A234F2BF400593F0F /* UIView+CustomAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CustomAutoLayout.m"; sourceTree = "<group>"; };
+		04A6B11B234F2BF400593F0F /* UIView+ColorCradient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ColorCradient.m"; sourceTree = "<group>"; };
+		04A6B11C234F2BF400593F0F /* UIButton+Gradient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Gradient.m"; sourceTree = "<group>"; };
+		04A6B11D234F2BF400593F0F /* UIImage+compressIMG.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+compressIMG.m"; sourceTree = "<group>"; };
+		04A6B11E234F2BF400593F0F /* UIButton+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Additions.h"; sourceTree = "<group>"; };
+		04A6B11F234F2BF400593F0F /* NSData+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Common.h"; sourceTree = "<group>"; };
+		04A6B120234F2BF400593F0F /* UIView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Additions.h"; sourceTree = "<group>"; };
+		04A6B121234F2BF400593F0F /* UIImage+Gradient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Gradient.m"; sourceTree = "<group>"; };
+		04A6B122234F2BF400593F0F /* NSObject+CommonBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+CommonBlock.h"; sourceTree = "<group>"; };
+		04A6B123234F2BF400593F0F /* UIImage+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Additions.m"; sourceTree = "<group>"; };
+		04A6B124234F2BF400593F0F /* UIImage+Color.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Color.m"; sourceTree = "<group>"; };
+		04A6B125234F2BF400593F0F /* UIViewController+BackButtonHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BackButtonHandler.h"; sourceTree = "<group>"; };
 		04B0C0ED22BCB69400D55526 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		04B0C0EF22BCB69400D55526 /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		04B0C0F022BCB69400D55526 /* MJRefreshConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshConst.m; sourceTree = "<group>"; };
@@ -840,6 +888,45 @@
 				0481C83222B1F8DD003DB6A9 /* libc++.tbd */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		04A6B105234F2BF400593F0F /* Catetory */ = {
+			isa = PBXGroup;
+			children = (
+				04A6B106234F2BF400593F0F /* UIView+CustomAutoLayout.h */,
+				04A6B107234F2BF400593F0F /* UIButton+Glossy.h */,
+				04A6B108234F2BF400593F0F /* UIViewController+BackItem.m */,
+				04A6B109234F2BF400593F0F /* TopLeftLabel.m */,
+				04A6B10A234F2BF400593F0F /* NSString+Common.h */,
+				04A6B10B234F2BF400593F0F /* UIImage+compressIMG.h */,
+				04A6B10C234F2BF400593F0F /* UIButton+Gradient.h */,
+				04A6B10D234F2BF400593F0F /* UIView+ColorCradient.h */,
+				04A6B10E234F2BF400593F0F /* UIImage+Color.h */,
+				04A6B10F234F2BF400593F0F /* UIImage+Additions.h */,
+				04A6B110234F2BF400593F0F /* NSObject+CommonBlock.m */,
+				04A6B111234F2BF400593F0F /* UIView+Additions.m */,
+				04A6B112234F2BF400593F0F /* UIImage+Gradient.h */,
+				04A6B113234F2BF400593F0F /* UIButton+Additions.m */,
+				04A6B114234F2BF400593F0F /* NSData+Common.m */,
+				04A6B115234F2BF400593F0F /* UIViewController+BackButtonHandler.m */,
+				04A6B116234F2BF400593F0F /* NSString+Common.m */,
+				04A6B117234F2BF400593F0F /* TopLeftLabel.h */,
+				04A6B118234F2BF400593F0F /* UIViewController+BackItem.h */,
+				04A6B119234F2BF400593F0F /* UIButton+Glossy.m */,
+				04A6B11A234F2BF400593F0F /* UIView+CustomAutoLayout.m */,
+				04A6B11B234F2BF400593F0F /* UIView+ColorCradient.m */,
+				04A6B11C234F2BF400593F0F /* UIButton+Gradient.m */,
+				04A6B11D234F2BF400593F0F /* UIImage+compressIMG.m */,
+				04A6B11E234F2BF400593F0F /* UIButton+Additions.h */,
+				04A6B11F234F2BF400593F0F /* NSData+Common.h */,
+				04A6B120234F2BF400593F0F /* UIView+Additions.h */,
+				04A6B121234F2BF400593F0F /* UIImage+Gradient.m */,
+				04A6B122234F2BF400593F0F /* NSObject+CommonBlock.h */,
+				04A6B123234F2BF400593F0F /* UIImage+Additions.m */,
+				04A6B124234F2BF400593F0F /* UIImage+Color.m */,
+				04A6B125234F2BF400593F0F /* UIViewController+BackButtonHandler.h */,
+			);
+			path = Catetory;
 			sourceTree = "<group>";
 		};
 		04B0C0EC22BCB69400D55526 /* MJRefresh */ = {
@@ -1354,6 +1441,7 @@
 			isa = PBXGroup;
 			children = (
 				0474289623067F9D00558D0F /* TXLiteAVSDK_Player.framework */,
+				04A6B105234F2BF400593F0F /* Catetory */,
 				04FA2FC922DEA999004B889B /* movie */,
 				04CD1DEC2314D4BE00E32ABF /* TFhpple */,
 				041D7603228915BC004108E9 /* Cartoon.entitlements */,
@@ -1766,9 +1854,11 @@
 				04FA38BD22DEC035004B889B /* LVPlayVodDetailVC.m in Sources */,
 				04F7933122F2B7C80034B610 /* MGReboViewController.m in Sources */,
 				04B0C12922BCB69400D55526 /* MJRefreshAutoGifFooter.m in Sources */,
+				04A6B12D234F2BF400593F0F /* NSString+Common.m in Sources */,
 				04FA38AA22DEC017004B889B /* SPDefaultControlView.m in Sources */,
 				04E3548223167ADC00FA9571 /* KKPlayListController.m in Sources */,
 				04CD1DE22314B3AC00E32ABF /* DianyingViewController.m in Sources */,
+				04A6B132234F2BF400593F0F /* UIImage+compressIMG.m in Sources */,
 				04FA38E722DECBBB004B889B /* YNPageCollectionView.m in Sources */,
 				04CD1DEB2314CF4800E32ABF /* DWSJViewController.m in Sources */,
 				44A1B18A226DC3D9009B28F2 /* SDWebImageTransition.m in Sources */,
@@ -1798,6 +1888,7 @@
 				44A1B127226DBF2D009B28F2 /* UIRefreshControl+AFNetworking.m in Sources */,
 				0454F86123276E92008E1130 /* TFHpple.m in Sources */,
 				04FA385B22DEAFCE004B889B /* NSArray+MASAdditions.m in Sources */,
+				04A6B12F234F2BF400593F0F /* UIView+CustomAutoLayout.m in Sources */,
 				042202F0232F4C8900C6F526 /* DDPlayModel.m in Sources */,
 				44A1B17B226DC3D9009B28F2 /* UIImageView+HighlightedWebCache.m in Sources */,
 				04FA38C622DECB7E004B889B /* XXYSViewController.m in Sources */,
@@ -1820,8 +1911,10 @@
 				44A1B186226DC3D9009B28F2 /* NSButton+WebCache.m in Sources */,
 				44A1B18B226DC3D9009B28F2 /* NSData+ImageContentType.m in Sources */,
 				44971140226EA41E007B732E /* FYColorTool.m in Sources */,
+				04A6B12A234F2BF400593F0F /* UIButton+Additions.m in Sources */,
 				44A1B17C226DC3D9009B28F2 /* SDWebImageFrame.m in Sources */,
 				44A1B190226DC3D9009B28F2 /* UIView+WebCacheOperation.m in Sources */,
+				04A6B134234F2BF400593F0F /* UIImage+Additions.m in Sources */,
 				44A1B0F6226DBE52009B28F2 /* MJExtensionConst.m in Sources */,
 				44A1B13C226DC2C1009B28F2 /* VideoListCell.m in Sources */,
 				44A1B0AC226DBD64009B28F2 /* ViewController.m in Sources */,
@@ -1840,11 +1933,13 @@
 				04FA38E122DECBBB004B889B /* UIScrollView+YNPageExtend.m in Sources */,
 				44A1B17F226DC3D9009B28F2 /* SDWebImageDownloader.m in Sources */,
 				44A1B181226DC3D9009B28F2 /* UIImage+MultiFormat.m in Sources */,
+				04A6B135234F2BF400593F0F /* UIImage+Color.m in Sources */,
 				042202FF232F821A00C6F526 /* DDZJDetailController.m in Sources */,
 				44A1B184226DC3D9009B28F2 /* SDWebImagePrefetcher.m in Sources */,
 				04411A9123051E40005B9B8E /* M3u8ResourceLoader_OC.m in Sources */,
 				04FA38B322DEC017004B889B /* SuperPlayerControlView.m in Sources */,
 				049CC87A22DF1EAB0018CAE0 /* XXMovieListModel.m in Sources */,
+				04A6B12E234F2BF400593F0F /* UIButton+Glossy.m in Sources */,
 				04CE41AC22E016890074521C /* SVProgressAnimatedView.m in Sources */,
 				04B0C12222BCB69400D55526 /* UIScrollView+MJExtension.m in Sources */,
 				04F7932E22F2B2F70034B610 /* MGKindViewController.m in Sources */,
@@ -1866,6 +1961,7 @@
 				049CC88322DF28FE0018CAE0 /* XXPlayModel.m in Sources */,
 				04FA385A22DEAFCE004B889B /* MASLayoutConstraint.m in Sources */,
 				04C2695422D58D9B00F24A2C /* WRCustomNavigationBar.m in Sources */,
+				04A6B12C234F2BF400593F0F /* UIViewController+BackButtonHandler.m in Sources */,
 				04FA38E022DECBBB004B889B /* UIView+YNPageExtend.m in Sources */,
 				042202F3232F4DC500C6F526 /* DDKindController.m in Sources */,
 				04875B8B22D86682007B71AD /* PlayModel.m in Sources */,
@@ -1873,8 +1969,10 @@
 				04CCA393230AA74C00514BAA /* WMPlayViewController.m in Sources */,
 				04FA38DF22DECBBB004B889B /* UIViewController+YNPageExtend.m in Sources */,
 				44A1B17E226DC3D9009B28F2 /* SDWebImageCodersManager.m in Sources */,
+				04A6B131234F2BF400593F0F /* UIButton+Gradient.m in Sources */,
 				042202E7232F48B200C6F526 /* DDViewController.m in Sources */,
 				04FA38E322DECBBB004B889B /* YNPageConfigration.m in Sources */,
+				04A6B126234F2BF400593F0F /* UIViewController+BackItem.m in Sources */,
 				04CCA38A230A985B00514BAA /* WMModel.m in Sources */,
 				0454F86223276E92008E1130 /* TFHppleElement.m in Sources */,
 				44A1B129226DBF2D009B28F2 /* UIImageView+AFNetworking.m in Sources */,
@@ -1884,7 +1982,9 @@
 				04B0C12822BCB69400D55526 /* MJRefreshAutoStateFooter.m in Sources */,
 				04E3547C231667F400FA9571 /* KanKanViewController.m in Sources */,
 				04FA38B122DEC017004B889B /* NetWatcher.m in Sources */,
+				04A6B133234F2BF400593F0F /* UIImage+Gradient.m in Sources */,
 				44A1B188226DC3D9009B28F2 /* SDImageCache.m in Sources */,
+				04A6B127234F2BF400593F0F /* TopLeftLabel.m in Sources */,
 				44A1B128226DBF2D009B28F2 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				04875B8922D86682007B71AD /* MovieViewController.m in Sources */,
 				04FA38BA22DEC017004B889B /* MMMaterialDesignSpinner.m in Sources */,
@@ -1893,6 +1993,7 @@
 				042202EA232F48C800C6F526 /* DDDetailVC.m in Sources */,
 				04FA385D22DEAFCE004B889B /* MASConstraint.m in Sources */,
 				04FA38A722DEC017004B889B /* UIViewController+SuperPlayerRotation.m in Sources */,
+				04A6B128234F2BF400593F0F /* NSObject+CommonBlock.m in Sources */,
 				44A1B0B7226DBD76009B28F2 /* main.m in Sources */,
 				04FA38B822DEC017004B889B /* MoreContentView.m in Sources */,
 				04B0C12A22BCB69400D55526 /* MJRefreshAutoNormalFooter.m in Sources */,
@@ -1914,6 +2015,8 @@
 				04FA38AD22DEC017004B889B /* J2Obj.m in Sources */,
 				04875B8D22D86682007B71AD /* MovieCell.m in Sources */,
 				44A1B185226DC3D9009B28F2 /* SDWebImageCoder.m in Sources */,
+				04A6B12B234F2BF400593F0F /* NSData+Common.m in Sources */,
+				04A6B129234F2BF400593F0F /* UIView+Additions.m in Sources */,
 				04FA38F122DEE270004B889B /* XPLeftSearchBar.m in Sources */,
 				44A1B0A9226DBD64009B28F2 /* AppDelegate.m in Sources */,
 				44A1B0F9226DBE52009B28F2 /* NSString+MJExtension.m in Sources */,
@@ -1939,6 +2042,7 @@
 				44A1B12D226DBF2D009B28F2 /* AFAutoPurgingImageCache.m in Sources */,
 				04FA38E622DECBBB004B889B /* YNPageHeaderScrollView.m in Sources */,
 				04F7933422F2BAC20034B610 /* MoiveSectionModel.m in Sources */,
+				04A6B130234F2BF400593F0F /* UIView+ColorCradient.m in Sources */,
 				04B0C13122BCB69400D55526 /* MJRefreshAutoFooter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

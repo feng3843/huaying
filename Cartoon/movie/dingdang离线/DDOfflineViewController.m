@@ -30,7 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"离线";
+
     NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
        NSString *docDirectory = [path objectAtIndex:0];
        NSString *filePath = [[NSBundle mainBundle] pathForResource:@"dingdang.sqlite" ofType:nil];
