@@ -85,7 +85,7 @@
     _ddModel = ddModel;
     self.actorL.text = ddModel.vod_content;
     self.noteL.text = ddModel.vod_remarks;
-    self.idL.text = [NSString stringWithFormat:@"年份:%@ 上架:%@",ddModel.vod_year,ddModel.vod_time_add];
+    self.idL.text = [NSString stringWithFormat:@"年份:%@ 更新:%@",ddModel.vod_year,ddModel.vod_time];
     [self.imageV sd_setImageWithURL:[NSURL URLWithString:ddModel.vod_pic] placeholderImage:[UIImage imageNamed:@"电台"]];
     self.nameL.text = ddModel.vod_name;
 }
@@ -94,7 +94,7 @@
     _ddOffLineModel = ddOffLineModel;
     self.actorL.text = ddOffLineModel.vod_content;
     self.noteL.text = ddOffLineModel.vod_remarks;
-    self.idL.text = [NSString stringWithFormat:@"年份:%@ 上架:%@",ddOffLineModel.vod_year,ddOffLineModel.vod_time_add];
+    self.idL.text = [NSString stringWithFormat:@"年份:%@ 更新:%@",ddOffLineModel.vod_year,ddOffLineModel.vod_time];
     [self.imageV sd_setImageWithURL:[NSURL URLWithString:ddOffLineModel.vod_pic] placeholderImage:[UIImage imageNamed:@"电台"]];
     self.nameL.text = ddOffLineModel.vod_name;
 }

@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic , copy)  NSString *vod_director;
 @property (nonatomic , copy)  NSString *vod_remarks;
 @property (nonatomic , copy)  NSString *vod_name;
-@property (nonatomic , copy)  NSString *vod_time_add;
+@property (nonatomic , copy)  NSString *vod_time;
 @property (nonatomic , copy)  NSString *vod_year;
 @property (nonatomic , copy)  NSString *urlStr;
 @end

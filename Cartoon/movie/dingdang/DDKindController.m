@@ -85,7 +85,7 @@
                         videoDict[@"vodname"] = model.vod_name;
                         videoDict[@"vodurl"] = urlstr;
                         videoDict[@"vodYear"] = model.vod_year;
-                        videoDict[@"vodtimeadd"] = model.vod_time_add;
+                        videoDict[@"vodtimeadd"] = model.vod_time;
                         [self insertDbWithDict:videoDict];
                     }
                 }else{
