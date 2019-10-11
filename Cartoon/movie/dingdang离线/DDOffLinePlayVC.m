@@ -29,7 +29,7 @@
 @property (nonatomic , strong) DDPlayModel *selectedModel;
 @property (nonatomic , strong) UIButton *selectedBtn;
 @property (nonatomic , strong) NSMutableArray *playLists;
-
+@property (nonatomic , strong) NSMutableArray *downloadLists;
 @end
 
 @implementation DDOffLinePlayVC
@@ -62,17 +62,48 @@
         if (urlstr.length > 0) {
                 NSArray *urlArray = [urlstr componentsSeparatedByString:@"#"];
                 self.playLists = [NSMutableArray array];
-                for (NSString *url in urlArray) {
-                    DDPlayModel *model = [DDPlayModel new];
-                    NSArray *modelList = [url componentsSeparatedByString:@"$"];
-                    if (modelList.count > 1) {
-                        model.name = modelList[0];
-                         model.url = modelList[1];
-                        [self.playLists addObject:model];
-                    }
+                
+            for (int i = 1; i <= urlArray.count; i++) {
+                NSString *url = urlArray[i-1];
+                DDPlayModel *model = [DDPlayModel new];
+                NSArray *modelList = [url componentsSeparatedByString:@"$"];
+                if (modelList.count > 1) {
+                    model.name = modelList[0];
+                     model.url = modelList[1];
+                    [self.playLists addObject:model];
+                }else{
+                    model.name = [NSString stringWithFormat:@"%0d",i];
+                     model.url = modelList[0];
+                    [self.playLists addObject:model];
                 }
-                [self setUI];
-                return ;
+            }
+
+            //下载地址
+            NSString *downUrl = self.vodModel.vod_down_url;
+            if (downUrl.length > 0) {
+                    NSArray *urlArray = [downUrl componentsSeparatedByString:@"#"];
+                    self.downloadLists = [NSMutableArray array];
+                     for (int i = 1; i <= urlArray.count; i++) {
+                         NSString *url = urlArray[i-1];
+                         if (url.length < 5) {
+                             continue;
+                         }
+                         DDPlayModel *model = [DDPlayModel new];
+                         NSArray *modelList = [url componentsSeparatedByString:@"$"];
+                         if (modelList.count > 1) {
+                             model.name = modelList[0];
+                             model.url = modelList[1];
+                             [self.downloadLists addObject:model];
+                         }else{
+                             model.name = [NSString stringWithFormat:@"%0d",i];
+                             model.url = modelList[0];
+                             [self.downloadLists addObject:model];
+                         }
+                     }
+            }
+            
+            [self setUI];
+            return ;
         }
     [SVProgressHUD showInfoWithStatus:@"获取详情失败！！！！"];
 }
@@ -198,13 +229,77 @@
         //累加x，用于下次计算
         x = btnX + size.width ;
     }
-    UIScrollView *sc = (UIScrollView *)self.scrollView;
-    sc.contentSize = CGSizeMake(0, y + 50);
+
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(20, y + 50, 200, 20)];
+    label.text = @"备用地址";
+    label.textColor = [UIColor whiteColor];
+    [self.scrollView addSubview:label];
+    y = y + 80;
+    x = 0;
+       for (int i = 0 ; i < self. downloadLists.count ;i++) {
+           DDPlayModel *model = self.downloadLists[i];
+           
+           UIButton *btn = [[UIButton alloc]init];
+           btn.layer.cornerRadius = 5;
+           btn.layer.masksToBounds = YES;
+           [self.scrollView addSubview:btn];
+           UIImage *img = [[self imageWithColor:[FYColorTool colorFromHexRGB:@"4595FA" alpha:1]] stretchableImageWithLeftCapWidth:1 topCapHeight:1];
+           UIImage *imgsel = [[self imageWithColor:[FYColorTool colorFromHexRGB:@"FF0000" alpha:1]] stretchableImageWithLeftCapWidth:1 topCapHeight:1];
+           [btn setBackgroundImage:img forState:UIControlStateNormal];
+           [btn setBackgroundImage:imgsel forState:UIControlStateSelected];
+           btn.selected = NO;
+           btn.tag = i;
+           [btn setTitle:model.name forState:UIControlStateNormal];
+           [btn addTarget:self action:@selector(downbtnClick:) forControlEvents:UIControlEventTouchUpInside];
+           [btn sizeToFit];
+           CGSize size = CGSizeMake(btn.bounds.size.width + 20 < 45 ? 45 : btn.bounds.size.width + 20, h);
+           CGFloat btnX = 0;
+           CGFloat btnY = 0;
+           CGFloat btnW = size.width;
+           CGFloat btnH = h;
+        
+           //每次X递增Margin
+           x = Margin + x;
+           //计算btn的X
+           btnX = x;
+           if (btnX + btnW + Margin > screenW) {//如果超长，换行 y递增 x=0
+               y = y + Margin + h;
+               btnX = 0 + Margin;
+           }
+           //计算btn的Y
+           btnY = y;
+           //设置btnframe
+           btn.frame = CGRectMake(btnX, btnY, btnW, btnH);
+           
+           //累加x，用于下次计算
+           x = btnX + size.width ;
+       }
+       UIScrollView *sc = (UIScrollView *)self.scrollView;
+       sc.contentSize = CGSizeMake(0, y + 50);
+    
+    
     BOOL flag = NO;
     if (self.selectedModel == [self.playLists firstObject]) {
         flag = YES;
     }
     [self PlayWithPlayModel:self.selectedModel needSave:flag];
+}
+
+-(void)downbtnClick:(UIButton *)btn{
+    if (self.selectedBtn != btn) {
+        self.selectedBtn.selected = NO;
+    }
+    btn.selected = !btn.selected;
+    self.selectedBtn = btn;
+    
+    DDPlayModel *model = self.downloadLists[btn.tag];
+    if (self.selectedModel != model) {
+        self.selectedModel = model;
+        //播放新的model
+        NSLog(@"播放新的model");
+        [self PlayWithPlayModel:model needSave:YES];
+    }
+    NSLog(@"%@",model.url);
 }
 
 -(void)btnClick:(UIButton *)btn{

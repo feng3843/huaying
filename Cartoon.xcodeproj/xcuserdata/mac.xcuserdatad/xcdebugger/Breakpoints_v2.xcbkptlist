@@ -8,7 +8,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
          <BreakpointContent
             uuid = "831D1C38-4645-4745-96A6-0DAFBF78DCE9"
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             scope = "0"
@@ -179,6 +179,22 @@
             startingLineNumber = "177"
             endingLineNumber = "177"
             landmarkName = "-getNewDataListWithNum:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5E6AC4C3-F475-4DB5-9E45-52652B4E8AFF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cartoon/movie/dingdang&#x79bb;&#x7ebf;/DDOffLinePlayVC.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "-getVodDetailInfo"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
