@@ -191,6 +191,9 @@
             item.vod_pic = dict[@"pic"];
             item.vod_actor = dict[@"actor"];
             item.vod_name = dict[@"name"];
+            item.vod_year = dict[@"year"];
+            item.vod_class = dict[@"class"];
+            item.vod_name = dict[@"name"];
             [array addObject:item];
         }
         if (array.count == 0) {

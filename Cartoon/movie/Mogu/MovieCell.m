@@ -87,7 +87,14 @@
     _ddModel = ddModel;
     self.actorL.text = ddModel.vod_content;
     self.noteL.text = ddModel.vod_remarks;
-    self.idL.text = [NSString stringWithFormat:@"最后更新:%@",[self dateFromInterValStr:ddModel.vod_time]];
+    
+    if ([ddModel.vod_time containsString:@"-"]) {
+        self.idL.text = [NSString stringWithFormat:@"最后更新:%@",ddModel.vod_time];
+    }else if(ddModel.vod_time.length > 0){
+        self.idL.text = [NSString stringWithFormat:@"最后更新:%@",[self dateFromInterValStr:ddModel.vod_time]];
+    }else{
+        self.idL.text = @"";
+    }
     [self.imageV sd_setImageWithURL:[NSURL URLWithString:ddModel.vod_pic] placeholderImage:[UIImage imageNamed:@"电台"]];
     self.timeKIneL.text = [NSString stringWithFormat:@"类型:%@  年份:%@",ddModel.vod_class,ddModel.vod_year];
     self.nameL.text = ddModel.vod_name;
@@ -97,7 +104,13 @@
     _ddOffLineModel = ddOffLineModel;
     self.actorL.text = ddOffLineModel.vod_content;
     self.noteL.text = ddOffLineModel.vod_remarks;
-    self.idL.text = [NSString stringWithFormat:@"最后更新:%@", [self dateFromInterValStr:ddOffLineModel.vod_time]];
+    if ([ddOffLineModel.vod_time containsString:@"-"]) {
+        self.idL.text = [NSString stringWithFormat:@"最后更新:%@",ddOffLineModel.vod_time];
+    }else if(ddOffLineModel.vod_time.length > 0){
+        self.idL.text = [NSString stringWithFormat:@"最后更新:%@",[self dateFromInterValStr:ddOffLineModel.vod_time]];
+    }else{
+        self.idL.text = @"";
+    }
     [self.imageV sd_setImageWithURL:[NSURL URLWithString:ddOffLineModel.vod_pic] placeholderImage:[UIImage imageNamed:@"电台"]];
     self.nameL.text = ddOffLineModel.vod_name;
     self.timeKIneL.text = [NSString stringWithFormat:@"类型:%@  年份:%@",ddOffLineModel.vod_class,ddOffLineModel.vod_year];
