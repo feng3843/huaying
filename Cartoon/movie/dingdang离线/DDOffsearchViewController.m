@@ -129,6 +129,8 @@
                videoDict[@"urlStr"] = [result stringForColumn:@"vodurl"];
                videoDict[@"vod_year"] = [result stringForColumn:@"vodYear"];
                videoDict[@"vod_time"] = [result stringForColumn:@"vodtimeadd"];
+               videoDict[@"vod_down_url"] = [result stringForColumn:@"vodDownUrl"];
+               videoDict[@"vod_class"] = [result stringForColumn:@"vodClass"];
                [array addObject:videoDict];
            }
            

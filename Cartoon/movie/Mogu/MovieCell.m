@@ -13,8 +13,10 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageV;
 @property (weak, nonatomic) IBOutlet UILabel *noteL;
 @property (weak, nonatomic) IBOutlet UILabel *nameL;
-@property (weak, nonatomic) IBOutlet UITextView *actorL;
+@property (weak, nonatomic) IBOutlet UILabel *actorL;
 @property (weak, nonatomic) IBOutlet UILabel *idL;
+@property (weak, nonatomic) IBOutlet UILabel *timeKIneL;
+
 @end
 
 
@@ -85,8 +87,9 @@
     _ddModel = ddModel;
     self.actorL.text = ddModel.vod_content;
     self.noteL.text = ddModel.vod_remarks;
-    self.idL.text = [NSString stringWithFormat:@"年份:%@ 更新:%@",ddModel.vod_year,ddModel.vod_time];
+    self.idL.text = [NSString stringWithFormat:@"最后更新:%@",[self dateFromInterValStr:ddModel.vod_time]];
     [self.imageV sd_setImageWithURL:[NSURL URLWithString:ddModel.vod_pic] placeholderImage:[UIImage imageNamed:@"电台"]];
+    self.timeKIneL.text = [NSString stringWithFormat:@"类型:%@  年份:%@",ddModel.vod_class,ddModel.vod_year];
     self.nameL.text = ddModel.vod_name;
 }
 
@@ -94,9 +97,18 @@
     _ddOffLineModel = ddOffLineModel;
     self.actorL.text = ddOffLineModel.vod_content;
     self.noteL.text = ddOffLineModel.vod_remarks;
-    self.idL.text = [NSString stringWithFormat:@"年份:%@ 更新:%@",ddOffLineModel.vod_year,ddOffLineModel.vod_time];
+    self.idL.text = [NSString stringWithFormat:@"最后更新:%@", [self dateFromInterValStr:ddOffLineModel.vod_time]];
     [self.imageV sd_setImageWithURL:[NSURL URLWithString:ddOffLineModel.vod_pic] placeholderImage:[UIImage imageNamed:@"电台"]];
     self.nameL.text = ddOffLineModel.vod_name;
+    self.timeKIneL.text = [NSString stringWithFormat:@"类型:%@  年份:%@",ddOffLineModel.vod_class,ddOffLineModel.vod_year];
+}
+
+-(NSString *)dateFromInterValStr:(NSString *)times{
+    NSInteger time = [times integerValue];
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:time];
+    NSDateFormatter *format = [[NSDateFormatter alloc]init];
+    format.dateFormat = @"YYYY-MM-dd HH:mm";
+    return [format stringFromDate:date];
 }
 
 @end

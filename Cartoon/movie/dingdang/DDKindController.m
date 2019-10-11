@@ -34,13 +34,15 @@
     NSString *vodurl = videoDict[@"vodurl"];
     NSString *vodYear = videoDict[@"vodYear"];
     NSString *vodtimeadd = videoDict[@"vodtimeadd"];
+    NSString *vodDownUrl = videoDict[@"vodDownUrl"];
+    NSString *vodClass = videoDict[@"vodClass"];
     //设置消息的数据库名称
     NSString *fileName = [DOCUMENT_PATH stringByAppendingPathComponent:@"dingdang.sqlite"];
     //2.获取数据库
     _db = [FMDatabase databaseWithPath:fileName];
     if ([_db open]) {
         //1.executeUpdate:不确定的参数用？来占位（后面参数必须是oc对象，；代表语句结束）
-        BOOL result = [_db executeUpdate:@"INSERT OR REPLACE INTO t_DINGDANG_VIDEO (vodId,vodContent, vodpic, vodactor, voddirector, vodremarks, vodname, vodurl,vodYear,vodtimeadd) VALUES (?,?,?,?,?,?,?,?,?,?)",vodId,vodContent, vodpic, vodactor, voddirector, vodremarks, vodname, vodurl,vodYear,vodtimeadd];
+        BOOL result = [_db executeUpdate:@"INSERT OR REPLACE INTO t_DINGDANG_VIDEO (vodId,vodContent, vodpic, vodactor, voddirector, vodremarks, vodname, vodurl,vodYear,vodtimeadd,vodDownUrl,vodClass) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)",vodId,vodContent, vodpic, vodactor, voddirector, vodremarks, vodname, vodurl,vodYear,vodtimeadd,vodDownUrl,vodClass];
         if (result) {
             NSLog(@"---插入成功");
         } else {
@@ -71,6 +73,7 @@
             [XPNetWorkTool requestWithType:HttpRequestTypeGet withHttpHeaderFieldDict:nil withUrlString:url withParaments:nil withSuccessBlock:^(NSDictionary *responseObject) {
                 NSDictionary *info = responseObject[@"info"];
                 if (info) {
+                    DDMovieItem *model = [DDMovieItem mj_objectWithKeyValues:info];
                     NSDictionary *playlist = info[@"vod_play_list"];
                     NSDictionary *child = [[playlist allValues] firstObject];
                     if (child) {
@@ -86,6 +89,8 @@
                         videoDict[@"vodurl"] = urlstr;
                         videoDict[@"vodYear"] = model.vod_year;
                         videoDict[@"vodtimeadd"] = model.vod_time;
+                        videoDict[@"vodDownUrl"] = model.vod_down_url;
+                        videoDict[@"vodClass"] = model.vod_class;
                         [self insertDbWithDict:videoDict];
                     }
                 }else{

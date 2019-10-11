@@ -21,6 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic , copy)  NSString *vod_time;
 @property (nonatomic , copy)  NSString *vod_year;
 @property (nonatomic , copy)  NSString *urlStr;
+@property (nonatomic , copy)  NSString *vod_down_url;
+@property (nonatomic , copy)  NSString *vod_class;
 @end
 
 NS_ASSUME_NONNULL_END

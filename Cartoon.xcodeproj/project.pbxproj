@@ -27,6 +27,7 @@
 		0454F86223276E92008E1130 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 0454F85F23276E92008E1130 /* TFHppleElement.m */; };
 		0454F86323276E92008E1130 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 0454F86023276E92008E1130 /* XPathQuery.m */; };
 		0474289723067F9E00558D0F /* TXLiteAVSDK_Player.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0474289623067F9D00558D0F /* TXLiteAVSDK_Player.framework */; };
+		0477F07623502420005852F5 /* dingdang.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 0477F07523502420005852F5 /* dingdang.sqlite */; };
 		0481C83322B1F8DD003DB6A9 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0481C83222B1F8DD003DB6A9 /* libc++.tbd */; };
 		0481C83522B1F8E6003DB6A9 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0481C83422B1F8E6003DB6A9 /* libz.tbd */; };
 		0481C83722B1F8EC003DB6A9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0481C83622B1F8EC003DB6A9 /* SystemConfiguration.framework */; };
@@ -50,7 +51,6 @@
 		049CC88322DF28FE0018CAE0 /* XXPlayModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 049CC88222DF28FE0018CAE0 /* XXPlayModel.m */; };
 		049CC88622DF2B170018CAE0 /* XXPlayDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 049CC88522DF2B170018CAE0 /* XXPlayDetailController.m */; };
 		04A25E792328DA3F00248B57 /* TestMp3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A25E782328DA3F00248B57 /* TestMp3ViewController.m */; };
-		04A6B101234EBEFF00593F0F /* dingdang.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 04A6B100234EBEFF00593F0F /* dingdang.sqlite */; };
 		04A6B104234EBFF900593F0F /* DDOfflineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A6B103234EBFF900593F0F /* DDOfflineViewController.m */; };
 		04A6B126234F2BF400593F0F /* UIViewController+BackItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A6B108234F2BF400593F0F /* UIViewController+BackItem.m */; };
 		04A6B127234F2BF400593F0F /* TopLeftLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 04A6B109234F2BF400593F0F /* TopLeftLabel.m */; };
@@ -311,6 +311,7 @@
 		0454F85F23276E92008E1130 /* TFHppleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHppleElement.m; sourceTree = "<group>"; };
 		0454F86023276E92008E1130 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
 		0474289623067F9D00558D0F /* TXLiteAVSDK_Player.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TXLiteAVSDK_Player.framework; sourceTree = "<group>"; };
+		0477F07523502420005852F5 /* dingdang.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = dingdang.sqlite; sourceTree = "<group>"; };
 		0481C83222B1F8DD003DB6A9 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		0481C83422B1F8E6003DB6A9 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		0481C83622B1F8EC003DB6A9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -344,7 +345,6 @@
 		049CC88522DF2B170018CAE0 /* XXPlayDetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XXPlayDetailController.m; sourceTree = "<group>"; };
 		04A25E772328DA3F00248B57 /* TestMp3ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestMp3ViewController.h; sourceTree = "<group>"; };
 		04A25E782328DA3F00248B57 /* TestMp3ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestMp3ViewController.m; sourceTree = "<group>"; };
-		04A6B100234EBEFF00593F0F /* dingdang.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = dingdang.sqlite; sourceTree = "<group>"; };
 		04A6B102234EBFF900593F0F /* DDOfflineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDOfflineViewController.h; sourceTree = "<group>"; };
 		04A6B103234EBFF900593F0F /* DDOfflineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDOfflineViewController.m; sourceTree = "<group>"; };
 		04A6B106234F2BF400593F0F /* UIView+CustomAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CustomAutoLayout.h"; sourceTree = "<group>"; };
@@ -1106,7 +1106,7 @@
 		04DB4ADD234D6A5D00258BAF /* dingdang离线 */ = {
 			isa = PBXGroup;
 			children = (
-				04A6B100234EBEFF00593F0F /* dingdang.sqlite */,
+				0477F07523502420005852F5 /* dingdang.sqlite */,
 				04DB4ADE234D6A8B00258BAF /* DDListModel.h */,
 				04DB4ADF234D6A8B00258BAF /* DDListModel.m */,
 				04DB4AE1234D6AEF00258BAF /* DDOffLinePlayVC.h */,
@@ -1811,7 +1811,7 @@
 				04F5FCCD230D2460006D101F /* beiyong.json in Resources */,
 				04FA38B422DEC017004B889B /* SuperPlayer.bundle in Resources */,
 				44A1B0AF226DBD64009B28F2 /* Main.storyboard in Resources */,
-				04A6B101234EBEFF00593F0F /* dingdang.sqlite in Resources */,
+				0477F07623502420005852F5 /* dingdang.sqlite in Resources */,
 				04CE41AF22E016890074521C /* SVProgressHUD.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

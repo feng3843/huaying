@@ -82,15 +82,21 @@
     NSString *vodurl = videoDict[@"vodurl"];
     NSString *vodYear = videoDict[@"vodYear"];
     NSString *vodtimeadd = videoDict[@"vodtimeadd"];
-    if ([_db open]) {
-        //1.executeUpdate:不确定的参数用？来占位（后面参数必须是oc对象，；代表语句结束）
-        BOOL result = [_db executeUpdate:@"INSERT OR REPLACE INTO t_DINGDANG_VIDEO (vodId,vodContent, vodpic, vodactor, voddirector, vodremarks, vodname, vodurl,vodYear,vodtimeadd) VALUES (?,?,?,?,?,?,?,?,?,?)",vodId,vodContent, vodpic, vodactor, voddirector, vodremarks, vodname, vodurl,vodYear,vodtimeadd];
-        if (result) {
-            NSLog(@"---插入成功");
-        } else {
-            NSLog(@"---插入失败");
-        }
-        [_db close];
+    NSString *vodDownUrl = videoDict[@"vodDownUrl"];
+    NSString *vodClass = videoDict[@"vodClass"];
+    if (vodId.length > 0 && vodname.length > 0 && vodurl.length > 0) {
+        if ([_db open]) {
+               //1.executeUpdate:不确定的参数用？来占位（后面参数必须是oc对象，；代表语句结束）
+               BOOL result = [_db executeUpdate:@"INSERT OR REPLACE INTO t_DINGDANG_VIDEO (vodId,vodContent, vodpic, vodactor, voddirector, vodremarks, vodname, vodurl,vodYear,vodtimeadd,vodDownUrl,vodClass) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)",vodId,vodContent, vodpic, vodactor, voddirector, vodremarks, vodname, vodurl,vodYear,vodtimeadd,vodDownUrl,vodClass];
+               if (result) {
+                   NSLog(@"---插入成功");
+               } else {
+                   NSLog(@"---插入失败");
+               }
+               [_db close];
+           }
+    }else{
+        NSLog(@"数据为空，未更新数据库表");
     }
 }
 
@@ -150,6 +156,7 @@
                        [XPNetWorkTool requestWithType:HttpRequestTypeGet withHttpHeaderFieldDict:nil withUrlString:url withParaments:nil withSuccessBlock:^(NSDictionary *responseObject) {
                            NSDictionary *info = responseObject[@"info"];
                            if (info) {
+                               DDMovieItem *model = [DDMovieItem mj_objectWithKeyValues:info];
                                NSDictionary *playlist = info[@"vod_play_list"];
                                NSDictionary *child = [[playlist allValues] firstObject];
                                if (child) {
@@ -165,6 +172,8 @@
                                    videoDict[@"vodurl"] = urlstr;
                                    videoDict[@"vodYear"] = model.vod_year;
                                    videoDict[@"vodtimeadd"] = model.vod_time;
+                                   videoDict[@"vodDownUrl"] = model.vod_down_url;
+                                   videoDict[@"vodClass"] = model.vod_class;
                                    [self insertDbWithDict:videoDict];
                                }
                            }else{
@@ -215,6 +224,8 @@
                videoDict[@"urlStr"] = [result stringForColumn:@"vodurl"];
                videoDict[@"vod_year"] = [result stringForColumn:@"vodYear"];
                videoDict[@"vod_time"] = [result stringForColumn:@"vodtimeadd"];
+               videoDict[@"vod_down_url"] = [result stringForColumn:@"vodDownUrl"];
+               videoDict[@"vod_class"] = [result stringForColumn:@"vodClass"];
                [array addObject:videoDict];
            }
            

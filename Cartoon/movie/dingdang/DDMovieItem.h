@@ -19,4 +19,6 @@
 @property (nonatomic , copy)  NSString *vod_name;
 @property (nonatomic , copy)  NSString *vod_time;
 @property (nonatomic , copy)  NSString *vod_year;
+@property (nonatomic , copy)  NSString *vod_down_url;
+@property (nonatomic , copy)  NSString *vod_class;
 @end

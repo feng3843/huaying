@@ -33,7 +33,7 @@
     BOOL res = [_db open];
     if (res) {
         NSLog(@"打开数据库成功");
-        BOOL result = [_db executeUpdate:@"CREATE TABLE IF NOT EXISTS t_DINGDANG_VIDEO (id Integer PRIMARY KEY AUTOINCREMENT,vodId text UNIQUE , vodContent text , vodpic text , vodactor text, voddirector text , vodremarks text , vodname text ,vodurl text ,vodYear text , vodtimeadd text);"];
+        BOOL result = [_db executeUpdate:@"CREATE TABLE IF NOT EXISTS t_DINGDANG_VIDEO (id Integer PRIMARY KEY AUTOINCREMENT,vodId text UNIQUE , vodContent text , vodpic text , vodactor text, voddirector text , vodremarks text , vodname text ,vodurl text ,vodYear text , vodtimeadd text , vodDownUrl text,vodClass text);"];
         if (result) {
             NSLog(@"success!");
         }else{
