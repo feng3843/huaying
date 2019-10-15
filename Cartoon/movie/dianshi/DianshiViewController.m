@@ -18,8 +18,47 @@
 
 @implementation DianshiViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+-(void)copyNewPlayList{
+    
+       NSString *path = [[NSBundle mainBundle] pathForResource:@"tv2.json" ofType:nil];
+        NSData *data = [NSData dataWithContentsOfFile:path];
+        NSString *str = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+        NSArray *array = [str componentsSeparatedByString:@"\n"];
+        self.playList = [NSMutableArray array];
+        self.nameList = [NSMutableArray array];
+        for (NSString *str in array) {
+           NSArray *mods = [str componentsSeparatedByString:@","];
+           [self.nameList addObject: [mods firstObject]];
+    //       [self.playList addObject:[mods lastObject]];
+        }
+    
+    NSString *path1 = [[NSBundle mainBundle] pathForResource:@"beiyong.json" ofType:nil];
+          NSData *data1 = [NSData dataWithContentsOfFile:path1];
+          NSString *str1 = [[NSString alloc]initWithData:data1 encoding:NSUTF8StringEncoding];
+          NSArray *array1 = [str1 componentsSeparatedByString:@"\n"];
+
+          NSMutableDictionary *dict = @{}.mutableCopy;
+          for (NSString *str in array1) {
+             NSArray *mods = [str componentsSeparatedByString:@","];
+              [dict setValue:[mods lastObject] forKey:[mods firstObject]];
+          }
+       
+       
+       for (NSString *str in self.nameList) {
+           NSString *play = dict[str] ? dict[str] : @"..." ;
+           [self.playList addObject:play];
+       }
+       
+       NSMutableString *lastStr = [NSMutableString string];
+       for (int i = 0 ; i < self.nameList.count ; i ++) {
+           NSString *name = self.nameList[i];
+           [lastStr appendString:[NSString stringWithFormat:@"%@,%@\n",name,self.playList[i] ]];
+       }
+       [lastStr writeToFile:@"/Users/mac/Desktop/1111/1.txt" atomically:YES encoding:NSUTF8StringEncoding error:nil];
+       
+}
+
+-(void)initPlayList{
     NSString *path = [[NSBundle mainBundle] pathForResource:@"tv2.json" ofType:nil];
     NSData *data = [NSData dataWithContentsOfFile:path];
     NSString *str = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
@@ -31,6 +70,16 @@
        [self.nameList addObject: [mods firstObject]];
        [self.playList addObject:[mods lastObject]];
     }
+}
+
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    [self initPlayList];
+    //从beifen.json替换新源
+//    [self copyNewPlayList];
+
     
     self.view.backgroundColor = [UIColor blackColor];
     
