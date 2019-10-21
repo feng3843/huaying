@@ -5,6 +5,7 @@
 @class SuperPlayerView;
 
 extern NSNotificationName kSuperPlayerModelReady;
+extern NSNotificationName kSuperPlayerModelFail;
 
 /** 多码率地址 */
 @interface SuperPlayerUrl : NSObject
@@ -13,12 +14,18 @@ extern NSNotificationName kSuperPlayerModelReady;
 @end
 
 
-typedef enum : NSUInteger {
-    FileIdV2 = 0,
-    FileIdV3 = 1,
-} FileIdVer;
+//typedef enum : NSUInteger {
+//    FileIdV2 = 0,
+//    FileIdV3 = 1,
+//} FileIdVer;
 
-/** fileid播放 */
+//extern NSString *const kDrmType_FairPlay;
+//extern NSString *const kDrmType_SimpleAES;
+
+/**
+ * fileid播放
+ * fileid相关字段请参考[云点播-数据结构](https://cloud.tencent.com/document/product/266/31773)
+ */
 @interface SuperPlayerVideoId : NSObject
 /**
  * appId
@@ -50,25 +57,25 @@ typedef enum : NSUInteger {
  */
 @property NSString *sign;
 
-/**
- * 模板ID (V3)
- */
-@property NSString *playDefinition;
+///**
+// * 模板ID (V3)
+// */
+//@property NSString *playDefinition;
 
-/**
- * 播放器 ID，可选。默认使用文件绑定的播放器 ID 或默认播放器 ID
- */
-@property NSString *playerId;
+///**
+// * 播放器 ID，可选。默认使用文件绑定的播放器 ID 或默认播放器 ID
+// */
+//@property NSString *playerId;
 
-/// 允许不同 IP 的播放次数，仅当开启防盗链且需要开启试看时填写
-@property int rlimit;
+///// 允许不同 IP 的播放次数，仅当开启防盗链且需要开启试看时填写
+//@property int rlimit;
 
 /**
  * 请求后台的interface版本
  * 普通转码 FileIdV2 （默认）
  * DRM视频 FileIdV3
  */
-@property FileIdVer version;
+//@property FileIdVer version;
 
 @end
 
@@ -91,11 +98,36 @@ typedef enum : NSUInteger {
 @interface SuperPlayerModel : NSObject
 
 
+// ------------------------------------------------------------------
+// URL 播放方式
+// ------------------------------------------------------------------
+
 /** 视频URL */
 @property (nonatomic, strong) NSString *videoURL;
 
-/** 腾讯云存储对象 */
+// ------------------------------------------------------------------
+// FileId 播放方式
+// ------------------------------------------------------------------
+
+/**
+ * 腾讯云存储对象
+ */
 @property SuperPlayerVideoId *videoId;
+
+///**
+// * FairPlay 凭证数据
+// */
+//@property NSData *certificate;
+//
+///**
+// * 加密视频的token
+// * 播放加密视频需要设置此值
+// */
+//@property (nonatomic, strong) NSString *token;
+
+// ------------------------------------------------------------------
+// 多码率播放方法
+// ------------------------------------------------------------------
 
 /**
  * 多码率视频URL
@@ -106,6 +138,7 @@ typedef enum : NSUInteger {
  * 正在播放的清晰度
  */
 @property (nonatomic) NSString *playingDefinition;
+
 
 
 

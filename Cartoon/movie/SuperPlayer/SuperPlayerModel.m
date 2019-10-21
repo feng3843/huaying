@@ -2,8 +2,25 @@
 #import "SuperPlayer.h"
 #import "AFNetworking/AFNetworking.h"
 #import "J2Obj.h"
+#import <Security/Security.h>
+#import "SuperEncrypt.h"
+#import "SuperPlayerView+Private.h"
+
+
+const NSString *kPlayVideoHost2 = @"playvideo.qcloud.com";
+const NSString *kPlayVideoHost3 = @"playvideo.qcloud.com";
+
 
 NSNotificationName kSuperPlayerModelReady = @"kSuperPlayerModelReady";
+NSNotificationName kSuperPlayerModelFail = @"kSuperPlayerModelFail";
+
+@interface AdaptiveStream : NSObject
+@property NSString *url;
+@property NSString *drmType;
+@end
+
+@implementation AdaptiveStream
+@end
 
 @implementation SuperPlayerUrl
 @end
@@ -11,16 +28,14 @@ NSNotificationName kSuperPlayerModelReady = @"kSuperPlayerModelReady";
 @implementation SuperPlayerVideoId
 @end
 
-@interface SuperPlayerModel()
-@property NSURLSessionDataTask *getInfoHttpTask;
-@end
-
-@implementation SuperPlayerModel
+@implementation SuperPlayerModel {
+    
+}
 
 - (instancetype)init {
     self = [super init];
     if (self) {
-        
+
     }
     return self;
 }
@@ -65,39 +80,19 @@ NSNotificationName kSuperPlayerModelReady = @"kSuperPlayerModelReady";
     return 0;
 }
 
-/// !!!: data request
-- (NSString*)makeParamtersString:(NSDictionary*)parameters withEncoding:(NSStringEncoding)encoding
-{
-    if (nil == parameters || [parameters count] == 0)
-        return nil;
-    
-    NSMutableString* stringOfParamters = [[NSMutableString alloc] init];
-    NSEnumerator *keyEnumerator = [parameters keyEnumerator];
-    id key = nil;
-    while ((key = [keyEnumerator nextObject]))
-    {
-        [stringOfParamters appendFormat:@"%@=%@&", key, [parameters valueForKey:key]];
-    }
-    
-    // Delete last character of '&'
-    NSRange lastCharRange = {[stringOfParamters length] - 1, 1};
-    [stringOfParamters deleteCharactersInRange:lastCharRange];
-    return stringOfParamters;
-}
-
 - (void)requestPlayInfo:(SuperPlayerView *)playerView
 {
-    if (self.videoId.version == FileIdV2)
+//    if (self.videoId.version == FileIdV2)
         [self getPlayInfoV2:playerView];
-    if (self.videoId.version == FileIdV3)
-        [self getPlayInfoV3:playerView];
+//    if (self.videoId.version == FileIdV3)
+//        [self getPlayInfoV3:playerView];
 }
 
 - (void)getPlayInfoV2:(SuperPlayerView *)playerView {
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    NSString *url = [NSString stringWithFormat:@"https://playvideo.qcloud.com/getplayinfo/v2/%ld/%@", self.videoId.appId, self.videoId.fileId];
-    
+    NSString *url = [NSString stringWithFormat:@"https://%@/getplayinfo/v2/%ld/%@", kPlayVideoHost2, (long)self.videoId.appId, self.videoId.fileId];
+
     // 防盗链参数
     NSMutableDictionary *params = [NSMutableDictionary new];
     if (self.videoId.timeout) {
@@ -112,14 +107,10 @@ NSNotificationName kSuperPlayerModelReady = @"kSuperPlayerModelReady";
     if (self.videoId.exper >= 0) {
         [params setValue:@(self.videoId.exper) forKey:@"exper"];
     }
-    NSString *httpBodyString = [self makeParamtersString:params withEncoding:NSUTF8StringEncoding];
-    if (httpBodyString) {
-        url = [url stringByAppendingFormat:@"?%@", httpBodyString];
-    }
     
     __weak SuperPlayerModel *weakSelf = self;
     __weak SuperPlayerView  *weakPlayerView = playerView;
-    self.getInfoHttpTask = [manager GET:url parameters:nil progress:nil
+    [manager GET:url parameters:params progress:nil
                                 success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                                     
                                     __strong SuperPlayerModel *self = weakSelf;
@@ -218,22 +209,21 @@ NSNotificationName kSuperPlayerModelReady = @"kSuperPlayerModelReady";
                                                                                                  @"message": @"success"
                                                                                                  }];
                                     
-                                    [manager invalidateSessionCancelingTasks:YES];
                                 } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                                     
-                                    [[NSNotificationCenter defaultCenter] postNotificationName:kSuperPlayerModelReady
+                                    [[NSNotificationCenter defaultCenter] postNotificationName:kSuperPlayerModelFail
                                                                                         object:self
                                                                                       userInfo:@{
                                                                                                  @"error": error,
                                                                                                  @"message": @"请求失败"                                          }];
-                                    [manager invalidateSessionCancelingTasks:YES];
                                 }];
     
 }
 
+/*
 - (void)getPlayInfoV3:(SuperPlayerView *)playerView {
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    NSString *url = [NSString stringWithFormat:@"https://playvideo.qcloud.com/getplayinfo/v3/%ld/%@/%@", self.videoId.appId, self.videoId.fileId, self.videoId.playDefinition];
+    NSString *url = [NSString stringWithFormat:@"https://%@/getplayinfo/v3/%ld/%@/%@", kPlayVideoHost3, (long)self.videoId.appId, self.videoId.fileId, self.videoId.playDefinition];
     
     // 防盗链参数
     NSMutableDictionary *params = [NSMutableDictionary new];
@@ -252,29 +242,35 @@ NSNotificationName kSuperPlayerModelReady = @"kSuperPlayerModelReady";
     if (self.videoId.rlimit > 0) {
         [params setValue:@(self.videoId.rlimit) forKey:@"rlimit"];
     }
-    NSString *httpBodyString = [self makeParamtersString:params withEncoding:NSUTF8StringEncoding];
-    if (httpBodyString) {
-        url = [url stringByAppendingFormat:@"?%@", httpBodyString];
-    }
     
     __weak SuperPlayerModel *weakSelf = self;
     __weak SuperPlayerView  *weakPlayerView = playerView;
-    self.getInfoHttpTask = [manager GET:url parameters:nil progress:nil
+    [manager GET:url parameters:params progress:nil
                                 success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                                     
                                     __strong SuperPlayerModel *self = weakSelf;
                                     
-                                    
-                                    
                                     NSArray *adaptiveStreamingInfoList = J2Array([responseObject valueForKeyPath:@"mediaInfo.dynamicStreamingInfo.adaptiveStreamingInfoList"]);
                                     
-                                    for (NSDictionary *transcode in adaptiveStreamingInfoList) {
-                                        NSString *package = J2Str([transcode valueForKeyPath:@"package"]);
+                                    self.streams = [[NSMutableArray alloc] init];
+                                    for (NSDictionary *adaptive in adaptiveStreamingInfoList) {
+                                        NSString *package = J2Str([adaptive valueForKeyPath:@"package"]);
                                         if ([package isEqualToString:@"hls"]) {
-                                            self.videoURL = J2Str([transcode valueForKeyPath:@"url"]);
-                                            // TODO: drmType
+                                            AdaptiveStream *stream = [AdaptiveStream new];
+                                            stream.url = J2Str([adaptive valueForKeyPath:@"url"]);
+                                            stream.drmType = J2Str([adaptive valueForKeyPath:@"drmType"]);
+                                            [self.streams addObject:stream];
                                         }
                                     }
+//                                    self.drmType = nil;
+//                                    if ([self canSetDrmType:kDrmType_FairPlay] && self.token) {
+//                                        self.drmType = kDrmType_FairPlay;
+//                                    } else if ([self canSetDrmType:kDrmType_SimpleAES] && self.token) {
+//                                        self.drmType = kDrmType_SimpleAES;
+//                                    } else {
+//                                        self.drmType = nil;
+//                                    }
+
                                     
                                     NSArray *imageSprites = J2Array([responseObject valueForKeyPath:@"imageSpriteInfo.imageSpriteList"]);
                                     if (imageSprites.count > 0) {
@@ -304,23 +300,44 @@ NSNotificationName kSuperPlayerModelReady = @"kSuperPlayerModelReady";
                                         weakPlayerView.keyFrameDescList = nil;
                                     }
                                     
-                                    
+
                                     [[NSNotificationCenter defaultCenter] postNotificationName:kSuperPlayerModelReady
                                                                                         object:self
                                                                                       userInfo:@{
                                                                                                  @"message": @"success"
                                                                                                  }];
                                     
-                                    [manager invalidateSessionCancelingTasks:YES];
                                 } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                                     
-                                    [[NSNotificationCenter defaultCenter] postNotificationName:kSuperPlayerModelReady
+                                    [[NSNotificationCenter defaultCenter] postNotificationName:kSuperPlayerModelFail
                                                                                         object:self
                                                                                       userInfo:@{
                                                                                                  @"error": error,
                                                                                                  @"message": @"请求失败"                                          }];
-                                    [manager invalidateSessionCancelingTasks:YES];
                                 }];
 }
+*/
 
+- (BOOL)canSetDrmType:(NSString *)drmType
+{
+    for (AdaptiveStream *stream in self.streams) {
+        if ([stream.drmType isEqualToString:drmType])
+            return YES;
+    }
+    return NO;
+}
+
+//- (void)setDrmType:(NSString *)drmType
+//{
+//    for (AdaptiveStream *stream in self.streams) {
+//        if (drmType == nil) {
+//            if ([stream.drmType length] == 0) {
+//                _videoURL = stream.url;
+//            }
+//        } else if ([stream.drmType isEqualToString:drmType]) {
+//            _videoURL = stream.url;
+//        }
+//    }
+//    _drmType = drmType;
+//}
 @end

@@ -1,5 +1,11 @@
-
+#ifdef LITEAV
+#import "TXVodPlayer.h"
+#import "TXLivePlayer.h"
+#import "TXImageSprite.h"
+#import "TXLiveBase.h"
+#else
 #import <TXLiteAVSDK_Player/TXLiteAVSDK.h>
+#endif
 
 #import "SuperPlayerView.h"
 #import "SuperPlayerModel.h"
@@ -27,8 +33,4 @@
 
 #define TintColor RGBA(252, 89, 81, 1)
 
-#ifdef DEBUG
-#   define LOG_ME NSLog(@"%s", __func__);
-#else
-#   define LOG_ME  ;
-#endif
+#define LOG_ME NSLog(@"%s", __func__);

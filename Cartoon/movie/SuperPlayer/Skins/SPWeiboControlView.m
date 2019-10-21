@@ -6,11 +6,15 @@
 //
 
 #import "SPWeiboControlView.h"
+#import <Masonry/Masonry.h>
 #import "UIView+Fade.h"
 #import "UIView+MMLayout.h"
 #import "StrUtils.h"
 #import "DataReport.h"
 #import "SuperPlayer.h"
+
+@interface SPWeiboControlView() <PlayerSliderDelegate>
+@end
 
 @implementation SPWeiboControlView
 
@@ -133,7 +137,7 @@
 - (PlayerSlider *)videoSlider {
     if (!_videoSlider) {
         _videoSlider                       = [[PlayerSlider alloc] init];
-        [_videoSlider setThumbImage:[UIImage new] forState:UIControlStateNormal];
+        [_videoSlider setThumbImage:SuperPlayerImage(@"wb_thumb") forState:UIControlStateNormal];
         _videoSlider.minimumTrackTintColor = RGBA(223, 223, 223, 1);
         // slider开始滑动事件
         [_videoSlider addTarget:self action:@selector(progressSliderTouchBegan:) forControlEvents:UIControlEventTouchDown];
@@ -349,7 +353,7 @@
 {
     [self setPlayState:isAutoPlay];
     
-    _resolutionArray = model.playDefinitions;
+//    _resolutionArray = model.playDefinitions;
     if (model.playingDefinition != nil) {
         [_resolutionBtn setTitle:model.playingDefinition forState:UIControlStateNormal];
     }
@@ -495,13 +499,13 @@
     
     [self.pointJumpBtn setTitle:text forState:UIControlStateNormal];
     [self.pointJumpBtn sizeToFit];
-    CGFloat x = self.videoSlider.mm_x + self.videoSlider.mm_w * point.where - self.pointJumpBtn.mm_halfW;
+    CGFloat x = self.videoSlider.mm_x + self.videoSlider.mm_w * point.where - self.pointJumpBtn.mm_w/2;
     if (x < 0)
         x = 0;
-    if (x + self.pointJumpBtn.mm_halfW > ScreenWidth)
-        x = ScreenWidth - self.pointJumpBtn.mm_halfW;
+    if (x + self.pointJumpBtn.mm_w/2 > ScreenWidth)
+        x = ScreenWidth - self.pointJumpBtn.mm_w/2;
     self.pointJumpBtn.tag = [self.videoSlider.pointArray indexOfObject:point];
-    self.pointJumpBtn.m_left(x).m_bottom(60);
+    self.pointJumpBtn.mm_left(x).mm_bottom(60);
     self.pointJumpBtn.hidden = NO;
     
     [DataReport report:@"player_point" param:nil];

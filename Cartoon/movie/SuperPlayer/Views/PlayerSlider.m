@@ -7,6 +7,7 @@
 //
 
 #import "PlayerSlider.h"
+#import <Masonry/Masonry.h>
 #import "UIView+MMLayout.h"
 
 @implementation PlayerPoint
@@ -118,5 +119,19 @@
         point.holder.hidden = hiddenPoints;
     }
     _hiddenPoints = hiddenPoints;
+}
+
+- (CGRect)thumbRectForBounds:(CGRect)bounds trackRect:(CGRect)rect value:(float)value {
+    
+    rect.origin.x = rect.origin.x - 10 ;
+    
+    rect.size.width = rect.size.width +20;
+    
+    return CGRectInset ([super thumbRectForBounds:bounds
+                                        trackRect:rect
+                                            value:value],
+                        10 ,
+                        10);
+    
 }
 @end

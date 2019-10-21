@@ -16,6 +16,7 @@
 #pragma clang diagnostic ignored"-Wdeprecated-declarations"
 
 #define MODEL_TAG_BEGIN 20
+#define BOTTOM_IMAGE_VIEW_HEIGHT 50
 
 @interface SPDefaultControlView () <UIGestureRecognizerDelegate, PlayerSliderDelegate>
 
@@ -67,7 +68,6 @@
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [[UIDevice currentDevice] endGeneratingDeviceOrientationNotifications];
 }
 
 - (void)makeSubViewsConstraints {
@@ -113,12 +113,12 @@
     
     [self.bottomImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.trailing.bottom.mas_equalTo(0);
-        make.height.mas_equalTo(50);
+        make.height.mas_equalTo(BOTTOM_IMAGE_VIEW_HEIGHT);
     }];
     
     [self.startBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.bottomImageView.mas_leading).offset(5);
-        make.bottom.equalTo(self.bottomImageView.mas_bottom).offset(-5);
+        make.top.equalTo(self.bottomImageView.mas_top).offset(10);
         make.width.height.mas_equalTo(30);
     }];
     
@@ -229,6 +229,7 @@
 
 - (void)fullScreenBtnClick:(UIButton *)sender {
     sender.selected = !sender.selected;
+    self.fullScreen = !self.fullScreen;
     [self.delegate controlViewChangeScreen:self withFullScreen:YES];
     [self fadeOut:3];
 }
@@ -326,7 +327,7 @@
     self.resolutionBtn.hidden   = NO;
     self.moreBtn.hidden         = NO;
     self.captureBtn.hidden      = NO;
-    self.danmakuBtn.hidden      = YES;//zxh 隐藏弹幕按钮
+    self.danmakuBtn.hidden      = NO;
     
     [self.backBtn setImage:SuperPlayerImage(@"back_full") forState:UIControlStateNormal];
 
@@ -341,13 +342,10 @@
         make.width.mas_equalTo(self.isLive?10:60);
     }];
     
-    if (IsIPhoneX) {
-        [self.startBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.leading.equalTo(self.bottomImageView.mas_leading).offset(5);
-            make.bottom.equalTo(self.bottomImageView.mas_bottom).offset(-25);
-            make.width.height.mas_equalTo(30);
-        }];
-    }
+    [self.bottomImageView mas_updateConstraints:^(MASConstraintMaker *make) {
+        CGFloat b = self.superview.mm_safeAreaBottomGap;
+        make.height.mas_equalTo(BOTTOM_IMAGE_VIEW_HEIGHT+b);
+    }];
     
     self.videoSlider.hiddenPoints = NO;
 }
@@ -372,13 +370,9 @@
         make.width.mas_equalTo(self.isLive?10:60);
     }];
     
-    if (IsIPhoneX) {
-        [self.startBtn mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.leading.equalTo(self.bottomImageView.mas_leading).offset(5);
-            make.bottom.equalTo(self.bottomImageView.mas_bottom).offset(-5);
-            make.width.height.mas_equalTo(30);
-        }];
-    }
+    [self.bottomImageView mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(BOTTOM_IMAGE_VIEW_HEIGHT);
+    }];
     
     self.videoSlider.hiddenPoints = YES;
     self.pointJumpBtn.hidden = YES;
@@ -427,6 +421,7 @@
 - (UIButton *)lockBtn {
     if (!_lockBtn) {
         _lockBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        _lockBtn.exclusiveTouch = YES;
         [_lockBtn setImage:SuperPlayerImage(@"unlock-nor") forState:UIControlStateNormal];
         [_lockBtn setImage:SuperPlayerImage(@"lock-nor") forState:UIControlStateSelected];
         [_lockBtn addTarget:self action:@selector(lockScrrenBtnClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -647,13 +642,13 @@
     
     [self.pointJumpBtn setTitle:text forState:UIControlStateNormal];
     [self.pointJumpBtn sizeToFit];
-    CGFloat x = self.videoSlider.mm_x + self.videoSlider.mm_w * point.where - self.pointJumpBtn.mm_halfW;
+    CGFloat x = self.videoSlider.mm_x + self.videoSlider.mm_w * point.where - self.pointJumpBtn.mm_h/2;
     if (x < 0)
         x = 0;
-    if (x + self.pointJumpBtn.mm_halfW > ScreenWidth)
-        x = ScreenWidth - self.pointJumpBtn.mm_halfW;
+    if (x + self.pointJumpBtn.mm_h/2 > ScreenWidth)
+        x = ScreenWidth - self.pointJumpBtn.mm_h/2;
     self.pointJumpBtn.tag = [self.videoSlider.pointArray indexOfObject:point];
-    self.pointJumpBtn.m_left(x).m_bottom(60);
+    self.pointJumpBtn.mm_left(x).mm_bottom(60);
     self.pointJumpBtn.hidden = NO;
     
     [DataReport report:@"player_point" param:nil];

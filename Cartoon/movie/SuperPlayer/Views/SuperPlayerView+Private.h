@@ -34,7 +34,7 @@ typedef NS_ENUM(NSInteger, ButtonAction) {
 
 
 @interface SuperPlayerView () <UIGestureRecognizerDelegate,UIAlertViewDelegate,
-TXVodPlayListener, TXLivePlayListener, SuperPlayerControlViewDelegate, TXLiveBaseDelegate>
+TXVodPlayListener, TXLivePlayListener, SuperPlayerControlViewDelegate, TXLiveBaseDelegate, AVAssetResourceLoaderDelegate>
 
 
 /** 用来保存快进的总时长 */
@@ -100,5 +100,17 @@ TXVodPlayListener, TXLivePlayListener, SuperPlayerControlViewDelegate, TXLiveBas
 @end
 
 
+// ---------------------------------------------------------------
+
+@class AdaptiveStream;
+
+@interface SuperPlayerModel()
+
+//@property (nonatomic, strong) NSString *drmType;
+@property NSMutableArray<AdaptiveStream *> *streams;
+
+//- (BOOL)canSetDrmType:(NSString *)drmType;
+
+@end
 
 #endif /* SuperPlayerView_Private_h */
