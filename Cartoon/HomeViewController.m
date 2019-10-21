@@ -7,7 +7,7 @@
 //
 
 #import "HomeViewController.h"
-#import "movie/Mogu/MoGuController.h"
+#import "MoGuController.h"
 #import "movie/Xiao1APP/XXYSViewController.h"
 #import "movie/kuaikan/KKViewController.h"
 #import "WMViewController.h"

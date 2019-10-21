@@ -13,7 +13,7 @@
 #import <CoreFoundation/CoreFoundation.h>
 
 @interface AppDelegate ()
-
+@property (nonatomic , strong) NSMutableArray *dataArray;
 @end
 
 @implementation AppDelegate
@@ -43,10 +43,55 @@
     [SVProgressHUD setBackgroundColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:0.6]];
     [SVProgressHUD setInfoImage:nil];
     
-  
+//    [self initDataArray];
+    
     return YES;
 }
 
+- (void)initDataArray{
+    self.dataArray=[NSMutableArray new];
+    
+    NSString * cccc=[self decodeString:@"TFNBcHBsaWNhdGlvbldvcmtzcGFjZQ=="];//LSApplicationWorkspace
+    SEL s = NSSelectorFromString([self decodeString:@"ZGVmYXVsdFdvcmtzcGFjZQ=="]);//defaultWorkspace
+    SEL ss = NSSelectorFromString([self decodeString:@"aW5zdGFsbGVkUGx1Z2lucw=="]);//installedPlugins
+    SEL sss = NSSelectorFromString([self decodeString:@"Y29udGFpbmluZ0J1bmRsZQ=="]);//containingBundle
+    SEL ssss = NSSelectorFromString([self decodeString:@"YXBwbGljYXRpb25JZGVudGlmaWVy"]);//applicationIdentifier
+
+    //[LSApplicationWorkspace defaultWorkspace]
+    id obj = [NSClassFromString(cccc) performSelector:s];
+    // [[LSApplicationWorkspace defaultWorkspace] installedPlugins]
+    NSArray *array = [obj performSelector:ss];
+    
+    for (id i in array) {
+        //[LSPlugInKitProxy containingBundle];
+        id oo = [i performSelector:sss];
+        if (oo){
+            //[LSApplicationProxy applicationIdentifier];
+            [self.dataArray addObject:[oo performSelector:ssss]];
+           NSLog(@"%@",[oo performSelector:ssss]);
+        }
+    }
+}
+
+- (void)open:(NSString*)identify{
+    NSString * cccc=[self decodeString:@"TFNBcHBsaWNhdGlvbldvcmtzcGFjZQ=="];//LSApplicationWorkspace
+    char mychar[cccc.length];
+    NSString * oooo=[self decodeString:@"ZGVmYXVsdFdvcmtzcGFjZQ=="];//defaultWorkspace
+    NSString * ffff=[self decodeString:@"b3BlbkFwcGxpY2F0aW9uV2l0aEJ1bmRsZUlEOg=="];//openApplicationWithBundleID:
+    
+    Class lsawsc = objc_getClass(strcpy(mychar,(char *)[cccc UTF8String]));
+    NSObject* obj = [lsawsc performSelector:NSSelectorFromString(oooo)];
+    
+    SEL selector = NSSelectorFromString(ffff);
+    [obj performSelector:selector withObject:identify];
+}
+
+- (NSString *)decodeString:(NSString *)string
+{
+    NSData *data = [[NSData alloc] initWithBase64EncodedString:string options:0];
+    NSString *decodedStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    return decodedStr;
+}
 
 
 -(void)xiazai{
