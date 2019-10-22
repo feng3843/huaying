@@ -129,7 +129,8 @@
 
 -(void)getNewDataListWithNum:(int)num{
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeClear];
-       [SVProgressHUD showProgress:0];
+    [SVProgressHUD showProgress:0];
+    [[UIApplication sharedApplication] setIdleTimerDisabled:YES] ;
        //1.查询最新数据
        NSString *url = [NSString stringWithFormat:@"http://kkapp.dingdang.tv:8089//ajax/data?mid=1&page=1&limit=%d&tid=0",num];
        [XPNetWorkTool requestWithType:HttpRequestTypeGet withHttpHeaderFieldDict:nil withUrlString:url withParaments:nil withSuccessBlock:^(NSDictionary *responseObject) {
@@ -194,6 +195,7 @@
                    }
                    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeNone];
                    [SVProgressHUD dismiss];
+                   [[UIApplication sharedApplication] setIdleTimerDisabled:NO] ;
                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                        [self requestSearchWithKey:nil];
                    });

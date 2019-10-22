@@ -40,68 +40,103 @@
     FMDatabase * _db;//消息数据库对象
 }
 
-//-(void)insertDbWithDict:(NSDictionary *)videoDict{
-//    NSString *vodId = videoDict[@"vodId"];
-//    NSString *vodContent = videoDict[@"vodContent"];
-//    NSString * vodpic = videoDict[@"vodpic"];
-//    NSString *vodactor = videoDict[@"vodactor"];
-//    NSString *voddirector = videoDict[@"voddirector"];
-//    NSString *vodremarks = videoDict[@"vodremarks"];
-//    NSString *vodname = videoDict[@"vodname"];
-//    NSString *vodurl = videoDict[@"vodurl"];
-//    
-//    //设置消息的数据库名称
-//    NSString *fileName = [DOCUMENT_PATH stringByAppendingPathComponent:@"dingdang.sqlite"];
-//    //2.获取数据库
-//    _db = [FMDatabase databaseWithPath:fileName];
-//    if ([_db open]) {
-//        //1.executeUpdate:不确定的参数用？来占位（后面参数必须是oc对象，；代表语句结束）
-//        BOOL result = [_db executeUpdate:@"INSERT OR REPLACE INTO t_DINGDANG_VIDEO (vodId,vodContent, vodpic, vodactor, voddirector, vodremarks, vodname, vodurl) VALUES (?,?,?,?,?,?,?,?)",vodId,vodContent, vodpic, vodactor, voddirector, vodremarks, vodname, vodurl];
-//        if (result) {
-//            NSLog(@"---插入成功");
-//        } else {
-//            NSLog(@"---插入失败");
-//        }
-//        [_db close];
-//    }
-//}
-//
-//-(void)saveUrl{
-//    if (self.dataList.count == 0) {
-//        [SVProgressHUD showInfoWithStatus:@"无数据"];
-//        return;
-//    }
-//    
-//    for (DDMovieItem *model in self.dataList) {
-//        NSString *url = [NSString stringWithFormat:@"http://kkapp.dingdang.tv:8089//ajax/getDetail?mid=1&id=%@",model.vod_id];
-//           [XPNetWorkTool requestWithType:HttpRequestTypeGet withHttpHeaderFieldDict:nil withUrlString:url withParaments:nil withSuccessBlock:^(NSDictionary *responseObject) {
-//               NSDictionary *info = responseObject[@"info"];
-//               if (info) {
-//                   NSDictionary *playlist = info[@"vod_play_list"];
-//                   NSDictionary *child = [[playlist allValues] firstObject];
-//                   if (child) {
-//                       NSString *urlstr = child[@"url"];
-//                       NSMutableDictionary *videoDict = [NSMutableDictionary dictionary];
-//                       videoDict[@"vodId"] = model.vod_id;
-//                       videoDict[@"vodContent"] = model.vod_content;
-//                       videoDict[@"vodpic"] = model.vod_pic;
-//                       videoDict[@"vodactor"] = model.vod_actor;
-//                       videoDict[@"voddirector"] = model.vod_director;
-//                       videoDict[@"vodremarks"] = model.vod_remarks;
-//                       videoDict[@"vodname"] = model.vod_name;
-//                       videoDict[@"vodurl"] = urlstr;
-//                       [self insertDbWithDict:videoDict];
-//                   }
-//               }else{
-//                   [SVProgressHUD showInfoWithStatus:@"获取详情失败！！！！"];
-//               }
-//           } withFailureBlock:^(NSString *errorMsg) {
-//              
-//           } progress:^(float progress) {
-//               
-//           }];
-//    }
-//}
+-(void)insertDbWithDict:(NSDictionary *)videoDict{
+    NSString *vodId = videoDict[@"vodId"];
+    NSString *vodContent = videoDict[@"vodContent"];
+    NSString * vodpic = videoDict[@"vodpic"];
+    NSString *vodactor = videoDict[@"vodactor"];
+    NSString *voddirector = videoDict[@"voddirector"];
+    NSString *vodremarks = videoDict[@"vodremarks"];
+    NSString *vodname = videoDict[@"vodname"];
+    NSString *vodurl = videoDict[@"vodurl"];
+    NSString *vodYear = videoDict[@"vodYear"];
+    NSString *vodtimeadd = videoDict[@"vodtimeadd"];
+    NSString *vodDownUrl = videoDict[@"vodDownUrl"];
+    NSString *vodClass = videoDict[@"vodClass"];
+    if (vodId.length > 0 && vodname.length > 0 && vodurl.length > 0) {
+        if ([_db open]) {
+               //1.executeUpdate:不确定的参数用？来占位（后面参数必须是oc对象，；代表语句结束）
+               BOOL result = [_db executeUpdate:@"INSERT OR REPLACE INTO t_DINGDANG_VIDEO (vodId,vodContent, vodpic, vodactor, voddirector, vodremarks, vodname, vodurl,vodYear,vodtimeadd,vodDownUrl,vodClass) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)",vodId,vodContent, vodpic, vodactor, voddirector, vodremarks, vodname, vodurl,vodYear,vodtimeadd,vodDownUrl,vodClass];
+               if (result) {
+                   NSLog(@"---插入成功");
+               } else {
+                   NSLog(@"---插入失败");
+               }
+               [_db close];
+           }
+    }else{
+        NSLog(@"数据为空，未更新数据库表");
+    }
+}
+
+-(void)saveUrl{
+    if (self.dataList.count == 0) {
+        [SVProgressHUD showInfoWithStatus:@"无数据"];
+        return;
+    }
+
+    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeClear];
+    [SVProgressHUD showProgress:0];
+    [[UIApplication sharedApplication] setIdleTimerDisabled:YES] ;
+    
+    // 创建队列组，可以使多个网络请求异步执行，执行完之后再进行操作
+    dispatch_group_t group = dispatch_group_create();
+    //创建全局队列
+    dispatch_queue_t queue = dispatch_get_global_queue(0, 0);
+    
+    dispatch_group_async(group, queue, ^{
+        // 循环上传数据
+        for (int i = 0 ;i < self.dataList.count;i++) {
+            //创建dispatch_semaphore_t对象
+            dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+            DDMovieItem *model = self.dataList[i];
+            NSString *url = [NSString stringWithFormat:@"http://kkapp.dingdang.tv:8089//ajax/getDetail?mid=1&id=%@",model.vod_id];
+            [XPNetWorkTool requestWithType:HttpRequestTypeGet withHttpHeaderFieldDict:nil withUrlString:url withParaments:nil withSuccessBlock:^(NSDictionary *responseObject) {
+                NSDictionary *info = responseObject[@"info"];
+                if (info) {
+                    DDMovieItem *model = [DDMovieItem mj_objectWithKeyValues:info];
+                    NSDictionary *playlist = info[@"vod_play_list"];
+                    NSDictionary *child = [[playlist allValues] firstObject];
+                    if (child) {
+                        NSString *urlstr = child[@"url"];
+                        NSMutableDictionary *videoDict = [NSMutableDictionary dictionary];
+                        videoDict[@"vodId"] = model.vod_id;
+                        videoDict[@"vodContent"] = model.vod_content;
+                        videoDict[@"vodpic"] = model.vod_pic;
+                        videoDict[@"vodactor"] = model.vod_actor;
+                        videoDict[@"voddirector"] = model.vod_director;
+                        videoDict[@"vodremarks"] = model.vod_remarks;
+                        videoDict[@"vodname"] = model.vod_name;
+                        videoDict[@"vodurl"] = urlstr;
+                        videoDict[@"vodYear"] = model.vod_year;
+                        videoDict[@"vodtimeadd"] = model.vod_time;
+                        videoDict[@"vodDownUrl"] = model.vod_down_url;
+                        videoDict[@"vodClass"] = model.vod_class;
+                        [self insertDbWithDict:videoDict];
+                    }
+                }else{
+                    [SVProgressHUD showInfoWithStatus:@"获取详情失败！！！！"];
+                }
+                [SVProgressHUD showProgress:i*1.0/self.dataList.count status:[NSString stringWithFormat:@"%.1f%%",i*100.0/self.dataList.count]];
+                // 请求成功发送信号量(+1)
+               dispatch_semaphore_signal(semaphore);
+            } withFailureBlock:^(NSString *errorMsg) {
+            // 请求成功发送信号量(+1)
+              dispatch_semaphore_signal(semaphore);
+            } progress:^(float progress) {
+
+            }];
+            //信号量减1，如果>0，则向下执行，否则等待
+            dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+        }
+        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeNone];
+        [SVProgressHUD dismiss];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [[UIApplication sharedApplication] setIdleTimerDisabled:NO] ;
+        });
+        
+    });
+}
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -115,8 +150,19 @@
     _dataList = [NSMutableArray array];
     self.title = @"搜索";
     
-//    UIBarButtonItem *right = [[UIBarButtonItem alloc]initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(saveUrl)];
-//    self.navigationItem.rightBarButtonItem = right;
+    NSArray *path = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *docDirectory = [path objectAtIndex:0];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"dingdang.sqlite" ofType:nil];
+    NSString *dstPath = [docDirectory stringByAppendingPathComponent:@"dingdang.sqlite"];
+    if ([[NSFileManager defaultManager] fileExistsAtPath:dstPath] == false) {
+        [[NSFileManager defaultManager] copyItemAtPath:filePath toPath:dstPath error:nil];
+    }
+
+    //设置消息的数据库名称
+    _db = [FMDatabase databaseWithPath:dstPath];
+    
+    UIBarButtonItem *right = [[UIBarButtonItem alloc]initWithTitle:@"保存" style:UIBarButtonItemStylePlain target:self action:@selector(saveUrl)];
+    self.navigationItem.rightBarButtonItem = right;
     
     _tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 84,screenW ,screenH - 84)];
     _tableView.delegate = self;
