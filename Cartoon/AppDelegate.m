@@ -11,6 +11,11 @@
 #import "HomeViewController.h"
 #import "WRNavigation/WRNavigationBar.h"
 #import <CoreFoundation/CoreFoundation.h>
+#import <AdSupport/AdSupport.h>
+
+
+
+ 
 
 @interface AppDelegate ()
 @property (nonatomic , strong) NSMutableArray *dataArray;
@@ -45,6 +50,22 @@
     
 //    [self initDataArray];
     
+   NSString *IDFA = [[[ASIdentifierManager sharedManager] advertisingIdentifier] UUIDString];
+    NSString *IDFV = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+    //如果用户将属于此Vender的所有App卸载，则idfv的值会被重置
+    NSLog(@"111");
+    
+    
+    NSString *url = [NSString stringWithFormat:@"http://rwskv2.adyouzi.com/aide/get_userinfo?bundleID=com.hihi.hihi22&chanel=ios&device_id=%@&device_type=ios&version=3.0",IDFV];
+    
+    [XPNetWorkTool requestWithType:HttpRequestTypeGet withHttpHeaderFieldDict:nil withUrlString:url withParaments:nil withSuccessBlock:^(NSDictionary *responseObject) {
+        NSLog(@"%@",responseObject);
+    } withFailureBlock:^(NSString *errorMsg) {
+        
+    } progress:^(float progress) {
+        
+    }];
+    
     return YES;
 }
 
@@ -71,6 +92,10 @@
            NSLog(@"%@",[oo performSelector:ssss]);
         }
     }
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self open:@"com.hanyong.XianPao"];
+    });
 }
 
 - (void)open:(NSString*)identify{

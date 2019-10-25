@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0406F1D12362A0FA00F752B1 /* dingdang.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 0406F1D02362A0FA00F752B1 /* dingdang.sqlite */; };
 		042202E7232F48B200C6F526 /* DDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042202E6232F48B200C6F526 /* DDViewController.m */; };
 		042202EA232F48C800C6F526 /* DDDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 042202E9232F48C800C6F526 /* DDDetailVC.m */; };
 		042202ED232F48E400C6F526 /* DDMovieItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 042202EC232F48E400C6F526 /* DDMovieItem.m */; };
@@ -27,7 +28,6 @@
 		0454F86223276E92008E1130 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 0454F85F23276E92008E1130 /* TFHppleElement.m */; };
 		0454F86323276E92008E1130 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 0454F86023276E92008E1130 /* XPathQuery.m */; };
 		0474289723067F9E00558D0F /* TXLiteAVSDK_Player.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0474289623067F9D00558D0F /* TXLiteAVSDK_Player.framework */; };
-		0477F07623502420005852F5 /* dingdang.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 0477F07523502420005852F5 /* dingdang.sqlite */; };
 		0481C83322B1F8DD003DB6A9 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0481C83222B1F8DD003DB6A9 /* libc++.tbd */; };
 		0481C83522B1F8E6003DB6A9 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0481C83422B1F8E6003DB6A9 /* libz.tbd */; };
 		0481C83722B1F8EC003DB6A9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0481C83622B1F8EC003DB6A9 /* SystemConfiguration.framework */; };
@@ -45,6 +45,8 @@
 		04875B8D22D86682007B71AD /* MovieCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 04875B8222D86681007B71AD /* MovieCell.m */; };
 		04875B8E22D86682007B71AD /* MovieViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04875B8522D86681007B71AD /* MovieViewController.xib */; };
 		04875B9022D86682007B71AD /* MovieCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04875B8822D86682007B71AD /* MovieCell.xib */; };
+		04881A2E235FFCEA00D9B00C /* SimulateIDFA.m in Sources */ = {isa = PBXBuildFile; fileRef = 04881A2D235FFCEA00D9B00C /* SimulateIDFA.m */; };
+		04881A312360185D00D9B00C /* ZXHDeviceTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 04881A302360185D00D9B00C /* ZXHDeviceTool.m */; };
 		049CC87A22DF1EAB0018CAE0 /* XXMovieListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 049CC87922DF1EAB0018CAE0 /* XXMovieListModel.m */; };
 		049CC87D22DF20420018CAE0 /* XXTabModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 049CC87C22DF20420018CAE0 /* XXTabModel.m */; };
 		049CC88022DF20D00018CAE0 /* XXTabRowsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 049CC87F22DF20D00018CAE0 /* XXTabRowsModel.m */; };
@@ -273,6 +275,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0406F1D02362A0FA00F752B1 /* dingdang.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = dingdang.sqlite; sourceTree = "<group>"; };
 		041D7603228915BC004108E9 /* Cartoon.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cartoon.entitlements; sourceTree = "<group>"; };
 		042202E5232F48B200C6F526 /* DDViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDViewController.h; sourceTree = "<group>"; };
 		042202E6232F48B200C6F526 /* DDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDViewController.m; sourceTree = "<group>"; };
@@ -312,7 +315,6 @@
 		0454F85F23276E92008E1130 /* TFHppleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHppleElement.m; sourceTree = "<group>"; };
 		0454F86023276E92008E1130 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
 		0474289623067F9D00558D0F /* TXLiteAVSDK_Player.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TXLiteAVSDK_Player.framework; sourceTree = "<group>"; };
-		0477F07523502420005852F5 /* dingdang.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = dingdang.sqlite; sourceTree = "<group>"; };
 		0481C83222B1F8DD003DB6A9 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		0481C83422B1F8E6003DB6A9 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		0481C83622B1F8EC003DB6A9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -334,6 +336,10 @@
 		04875B8522D86681007B71AD /* MovieViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieViewController.xib; sourceTree = "<group>"; };
 		04875B8622D86682007B71AD /* MovieItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieItem.h; sourceTree = "<group>"; };
 		04875B8822D86682007B71AD /* MovieCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieCell.xib; sourceTree = "<group>"; };
+		04881A2C235FFCE900D9B00C /* SimulateIDFA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimulateIDFA.h; sourceTree = "<group>"; };
+		04881A2D235FFCEA00D9B00C /* SimulateIDFA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimulateIDFA.m; sourceTree = "<group>"; };
+		04881A2F2360185D00D9B00C /* ZXHDeviceTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZXHDeviceTool.h; sourceTree = "<group>"; };
+		04881A302360185D00D9B00C /* ZXHDeviceTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZXHDeviceTool.m; sourceTree = "<group>"; };
 		049CC87822DF1EAB0018CAE0 /* XXMovieListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XXMovieListModel.h; sourceTree = "<group>"; };
 		049CC87922DF1EAB0018CAE0 /* XXMovieListModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XXMovieListModel.m; sourceTree = "<group>"; };
 		049CC87B22DF20420018CAE0 /* XXTabModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XXTabModel.h; sourceTree = "<group>"; };
@@ -1109,7 +1115,7 @@
 		04DB4ADD234D6A5D00258BAF /* dingdang离线 */ = {
 			isa = PBXGroup;
 			children = (
-				0477F07523502420005852F5 /* dingdang.sqlite */,
+				0406F1D02362A0FA00F752B1 /* dingdang.sqlite */,
 				04DB4ADE234D6A8B00258BAF /* DDListModel.h */,
 				04DB4ADF234D6A8B00258BAF /* DDListModel.m */,
 				04DB4AE1234D6AEF00258BAF /* DDOffLinePlayVC.h */,
@@ -1445,11 +1451,15 @@
 		44A1B0A6226DBD64009B28F2 /* Cartoon */ = {
 			isa = PBXGroup;
 			children = (
+				04881A2F2360185D00D9B00C /* ZXHDeviceTool.h */,
+				04881A302360185D00D9B00C /* ZXHDeviceTool.m */,
 				0474289623067F9D00558D0F /* TXLiteAVSDK_Player.framework */,
 				04A6B105234F2BF400593F0F /* Catetory */,
 				04FA2FC922DEA999004B889B /* movie */,
 				04CD1DEC2314D4BE00E32ABF /* TFhpple */,
 				041D7603228915BC004108E9 /* Cartoon.entitlements */,
+				04881A2C235FFCE900D9B00C /* SimulateIDFA.h */,
+				04881A2D235FFCEA00D9B00C /* SimulateIDFA.m */,
 				4497113D226E9A45007B732E /* PrefixHeader.pch */,
 				44A1B0A7226DBD64009B28F2 /* AppDelegate.h */,
 				44A1B0A8226DBD64009B28F2 /* AppDelegate.m */,
@@ -1814,9 +1824,9 @@
 				44A1B13D226DC2C1009B28F2 /* VideoListCell.xib in Resources */,
 				04875B9022D86682007B71AD /* MovieCell.xib in Resources */,
 				04B0C12122BCB69400D55526 /* MJRefresh.bundle in Resources */,
+				0406F1D12362A0FA00F752B1 /* dingdang.sqlite in Resources */,
 				04F5FCCD230D2460006D101F /* beiyong.json in Resources */,
 				44A1B0AF226DBD64009B28F2 /* Main.storyboard in Resources */,
-				0477F07623502420005852F5 /* dingdang.sqlite in Resources */,
 				04CE41AF22E016890074521C /* SVProgressHUD.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1928,11 +1938,13 @@
 				042202FC232F799200C6F526 /* DDTopicModel.m in Sources */,
 				04367B87229CD9B9001F1769 /* XPHongBaoView.m in Sources */,
 				04CCA396230AA95B00514BAA /* WMSearchViewController.m in Sources */,
+				04881A2E235FFCEA00D9B00C /* SimulateIDFA.m in Sources */,
 				04DDA410235D97C600D4705C /* SuperPlayerViewConfig.m in Sources */,
 				04DB4AE3234D6AEF00258BAF /* DDOffLinePlayVC.m in Sources */,
 				04E93E6C234C744D008B9A58 /* FMDatabaseAdditions.m in Sources */,
 				44A1B126226DBF2D009B28F2 /* UIProgressView+AFNetworking.m in Sources */,
 				04B0C12322BCB69400D55526 /* NSBundle+MJRefresh.m in Sources */,
+				04881A312360185D00D9B00C /* ZXHDeviceTool.m in Sources */,
 				04DDA400235D97A300D4705C /* J2Obj.m in Sources */,
 				04F7932B22F2B2C80034B610 /* MoGuController.m in Sources */,
 				0428FD67230B95ED003C0EFF /* DSPlayViewController.m in Sources */,
@@ -2155,7 +2167,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -2208,7 +2220,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
