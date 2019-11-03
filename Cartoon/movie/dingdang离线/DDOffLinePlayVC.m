@@ -275,7 +275,7 @@
            x = btnX + size.width ;
        }
        UIScrollView *sc = (UIScrollView *)self.scrollView;
-       sc.contentSize = CGSizeMake(0, y + 50);
+       sc.contentSize = CGSizeMake(screenW, y + 50);
     
     
     BOOL flag = NO;
@@ -283,6 +283,10 @@
         flag = YES;
     }
     [self PlayWithPlayModel:self.selectedModel needSave:flag];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.scrollView scrollRectToVisible:self.selectedBtn.frame animated:YES];
+    });
+    
 }
 
 -(void)downbtnClick:(UIButton *)btn{
@@ -308,6 +312,8 @@
     }
     btn.selected = !btn.selected;
     self.selectedBtn = btn;
+    
+    [self.scrollView scrollRectToVisible:self.selectedBtn.frame animated:YES];
     
     DDPlayModel *model = self.playLists[btn.tag];
     if (self.selectedModel != model) {

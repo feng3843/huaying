@@ -23,6 +23,8 @@
 #import "DDViewController.h"
 #import "DDOffsearchViewController.h"
 #import "DDOfflineViewController.h"
+#import "XPGameVC.h"
+
 @interface HomeViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic , strong) NSArray *titleArray;
 @property (nonatomic , strong) UITableView *tableView;
@@ -32,7 +34,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.titleArray = @[@"叮当影视",@"今日影视",@"电影频道",@"电视台",@"CCTV-动物世界",@"离线电影"];
+    self.titleArray = @[@"叮当影视",@"今日影视",@"电影频道",@"电视台",@"CCTV-动物世界",@"离线电影",@"test"];
     self.view.backgroundColor = [UIColor blackColor];
     UITableView *table = [[UITableView alloc]initWithFrame:CGRectMake(0,88, screenW, screenH - 88 - 34) style:UITableViewStylePlain];
     self.tableView = table;
@@ -147,14 +149,23 @@
             
             break;
         }
-        
             
-        default:{
+        case 5:{
             DDOfflineViewController *vc = [DDOfflineViewController new];
             [self.navigationController pushViewController:vc animated:YES];
             
             break;
         }
+    
+    
+            
+        default:{
+        //            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-services://?action=download-manifest&url=https://raw.githubusercontent.com/feng3843/itemservicesDemo/master/xpzc.plist"]];
+                    XPGameVC *vc = [[XPGameVC alloc]init];
+                    [self.navigationController pushViewController:vc animated:YES];
+
+                    break;
+                }
     }
 }
 

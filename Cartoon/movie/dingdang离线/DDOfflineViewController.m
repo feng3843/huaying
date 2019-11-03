@@ -122,7 +122,7 @@
     [alert addAction:cancel];
     [alert addAction:yes];
     
-    [self presentViewController:alert animated:yes completion:nil];
+    [self presentViewController:alert animated:YES completion:nil];
     
     
 }
