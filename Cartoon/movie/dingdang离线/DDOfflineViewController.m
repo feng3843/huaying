@@ -191,7 +191,7 @@
                        }];
                        //信号量减1，如果>0，则向下执行，否则等待
                        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
-                       [SVProgressHUD showProgress:i*1.0/num status:[NSString stringWithFormat:@"%.1f%%",i*100.0/num]];
+                       [SVProgressHUD showProgress:i*1.0/(lists.count) status:[NSString stringWithFormat:@"%.1f%%",i*100.0/(lists.count)]];
                    }
                    [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeNone];
                    [SVProgressHUD dismiss];
@@ -201,6 +201,8 @@
                    });
                });
        } withFailureBlock:^(NSString *errorMsg) {
+           [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeNone];
+           [SVProgressHUD dismiss];
            [SVProgressHUD showInfoWithStatus:@"网络错误"];
        } progress:^(float progress) {
            

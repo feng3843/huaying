@@ -59,7 +59,7 @@
     
     SuperPlayerViewConfig *config = [[SuperPlayerViewConfig alloc]init];
     config.hwAcceleration = NO;
-    config.maxCacheItem = 20;
+    config.maxCacheItem = 3;
     config.playerType = PLAYER_AVPLAYER;//zxh zzxxhh 启用avplayer可以减少某些卡顿
     self.playerView.playerConfig = config;
     
