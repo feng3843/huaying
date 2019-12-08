@@ -375,6 +375,11 @@
 }
 
 -(void)goWeb{
+    UIPasteboard *sb = [UIPasteboard generalPasteboard];
+    sb.string = self.playerModel.videoURL;
+    [SVProgressHUD showInfoWithStatus:@"复制成功"];
+    return;
+    
     NSString *ssss = [NSString stringWithFormat:@"<!DOCTYPE HTML><html style = \"background-color:#000000 \"><body style =\" height:100%%,display:flex;justify-content:center;align-items:center; background-color:#000000\"><video style={} class=\"tvhou\" width=\"100%%\" height=\"100%%\"controls=\"controls\" autoplay=\"autoplay\" x-webkit-airplay=\"true\"  x5-video-player-fullscreen=\"true\" preload=\"auto\" playsinline=\"true\" webkit-playsinline x5-video-player-typ=\"h5\"> <source type=\"application/x-mpegURL\" src=\"%@\"></video></body></html>",self.playerModel.videoURL];
     XPGoodsTuWenController *vc = [XPGoodsTuWenController new];
     vc.html = ssss;

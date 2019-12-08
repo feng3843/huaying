@@ -25,6 +25,8 @@
 #import "DDOfflineViewController.h"
 #import "XPGameVC.h"
 
+#import "PopView.h"
+
 @interface HomeViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic , strong) NSArray *titleArray;
 @property (nonatomic , strong) UITableView *tableView;
@@ -160,10 +162,8 @@
     
             
         default:{
-        //            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"itms-services://?action=download-manifest&url=https://raw.githubusercontent.com/feng3843/itemservicesDemo/master/xpzc.plist"]];
-                    XPGameVC *vc = [[XPGameVC alloc]init];
-                    [self.navigationController pushViewController:vc animated:YES];
-
+            PopView *pop = [PopView popView];
+            [[UIApplication sharedApplication].keyWindow addSubview:pop];
                     break;
                 }
     }

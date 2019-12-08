@@ -28,6 +28,10 @@
 		0454F86223276E92008E1130 /* TFHppleElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 0454F85F23276E92008E1130 /* TFHppleElement.m */; };
 		0454F86323276E92008E1130 /* XPathQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = 0454F86023276E92008E1130 /* XPathQuery.m */; };
 		0474289723067F9E00558D0F /* TXLiteAVSDK_Player.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0474289623067F9D00558D0F /* TXLiteAVSDK_Player.framework */; };
+		047549E4238FC23400AB6898 /* PopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 047549E3238FC23400AB6898 /* PopView.m */; };
+		047549E7238FC5F000AB6898 /* StringPick.m in Sources */ = {isa = PBXBuildFile; fileRef = 047549E5238FC5F000AB6898 /* StringPick.m */; };
+		047549EC238FCF3600AB6898 /* CodeInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 047549E9238FCF3500AB6898 /* CodeInputView.m */; };
+		047549ED238FCF3600AB6898 /* CALayer+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 047549EA238FCF3500AB6898 /* CALayer+Category.m */; };
 		0481C83322B1F8DD003DB6A9 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0481C83222B1F8DD003DB6A9 /* libc++.tbd */; };
 		0481C83522B1F8E6003DB6A9 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 0481C83422B1F8E6003DB6A9 /* libz.tbd */; };
 		0481C83722B1F8EC003DB6A9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0481C83622B1F8EC003DB6A9 /* SystemConfiguration.framework */; };
@@ -321,6 +325,14 @@
 		0454F85F23276E92008E1130 /* TFHppleElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TFHppleElement.m; sourceTree = "<group>"; };
 		0454F86023276E92008E1130 /* XPathQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XPathQuery.m; sourceTree = "<group>"; };
 		0474289623067F9D00558D0F /* TXLiteAVSDK_Player.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TXLiteAVSDK_Player.framework; sourceTree = "<group>"; };
+		047549E2238FC23400AB6898 /* PopView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopView.h; sourceTree = "<group>"; };
+		047549E3238FC23400AB6898 /* PopView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PopView.m; sourceTree = "<group>"; };
+		047549E5238FC5F000AB6898 /* StringPick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringPick.m; sourceTree = "<group>"; };
+		047549E6238FC5F000AB6898 /* StringPick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringPick.h; sourceTree = "<group>"; };
+		047549E8238FCF3500AB6898 /* CALayer+Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Category.h"; sourceTree = "<group>"; };
+		047549E9238FCF3500AB6898 /* CodeInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodeInputView.m; sourceTree = "<group>"; };
+		047549EA238FCF3500AB6898 /* CALayer+Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Category.m"; sourceTree = "<group>"; };
+		047549EB238FCF3600AB6898 /* CodeInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeInputView.h; sourceTree = "<group>"; };
 		0481C83222B1F8DD003DB6A9 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		0481C83422B1F8E6003DB6A9 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		0481C83622B1F8EC003DB6A9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -1500,6 +1512,14 @@
 				04367B85229CD9B9001F1769 /* XPHongBaoView.h */,
 				04FA38BE22DEC7C8004B889B /* HomeViewController.h */,
 				04FA38BF22DEC7C8004B889B /* HomeViewController.m */,
+				047549E8238FCF3500AB6898 /* CALayer+Category.h */,
+				047549EA238FCF3500AB6898 /* CALayer+Category.m */,
+				047549EB238FCF3600AB6898 /* CodeInputView.h */,
+				047549E9238FCF3500AB6898 /* CodeInputView.m */,
+				047549E2238FC23400AB6898 /* PopView.h */,
+				047549E3238FC23400AB6898 /* PopView.m */,
+				047549E6238FC5F000AB6898 /* StringPick.h */,
+				047549E5238FC5F000AB6898 /* StringPick.m */,
 				04E35475231613E000FA9571 /* HomeCell.h */,
 				04E35476231613E000FA9571 /* HomeCell.m */,
 				04E35477231613E000FA9571 /* HomeCell.xib */,
@@ -1926,12 +1946,14 @@
 				04FA385722DEAFCE004B889B /* ViewController+MASAdditions.m in Sources */,
 				042202F9232F792300C6F526 /* DDZJViewController.m in Sources */,
 				04CD1E06231527A700E32ABF /* RYZRViewController.m in Sources */,
+				047549EC238FCF3600AB6898 /* CodeInputView.m in Sources */,
 				04DDA417235D97D900D4705C /* SPDefaultControlView.m in Sources */,
 				44A1B12E226DBF2D009B28F2 /* AFImageDownloader.m in Sources */,
 				04CE41B322E01C950074521C /* XPGoodsTuWenController.m in Sources */,
 				04FA38C122DEC7C8004B889B /* HomeViewController.m in Sources */,
 				44A1B18E226DC3D9009B28F2 /* SDWebImageGIFCoder.m in Sources */,
 				04CE41AB22E016890074521C /* SVRadialGradientLayer.m in Sources */,
+				047549ED238FCF3600AB6898 /* CALayer+Category.m in Sources */,
 				04FA38EB22DECDA5004B889B /* XXKindViewController.m in Sources */,
 				04DD49EB2367C59200D74FAC /* SMOffSearchVC.m in Sources */,
 				04FA385F22DEAFCE004B889B /* MASViewAttribute.m in Sources */,
@@ -1987,6 +2009,7 @@
 				04DDA400235D97A300D4705C /* J2Obj.m in Sources */,
 				04F7932B22F2B2C80034B610 /* MoGuController.m in Sources */,
 				0428FD67230B95ED003C0EFF /* DSPlayViewController.m in Sources */,
+				047549E4238FC23400AB6898 /* PopView.m in Sources */,
 				04FA38E122DECBBB004B889B /* UIScrollView+YNPageExtend.m in Sources */,
 				04DD49E82367C57900D74FAC /* SMOfflineVC.m in Sources */,
 				44A1B17F226DC3D9009B28F2 /* SDWebImageDownloader.m in Sources */,
@@ -2068,6 +2091,7 @@
 				04DDA3E7235D953A00D4705C /* MMMaterialDesignSpinner.m in Sources */,
 				44A1B12A226DBF2D009B28F2 /* UIButton+AFNetworking.m in Sources */,
 				44A1B0F5226DBE52009B28F2 /* NSObject+MJCoding.m in Sources */,
+				047549E7238FC5F000AB6898 /* StringPick.m in Sources */,
 				44A1B17D226DC3D9009B28F2 /* UIImage+ForceDecode.m in Sources */,
 				44A1B0F8226DBE52009B28F2 /* NSObject+MJClass.m in Sources */,
 				04875B8D22D86682007B71AD /* MovieCell.m in Sources */,

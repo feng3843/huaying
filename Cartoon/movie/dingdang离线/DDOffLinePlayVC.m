@@ -160,7 +160,12 @@
     [self.scrollView addSubview:self.urlL];
     self.urlL.numberOfLines = 2;
     
-
+    UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(screenW - 60, 15, 60, 20)];
+       [btn setTitle:@"go" forState:UIControlStateNormal];
+       btn.backgroundColor = [UIColor redColor];
+       btn.layer.cornerRadius = 5;
+       [btn addTarget:self action:@selector(goWeb) forControlEvents:UIControlEventTouchUpInside];
+       [self.scrollView addSubview:btn];
     
     self.intoL = [[UILabel alloc]initWithFrame:CGRectMake(20, 35, 0, 0)];
     self.intoL.textColor = [UIColor whiteColor];
@@ -288,6 +293,14 @@
     });
     
 }
+
+-(void)goWeb{
+UIPasteboard *sb = [UIPasteboard generalPasteboard];
+sb.string = self.playerModel.videoURL;
+[SVProgressHUD showInfoWithStatus:@"复制成功"];
+return;
+}
+
 
 -(void)downbtnClick:(UIButton *)btn{
     if (self.selectedBtn != btn) {
