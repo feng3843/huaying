@@ -7,7 +7,7 @@
 //
 
 #import "ZRFXViewController.h"
-#import "TFhpple/TFHpple.h"
+#import "TFHpple.h"
 #import "DWSJModel.h"
 #import "MovieCell.h"
 #import "DSPlayViewController.h"

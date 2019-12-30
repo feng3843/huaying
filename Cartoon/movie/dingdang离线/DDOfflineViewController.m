@@ -94,7 +94,10 @@
                    NSLog(@"---插入失败");
                }
                [_db close];
-           }
+        }else{
+             NSLog(@"---数据库打开失败");
+        }
+        
     }else{
         NSLog(@"数据为空，未更新数据库表");
     }
@@ -179,6 +182,7 @@
                                }
                            }else{
                                [SVProgressHUD showInfoWithStatus:@"获取详情失败！！！！"];
+                               NSLog(@"获取详情失败！！！！");
                            }
                            // 请求成功发送信号量(+1)
                            NSLog(@"发送请求  %d",i);

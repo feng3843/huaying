@@ -6,7 +6,7 @@
 //
 
 #import "SPWeiboControlView.h"
-#import <Masonry/Masonry.h>
+#import "Masonry.h"
 #import "UIView+Fade.h"
 #import "UIView+MMLayout.h"
 #import "StrUtils.h"

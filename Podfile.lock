@@ -1,0 +1,20 @@
+PODS:
+  - ReactiveObjC (3.1.1)
+  - TFHpple (2.0.0)
+
+DEPENDENCIES:
+  - ReactiveObjC
+  - TFHpple
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - ReactiveObjC
+    - TFHpple
+
+SPEC CHECKSUMS:
+  ReactiveObjC: 011caa393aa0383245f2dcf9bf02e86b80b36040
+  TFHpple: a916fe0799eb30aa29b2670d14d5868cdd3a5b81
+
+PODFILE CHECKSUM: 360c3a788d77b3924d723d634c1d146ebdcbf60a
+
+COCOAPODS: 1.8.4

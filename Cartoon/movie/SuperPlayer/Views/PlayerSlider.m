@@ -7,7 +7,7 @@
 //
 
 #import "PlayerSlider.h"
-#import <Masonry/Masonry.h>
+#import "Masonry.h"
 #import "UIView+MMLayout.h"
 
 @implementation PlayerPoint

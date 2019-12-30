@@ -440,6 +440,32 @@ static UISlider * _volumeSlider;
     [panRecognizer setDelaysTouchesEnded:YES];
     [panRecognizer setCancelsTouchesInView:YES];
     [self addGestureRecognizer:panRecognizer];
+    
+    UILongPressGestureRecognizer *longP = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longPressed:)];
+    longP.minimumPressDuration = 0.5;
+    [self addGestureRecognizer:longP];
+    
+}
+
+-(void)longPressed:(UILongPressGestureRecognizer *)longP{
+    NSLog(@"%ld",(long)longP.state);
+    float rate = self.playerConfig.playRate;
+    switch (longP.state) {
+        case UIGestureRecognizerStateBegan:{
+            NSLog(@"开始");
+            [self.vodPlayer setRate:2];
+           break;
+        }
+       case UIGestureRecognizerStateEnded:{
+            NSLog(@"结束");
+           [self.vodPlayer setRate:rate];
+        break;
+        }
+
+
+        default:
+            break;
+    }
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {

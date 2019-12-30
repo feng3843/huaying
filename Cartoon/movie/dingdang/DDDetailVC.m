@@ -412,6 +412,10 @@
     }
 }
 
+-(void)superPlayerDidEnd:(SuperPlayerView *)player{
+    
+}
+
 #pragma mark - 返回
 
 - (void)backClick {

@@ -14,8 +14,8 @@
 #import "NetWatcher.h"
 #import <MediaPlayer/MediaPlayer.h>
 
-#import "Masonry/Masonry.h"
-#import "AFNetworking/AFNetworking.h"
+#import "Masonry.h"
+#import "AFNetworking.h"
 
 
 // 枚举值，包含水平移动方向和垂直移动方向
