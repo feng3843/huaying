@@ -24,6 +24,7 @@
 #import "DDOffsearchViewController.h"
 #import "DDOfflineViewController.h"
 #import "XPGameVC.h"
+#import "MJWSerchViewVC.h"
 
 #import "PopView.h"
 #import "TestViewController.h"
@@ -36,7 +37,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.titleArray = @[@"叮当影视",@"今日影视",@"电影频道",@"电视台",@"CCTV-动物世界",@"离线电影",@"闲泡数据"];
+    self.titleArray = @[@"美剧网",@"叮当影视",@"今日影视",@"电影频道",@"电视台",@"CCTV-动物世界",@"离线电影",@"闲泡数据"];
     self.view.backgroundColor = [UIColor blackColor];
     UITableView *table = [[UITableView alloc]initWithFrame:CGRectMake(0,88, screenW, screenH - 88 - 34) style:UITableViewStylePlain];
     self.tableView = table;
@@ -77,19 +78,12 @@
             cell.imgV.image = [UIImage imageNamed:@"叮当"];
             break;
         }
-//        case 1:{
-//            cell.imgV.image = [UIImage imageNamed:@"mogu"];
-//            break;
-//        }
-//        case 2:{
-//            cell.imgV.image = [UIImage imageNamed:@"xiaoxiao"];
-//            break;
-//        }
-//        case 3:{
-//            cell.imgV.image = [UIImage imageNamed:@"快看漫画"];
-//            break;
-//        }
         case 1:{
+            cell.imgV.image = [UIImage imageNamed:@"叮当"];
+            break;
+        }
+
+        case 2:{
            cell.imgV.image = [UIImage imageNamed:@"简直完美"];
             break;
         }
@@ -107,52 +101,42 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     switch (indexPath.row) {
         case 0:{
-            DDViewController *vc = [[DDViewController alloc]init];
+            MJWSerchViewVC *vc = [[MJWSerchViewVC alloc]init];
             [self.navigationController pushViewController:vc animated:YES];
             break;
         }
-//        case 1:{
-//            MoGuController *vc = [[MoGuController alloc]init];
-//            [self.navigationController pushViewController:vc animated:YES];
-//            break;
-//        }
-//        case 2:{
-//            XXYSViewController *vc = [[XXYSViewController alloc]init];
-//            [self.navigationController pushViewController:vc animated:YES];
-//            break;
-//        }
-//        case 3:{
-//            KKViewController *vc = [[KKViewController alloc]init];
-//            vc.url = @"http://app123.66s.cc";
-//            [self.navigationController pushViewController:vc animated:YES];
-//            break;
-//        }
         case 1:{
+           DDViewController *vc = [[DDViewController alloc]init];
+            [self.navigationController pushViewController:vc animated:YES];
+            break;
+        }
+
+        case 2:{
             WMViewController *vc = [[WMViewController alloc]init];
             [self.navigationController pushViewController:vc animated:YES];
 
             break;
         }
-        case 2:{
+        case 3:{
             DianyingViewController *vc = [DianyingViewController new];
             [self.navigationController pushViewController:vc animated:YES];
             
             break;
         }
-        case 3:{
+        case 4:{
             DianshiViewController *vc = [DianshiViewController new];
             [self.navigationController pushViewController:vc animated:YES];
             
             break;
         }
-        case 4:{
+        case 5:{
             CCTVViewController *vc = [CCTVViewController new];
             [self.navigationController pushViewController:vc animated:YES];
             
             break;
         }
             
-        case 5:{
+        case 6:{
             DDOfflineViewController *vc = [DDOfflineViewController new];
             [self.navigationController pushViewController:vc animated:YES];
             

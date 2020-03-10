@@ -12,21 +12,26 @@
 #import "ToJsonTool.h"
 #import "ReactiveObjC.h"
 
+#define MAXWAITTIME 18
+
 static NSString * const RSA_PublicKey               = @"MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAtN3iBTvp5t8Leyr4A0eCMgV1n/2x7KKPcgghZtS+Fu5bEAzSc+SQ7eiz9HOtOSY6PkXXIyQb6J5C5DfIWOn7ImeEetl13xPBGPlDdrdG82vRo1C2vGioo40GyKOZVb3DnxfdFiNbffTFd4sugm5zsrSXmX2+C/uspElu1ctjfKicnUnpd0Z0Jo6+nw8BN4yujQK+kTdpNzKVk2Ia3c5HUohw+xPBTt1L4vLKaxwYkP+7hEDwAfhA4r3NkEcuGfVyjyvyucbh7en6+vjL3K7xJE0VhNCmjKaYiUVC12qKC1KqLJZc4Z2KjBSaubkrZjXZUCW6t04YuNCpIFtEv2k3hwIDAQAB";
 
 @interface TestViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *numTF;
 @property (nonatomic , strong) NSMutableArray *phoneList;
+@property (weak, nonatomic) IBOutlet UILabel *totalNumL;
+@property (weak, nonatomic) IBOutlet UILabel *doneNumL;
+@property (weak, nonatomic) IBOutlet UILabel *cacheNumL;
 @property (nonatomic , assign) dispatch_semaphore_t sem;
 @end
 
 @implementation TestViewController
-
+static  int aaa = 1;
 - (IBAction)startRegistePhone:(id)sender {
     
-    int num = 2;
+    int num = 20;
     if ([self.numTF.text intValue] == 0) {
-       num = 2;
+       num = 20;
     }else{
         num = [self.numTF.text intValue];
     }
@@ -40,12 +45,23 @@ static NSString * const RSA_PublicKey               = @"MIIBIjANBgkqhkiG9w0BAQEF
                    //创建全局队列
                    dispatch_queue_t queue = dispatch_get_global_queue(0, 0);
                    dispatch_group_async(group, queue, ^{
-                       for (int i = 0; i< num; i++) {
-                           [SVProgressHUD showProgress:i*1.0/(num) status:[NSString stringWithFormat:@"%.1f%%",i*100.0/(num)]];
+//                       for (int i = 0; i< num; i++) {
+                       dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                           self.totalNumL.text = [NSString stringWithFormat:@"%d",num];
+                       });
+                       
+                       aaa = 1;
+                       while (aaa < num) {
+                           [SVProgressHUD showProgress:aaa*1.0/(num) status:[NSString stringWithFormat:@"%.1f%%",aaa*100.0/(num)]];
                            dispatch_semaphore_t sem =  dispatch_semaphore_create(0);
                            self.sem = sem;
                            [self registByPhone];
-                       }
+                            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                           self.doneNumL.text = [NSString stringWithFormat:@"%d",aaa];
+                                 });
+                           NSLog(@"~~~~~~%d完成",aaa);
+                    }
+//                       }
                        [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeNone];
                        [SVProgressHUD dismiss];
                    });
@@ -72,12 +88,18 @@ static NSString * const RSA_PublicKey               = @"MIIBIjANBgkqhkiG9w0BAQEF
                     dispatch_group_t group = dispatch_group_create();
                     //创建全局队列
                     dispatch_queue_t queue = dispatch_get_global_queue(0, 0);
+         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                                   self.totalNumL.text = [NSString stringWithFormat:@"%d",num];
+                               });
                     dispatch_group_async(group, queue, ^{
                         for (int i = 0; i< num; i++) {
                             [SVProgressHUD showProgress:i*1.0/(num) status:[NSString stringWithFormat:@"%.1f%%",i*100.0/(num)]];
                             dispatch_semaphore_t sem =  dispatch_semaphore_create(0);
                             self.sem = sem;
                             [self loginByThirdLoginModel];
+                            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                                                      self.doneNumL.text = [NSString stringWithFormat:@"%d",i+1];
+                                                            });
                         }
                         [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeNone];
                         [SVProgressHUD dismiss];
@@ -163,13 +185,16 @@ static NSString * const RSA_PublicKey               = @"MIIBIjANBgkqhkiG9w0BAQEF
    
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     [params setObject:@"123456" forKey:@"password"];
-    int regfrom = arc4random() % 2 + 1;
+    int regfrom = arc4random() % 6 + 1;
+    if (regfrom > 2) {
+        regfrom = 2;
+    }
     [params setObject:@(regfrom) forKey:@"regfrom"];
     //随机手机号码
     NSArray *phone3Array = @[@"13",@"14",@"15",@"16",@"17",@"18",@"19"];
     int index = arc4random()%7;
     NSString *phone = phone3Array[index];
-    NSString *sufStr = [NSString stringWithFormat:@"%ld",(long)(arc4random() % 888888888) + 100000000];
+    NSString *sufStr = [NSString stringWithFormat:@"%ld",(long)(arc4random() % 788888888) + 100000000];
     phone = [phone stringByAppendingString:sufStr];
     
     NSLog(@"%@",phone);
@@ -196,11 +221,16 @@ static NSString * const RSA_PublicKey               = @"MIIBIjANBgkqhkiG9w0BAQEF
         if (!error) {
             if ([responseObject[@"code"] intValue ] != 0) {
                 [SVProgressHUD showInfoWithStatus:responseObject[@"msg"]];
+                NSLog(@"%@ 注册失败 %@",phone,responseObject[@"msg"]);
+                dispatch_semaphore_signal(self->_sem);
             }else{
                 [self loadLoginRequest:phone];
+                aaa ++;
             }
-        } else {
             
+        } else {
+            dispatch_semaphore_signal(self->_sem);
+            NSLog(@"%@ 注册失败 %@",phone,error);
         }
     }];
   [task resume];
@@ -225,8 +255,11 @@ static NSString * const RSA_PublicKey               = @"MIIBIjANBgkqhkiG9w0BAQEF
         [self loadUserInfoDataWithToken:token];
         //记录手机号码
         int regfrom = arc4random() % 10 ;
-        if (regfrom <= 3) {
+        if (regfrom <= 1) {
             [self.phoneList addObject:phone];
+             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            self.cacheNumL.text = [NSString stringWithFormat:@"%lu",(unsigned long)self.phoneList.count];
+             });
             [[NSUserDefaults standardUserDefaults] setObject:self.phoneList forKey:@"phoneList"];
             [[NSUserDefaults standardUserDefaults] synchronize];
         }
@@ -307,8 +340,10 @@ static NSString * const RSA_PublicKey               = @"MIIBIjANBgkqhkiG9w0BAQEF
     NSDictionary *headerDict = [NSDictionary dictionaryWithObjectsAndKeys:token, @"Authorization", nil];
   
     [XPNetWorkTool requestWithType:HttpRequestTypeGet withHttpHeaderFieldDict:headerDict withUrlString:requestUrl withParaments:nil withSuccessBlock:^(NSDictionary *responseObject) {
-        dispatch_semaphore_signal(self->_sem);
+        
         [self changeUmenDeviceToken:token];
+        sleep(arc4random()%MAXWAITTIME);
+        dispatch_semaphore_signal(self->_sem);
         
     } withFailureBlock:^(NSString *errorMsg) {
         dispatch_semaphore_signal(self->_sem);
@@ -325,6 +360,7 @@ static NSString * const RSA_PublicKey               = @"MIIBIjANBgkqhkiG9w0BAQEF
     self.phoneList = [NSMutableArray arrayWithCapacity:40];
     NSMutableArray *array = [[NSUserDefaults standardUserDefaults] objectForKey:@"phoneList"];
     [self.phoneList addObjectsFromArray:array];
+    self.cacheNumL.text = [NSString stringWithFormat:@"%lu",(unsigned long)self.phoneList.count];
 }
 
 
