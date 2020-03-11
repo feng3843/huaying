@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0406F1D12362A0FA00F752B1 /* dingdang.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 0406F1D02362A0FA00F752B1 /* dingdang.sqlite */; };
+		04098F90241882E6003D2AE0 /* TestPlayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04098F8F241882E6003D2AE0 /* TestPlayController.m */; };
+		04098F952418AE77003D2AE0 /* ZXHNavViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04098F942418AE77003D2AE0 /* ZXHNavViewController.m */; };
 		042202E7232F48B200C6F526 /* DDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 042202E6232F48B200C6F526 /* DDViewController.m */; };
 		042202EA232F48C800C6F526 /* DDDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 042202E9232F48C800C6F526 /* DDDetailVC.m */; };
 		042202ED232F48E400C6F526 /* DDMovieItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 042202EC232F48E400C6F526 /* DDMovieItem.m */; };
@@ -298,6 +300,10 @@
 
 /* Begin PBXFileReference section */
 		0406F1D02362A0FA00F752B1 /* dingdang.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = dingdang.sqlite; sourceTree = "<group>"; };
+		04098F8E241882E6003D2AE0 /* TestPlayController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestPlayController.h; sourceTree = "<group>"; };
+		04098F8F241882E6003D2AE0 /* TestPlayController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestPlayController.m; sourceTree = "<group>"; };
+		04098F932418AE77003D2AE0 /* ZXHNavViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZXHNavViewController.h; sourceTree = "<group>"; };
+		04098F942418AE77003D2AE0 /* ZXHNavViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZXHNavViewController.m; sourceTree = "<group>"; };
 		041D7603228915BC004108E9 /* Cartoon.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cartoon.entitlements; sourceTree = "<group>"; };
 		042202E5232F48B200C6F526 /* DDViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DDViewController.h; sourceTree = "<group>"; };
 		042202E6232F48B200C6F526 /* DDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DDViewController.m; sourceTree = "<group>"; };
@@ -1534,6 +1540,8 @@
 				4497113D226E9A45007B732E /* PrefixHeader.pch */,
 				44A1B0A7226DBD64009B28F2 /* AppDelegate.h */,
 				44A1B0A8226DBD64009B28F2 /* AppDelegate.m */,
+				04098F8E241882E6003D2AE0 /* TestPlayController.h */,
+				04098F8F241882E6003D2AE0 /* TestPlayController.m */,
 				04CD2D642366B4AB0079D7D1 /* xpzc.plist */,
 				04BAED7E236960D50028DDB8 /* index.html */,
 				04BAED7B236957770028DDB8 /* XPGameVC.h */,
@@ -1568,6 +1576,8 @@
 				04C2694E22D58D9A00F24A2C /* WRNavigation */,
 				44A1B135226DBF4A009B28F2 /* NetTool */,
 				44A1B0FC226DBEFE009B28F2 /* Third */,
+				04098F932418AE77003D2AE0 /* ZXHNavViewController.h */,
+				04098F942418AE77003D2AE0 /* ZXHNavViewController.m */,
 			);
 			path = Cartoon;
 			sourceTree = "<group>";
@@ -2207,9 +2217,11 @@
 				04A6B12C234F2BF400593F0F /* UIViewController+BackButtonHandler.m in Sources */,
 				04FA38E022DECBBB004B889B /* UIView+YNPageExtend.m in Sources */,
 				042202F3232F4DC500C6F526 /* DDKindController.m in Sources */,
+				04098F90241882E6003D2AE0 /* TestPlayController.m in Sources */,
 				04875B8B22D86682007B71AD /* PlayModel.m in Sources */,
 				44A1B193226DC3D9009B28F2 /* UIButton+WebCache.m in Sources */,
 				049DFB4024172F0100DAD1D1 /* DataReport.m in Sources */,
+				04098F952418AE77003D2AE0 /* ZXHNavViewController.m in Sources */,
 				04CCA393230AA74C00514BAA /* WMPlayViewController.m in Sources */,
 				04FA38DF22DECBBB004B889B /* UIViewController+YNPageExtend.m in Sources */,
 				44A1B17E226DC3D9009B28F2 /* SDWebImageCodersManager.m in Sources */,

@@ -25,7 +25,7 @@
 #import "DDOfflineViewController.h"
 #import "XPGameVC.h"
 #import "MJWSerchViewVC.h"
-
+#import "TestPlayController.h"
 #import "PopView.h"
 #import "TestViewController.h"
 @interface HomeViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -37,7 +37,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.titleArray = @[@"美剧网",@"叮当影视",@"今日影视",@"电影频道",@"电视台",@"CCTV-动物世界",@"离线电影",@"闲泡数据"];
+    self.titleArray = @[@"美剧网",@"叮当影视",@"今日影视",@"电影频道",@"电视台",@"CCTV-动物世界",@"离线电影",@"闲泡数据",@"ceshi"];
     self.view.backgroundColor = [UIColor blackColor];
     UITableView *table = [[UITableView alloc]initWithFrame:CGRectMake(0,88, screenW, screenH - 88 - 34) style:UITableViewStylePlain];
     self.tableView = table;
@@ -146,7 +146,7 @@
     
             
         default:{
-            TestViewController *vc = [TestViewController new];
+            TestPlayController *vc = [TestPlayController new];
             [self.navigationController pushViewController:vc animated:YES];
                        
                        break;

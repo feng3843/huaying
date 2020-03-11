@@ -12,7 +12,7 @@
 #import "WRNavigation/WRNavigationBar.h"
 #import <CoreFoundation/CoreFoundation.h>
 #import <AdSupport/AdSupport.h>
-
+#import "ZXHNavViewController.h"
 
 
  
@@ -27,7 +27,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
      
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    self.window.rootViewController =  [[UINavigationController alloc]initWithRootViewController:[[HomeViewController alloc]init] ];
+    self.window.rootViewController =  [[ZXHNavViewController alloc]initWithRootViewController:[[HomeViewController alloc]init] ];
     [self.window makeKeyAndVisible];
     
 
