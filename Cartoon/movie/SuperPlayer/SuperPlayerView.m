@@ -26,6 +26,21 @@ static UISlider * _volumeSlider;
 @implementation SuperPlayerView {
     UIView *_fullScreenBlackView;
     SuperPlayerControlView *_controlView;
+    
+}
+
+-(UIImageView *)kuaijinV{
+    if (!_kuaijinV) {
+        _kuaijinV = [UIImageView new];
+        _kuaijinV.image = [UIImage imageNamed:@"快进"];
+        _kuaijinV.alpha = 0.3;
+        [self addSubview:_kuaijinV];
+        [_kuaijinV mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.height.mas_equalTo(30);
+            make.center.equalTo(self);
+        }];
+    }
+    return _kuaijinV;
 }
 
 
@@ -454,11 +469,14 @@ static UISlider * _volumeSlider;
         case UIGestureRecognizerStateBegan:{
             NSLog(@"开始");
             [self.vodPlayer setRate:2];
+            self.kuaijinV.hidden = NO;
+            [self bringSubviewToFront:self.kuaijinV];
            break;
         }
        case UIGestureRecognizerStateEnded:{
             NSLog(@"结束");
            [self.vodPlayer setRate:rate];
+          self.kuaijinV.hidden = YES;
         break;
         }
 
@@ -473,49 +491,12 @@ static UISlider * _volumeSlider;
 }
 
 #pragma mark - KVO
-
-/**
- *  设置横屏的约束
- */
-- (void)setOrientationLandscapeConstraint:(UIInterfaceOrientation)orientation {
-    _isFullScreen = YES;
-//    [self _switchToLayoutStyle:orientation];
-}
-
-/**
- *  设置竖屏的约束
- */
-- (void)setOrientationPortraitConstraint {
-
-    [self addPlayerToFatherView:self.fatherView];
-    _isFullScreen = NO;
-//    [self _switchToLayoutStyle:UIInterfaceOrientationPortrait];
-}
-
-- (UIDeviceOrientation)_orientationForFullScreen:(BOOL)fullScreen {
-    UIDeviceOrientation targetOrientation = [UIDevice currentDevice].orientation;
-    if (fullScreen) {
-        if (!UIDeviceOrientationIsLandscape(targetOrientation)) {
-            targetOrientation = UIDeviceOrientationLandscapeLeft;
-        }
-    } else {
-        if (!UIDeviceOrientationIsPortrait(targetOrientation)) {
-            targetOrientation = UIDeviceOrientationPortrait;
-        }
-    //    targetOrientation = (UIDeviceOrientation)[UIApplication sharedApplication].statusBarOrientation;
-    }
-    return targetOrientation;
-}
-
 - (void)_switchToFullScreen:(BOOL)fullScreen {
     if (_isFullScreen == fullScreen) {
         return;
     }
     _isFullScreen = fullScreen;
     [self.fatherView.mm_viewController setNeedsStatusBarAppearanceUpdate];
-
-    UIDeviceOrientation targetOrientation = [self _orientationForFullScreen:fullScreen];// [UIDevice currentDevice].orientation;
-
     if (fullScreen) {
         [self removeFromSuperview];
         [[UIApplication sharedApplication].keyWindow addSubview:_fullScreenBlackView];
@@ -543,12 +524,6 @@ static UISlider * _volumeSlider;
 }
 
 - (void)_switchToLayoutStyle:(SuperPlayerLayoutStyle)style {
-    // 获取到当前状态条的方向
-
-//    UIInterfaceOrientation currentOrientation = [UIDevice currentDevice].orientation;
-    // 判断如果当前方向和要旋转的方向一致,那么不做任何操作
-//    if (currentOrientation == orientation) { return; }
-    
     // 根据要旋转的方向,使用Masonry重新修改限制
     if (style == SuperPlayerLayoutStyleFullScreen) {//
         // 这个地方加判断是为了从全屏的一侧,直接到全屏的另一侧不用修改限制,否则会出错;
@@ -578,59 +553,9 @@ static UISlider * _volumeSlider;
     self.controlView.compact = style == SuperPlayerLayoutStyleCompact;
 
     [[UIApplication sharedApplication].keyWindow  layoutIfNeeded];
-
-
-    // iOS6.0之后,设置状态条的方法能使用的前提是shouldAutorotate为NO,也就是说这个视图控制器内,旋转要关掉;
-    // 也就是说在实现这个方法的时候-(BOOL)shouldAutorotate返回值要为NO
-    /*
-    [[UIApplication sharedApplication] setStatusBarOrientation:orientation animated:NO];
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:0.3];
-    // 更改了状态条的方向,但是设备方向UIInterfaceOrientation还是正方向的,这就要设置给你播放视频的视图的方向设置旋转
-    // 给你的播放视频的view视图设置旋转
-    self.transform = CGAffineTransformIdentity;
-    self.transform = [self getTransformRotationAngleOfOrientation:[UIDevice currentDevice].orientation];
-    
-    _fullScreenContainerView.transform = self.transform;
-    // 开始旋转
-    [UIView commitAnimations];
-    
-    [self.fatherView.mm_viewController setNeedsStatusBarAppearanceUpdate];
-    _layoutStyle = style;
-     */
+   
 }
 
-- (void)_adjustTransform:(UIDeviceOrientation)orientation {
-
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:0.3];
-
-    self.transform = [self getTransformRotationAngleOfOrientation:orientation];
-    _fullScreenBlackView.transform = self.transform;
-    [UIView commitAnimations];
-}
-
-/**
- * 获取变换的旋转角度
- *
- * @return 变换矩阵
- */
-- (CGAffineTransform)getTransformRotationAngleOfOrientation:(UIDeviceOrientation)orientation {
-    // 状态条的方向已经设置过,所以这个就是你想要旋转的方向
-    UIInterfaceOrientation interfaceOrientation = [UIApplication sharedApplication].statusBarOrientation;
-    if (interfaceOrientation == (UIInterfaceOrientation)orientation) {
-        return CGAffineTransformIdentity;
-    }
-    // 根据要进行旋转的方向来计算旋转的角度
-    if (orientation == UIInterfaceOrientationPortrait) {
-        return CGAffineTransformIdentity;
-    } else if (orientation == UIInterfaceOrientationLandscapeLeft){
-        return CGAffineTransformMakeRotation(-M_PI_2);
-    } else if(orientation == UIInterfaceOrientationLandscapeRight){
-        return CGAffineTransformMakeRotation(M_PI_2);
-    }
-    return CGAffineTransformIdentity;
-}
 
 #pragma mark 屏幕转屏相关
 
@@ -642,10 +567,11 @@ static UISlider * _volumeSlider;
 - (void)interfaceOrientation:(UIInterfaceOrientation)orientation {
     if (orientation == UIInterfaceOrientationLandscapeRight || orientation == UIInterfaceOrientationLandscapeLeft) {
         // 设置横屏
-        [self setOrientationLandscapeConstraint:orientation];
+        _isFullScreen = YES;
     } else if (orientation == UIInterfaceOrientationPortrait) {
         // 设置竖屏
-        [self setOrientationPortraitConstraint];
+        [self addPlayerToFatherView:self.fatherView];
+        _isFullScreen = NO;
     }
 }
 
@@ -703,25 +629,10 @@ static UISlider * _volumeSlider;
 - (void)setFullScreen:(BOOL)fullScreen {
 
     if (_isFullScreen != fullScreen) {
-        [self _adjustTransform:[self _orientationForFullScreen:fullScreen]];
         [self _switchToFullScreen:fullScreen];
         [self _switchToLayoutStyle:fullScreen ? SuperPlayerLayoutStyleFullScreen : SuperPlayerLayoutStyleCompact];
     }
     _isFullScreen = fullScreen;
-    /*
-    self.controlView.compact = !_isFullScreen;
-    if (fullScreen) {
-        UIDeviceOrientation orientation = [UIDevice currentDevice].orientation;
-        if (orientation == UIDeviceOrientationLandscapeRight) {
-            [self interfaceOrientation:UIInterfaceOrientationLandscapeLeft];
-        } else {
-            [self interfaceOrientation:UIInterfaceOrientationLandscapeRight];
-        }
-    } else {
-        [self setOrientationPortraitConstraint];
-        [self interfaceOrientation:UIInterfaceOrientationPortrait];
-    }
-     */
 }
 
 /**
@@ -782,30 +693,6 @@ static UISlider * _volumeSlider;
 - (void)onStatusBarOrientationChange {
     [self onDeviceOrientationChange];
     return;
-    if (!self.didEnterBackground) {
-        UIInterfaceOrientation orientation = (UIInterfaceOrientation)[UIDevice currentDevice].orientation;
-        SuperPlayerLayoutStyle style = [self defaultStyleForDeviceOrientation:orientation];
-//        [[UIApplication sharedApplication] setStatusBarOrientation:orientation animated:NO];
-        if ([UIApplication sharedApplication].statusBarOrientation != orientation) {
-            [self _adjustTransform:(UIInterfaceOrientation)[UIDevice currentDevice].orientation];
-        }
-        [self _switchToFullScreen:style == SuperPlayerLayoutStyleFullScreen];
-        [self _switchToLayoutStyle:style];
- /*       // 获取到当前状态条的方向
-        UIInterfaceOrientation currentOrientation = [UIApplication sharedApplication].statusBarOrientation;
-        if (currentOrientation == UIInterfaceOrientationPortrait) {
-            [self setOrientationPortraitConstraint];
-        } else {
-            [self _switchToLayoutStyle:style];
-
-            if (currentOrientation == UIInterfaceOrientationLandscapeRight) {
-                [self _switchToLayoutStyle:style];
-            } else if (currentOrientation == UIDeviceOrientationLandscapeLeft){
-                [self _switchToLayoutStyle:UIInterfaceOrientationLandscapeLeft];
-            }
-        }
-   */
-    }
 }
 
 /**
@@ -824,7 +711,6 @@ static UISlider * _volumeSlider;
 
     BOOL shouldFullScreen = UIDeviceOrientationIsLandscape(orientation);
     [self _switchToFullScreen:shouldFullScreen];
-    [self _adjustTransform:[self _orientationForFullScreen:shouldFullScreen]];
     [self _switchToLayoutStyle:style];
 }
 
@@ -991,7 +877,7 @@ static UISlider * _volumeSlider;
 - (void)horizontalMoved:(CGFloat)value {
     // 每次滑动需要叠加时间
     CGFloat totalMovieDuration = [self playDuration];
-    self.sumTime += value / 20000 * totalMovieDuration;
+    self.sumTime += value / 200000 * totalMovieDuration;
     
     if (self.sumTime > totalMovieDuration) { self.sumTime = totalMovieDuration;}
     if (self.sumTime < 0) { self.sumTime = 0; }

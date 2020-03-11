@@ -77,4 +77,6 @@
 @property (nonatomic, strong) UIButton               *pointJumpBtn;
 
 @property BOOL isLive;
+
+
 @end

@@ -19,6 +19,7 @@
 /// 播放错误通知
 - (void)superPlayerError:(SuperPlayerView *)player errCode:(int)code errMessage:(NSString *)why;
 // 需要通知到父view的事件在此添加
+
 @end
 
 /// 播放器的状态
@@ -119,4 +120,5 @@ typedef NS_ENUM(NSInteger, SuperPlayerLayoutStyle) {
  */
 - (void)seekToTime:(NSInteger)dragedSeconds;
 
+@property (nonatomic , strong) UIImageView *kuaijinV;
 @end

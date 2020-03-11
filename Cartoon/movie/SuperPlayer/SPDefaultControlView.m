@@ -20,7 +20,7 @@
 
 @interface SPDefaultControlView () <UIGestureRecognizerDelegate, PlayerSliderDelegate>
 
-
+@property (nonatomic , strong) UIImageView *kuaijinV;
 @end
 
 @implementation SPDefaultControlView
@@ -49,12 +49,14 @@
         
         [self.topImageView addSubview:self.titleLabel];
         
+        [self addSubview:self.kuaijinV];
         
         [self addSubview:self.backLiveBtn];
         
         // 添加子控件的约束
         [self makeSubViewsConstraints];
         
+        self.kuaijinV.hidden = YES;
         self.captureBtn.hidden = YES;
         self.danmakuBtn.hidden = YES;
         self.moreBtn.hidden     = YES;
@@ -77,6 +79,7 @@
         make.top.equalTo(self.mas_top).offset(0);
         make.height.mas_equalTo(50);
     }];
+    
     
     [self.backBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.leading.equalTo(self.topImageView.mas_leading).offset(5);
@@ -165,6 +168,7 @@
         make.center.equalTo(self);
     }];
     
+
     
     [self.backLiveBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.mas_equalTo(self.startBtn.mas_top).mas_offset(-15);
@@ -381,6 +385,14 @@
 #pragma mark - Private Method
 
 #pragma mark - setter
+
+-(UIImageView *)kuaijinV{
+    if (!_kuaijinV) {
+        _kuaijinV = [UIImageView new];
+        _kuaijinV.image = [UIImage imageNamed:@"快进"];
+    }
+    return _kuaijinV;
+}
 
 - (UILabel *)titleLabel {
     if (!_titleLabel) {
@@ -737,5 +749,7 @@
 }
 
 #pragma clang diagnostic pop
+
+
 
 @end
