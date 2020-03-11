@@ -38,6 +38,7 @@
 - (void)dealloc {
     [self.playerView resetPlayer];  //非常重要
     [self.navigationController setNavigationBarHidden:NO];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     NSLog(@"%@释放了",self.class);
 }
 
@@ -50,9 +51,23 @@
     }
 }
 
+-(void)resumeMovie{
+    if (self.playerView.state != StatePlaying ) {
+        [self.playerView resume];
+    }
+}
+
+-(void)stopMovie{
+    if (self.playerView.state != StateStopped && self.playerView.state != StatePause ) {
+        [self.playerView pause];
+    }
+}
+
 - (void)viewDidLoad{
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor blackColor];
+    [[NSNotificationCenter defaultCenter]  addObserver:self selector:@selector(resumeMovie) name:@"NeedResumeMovie" object:nil];
+    [[NSNotificationCenter defaultCenter]  addObserver:self selector:@selector(stopMovie) name:@"NeedStopMovie" object:nil];
+        
     
     //显示的播放界面
     UIView *blackView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, ScreenWidth, 40)];

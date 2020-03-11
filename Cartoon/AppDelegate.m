@@ -13,7 +13,7 @@
 #import <CoreFoundation/CoreFoundation.h>
 #import <AdSupport/AdSupport.h>
 #import "ZXHNavViewController.h"
-
+#import <AVFoundation/AVFoundation.h>
 
  
 
@@ -26,6 +26,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
      
+     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(outputDeviceChanged:) name:AVAudioSessionRouteChangeNotification object:[AVAudioSession sharedInstance]];
+ 
+    
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController =  [[ZXHNavViewController alloc]initWithRootViewController:[[HomeViewController alloc]init] ];
     [self.window makeKeyAndVisible];
@@ -67,6 +70,22 @@
     }];
     
     return YES;
+}
+
+-(void)outputDeviceChanged:(NSNotification *)notify{
+    NSLog(@"----------%@",notify);
+    int value = [notify.userInfo[@"AVAudioSessionRouteChangeReasonKey"] intValue];
+    if (value == 2) {//取下耳机
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"NeedStopMovie" object:nil];
+        });
+        
+    }else{//带上耳机
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"NeedResumeMovie" object:nil];
+        });
+        
+    }
 }
 
 - (void)initDataArray{

@@ -41,6 +41,7 @@
 - (void)dealloc {
     [self.playerView resetPlayer];  //非常重要
     [self.navigationController setNavigationBarHidden:NO];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     NSLog(@"%@释放了",self.class);
 }
 
@@ -53,8 +54,22 @@
     }
 }
 
+-(void)resumeMovie{
+    if (self.playerView.state != StatePlaying ) {
+        [self.playerView resume];
+    }
+}
+
+-(void)stopMovie{
+    if (self.playerView.state != StateStopped && self.playerView.state != StatePause ) {
+        [self.playerView pause];
+    }
+}
+
 - (void)viewDidLoad{
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter]  addObserver:self selector:@selector(resumeMovie) name:@"NeedResumeMovie" object:nil];
+    [[NSNotificationCenter defaultCenter]  addObserver:self selector:@selector(stopMovie) name:@"NeedStopMovie" object:nil];
     //创建模型
     SuperPlayerModel *playerModel = [[SuperPlayerModel alloc] init];
     self.playerModel = playerModel;

@@ -18,7 +18,7 @@
 @property (strong, nonatomic) SuperPlayerView *playerView;
 @property (nonatomic , strong) SuperPlayerModel *playerModel;
 
-
+@property (nonatomic , assign) BOOL isFullScreen;
 
 
 @end
@@ -94,7 +94,7 @@
 #pragma mark - 状态控制
 // 返回值要必须为NO
 - (BOOL)shouldAutorotate {
-    return NO;
+    return YES;
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
@@ -109,7 +109,37 @@
     return YES;
 }
 
+-(UIInterfaceOrientationMask)supportedInterfaceOrientations{
+    if (self.isFullScreen) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [[UIDevice currentDevice] setValue:[NSNumber numberWithInteger:UIInterfaceOrientationUnknown] forKey:@"orientation"];
+            [[UIDevice currentDevice] setValue:[NSNumber numberWithInteger:UIInterfaceOrientationLandscapeRight] forKey:@"orientation"];
+        });
+            
+        return UIInterfaceOrientationMaskLandscapeRight;
+    }
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [[UIDevice currentDevice] setValue:[NSNumber numberWithInteger:UIInterfaceOrientationUnknown] forKey:@"orientation"];
+    [[UIDevice currentDevice] setValue:[NSNumber numberWithInteger:UIInterfaceOrientationPortrait] forKey:@"orientation"];
+         });
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+-(UIInterfaceOrientation)preferredInterfaceOrientationForPresentation{
+    return UIInterfaceOrientationPortrait;
+}
+
 #pragma mark - SuperPlayerDelegate
+-(void)superPlayerFullScreenChanged:(SuperPlayerView *)player{
+    if (player.isFullScreen) {
+        self.isFullScreen = YES;
+        [self supportedInterfaceOrientations];
+    }else{
+        self.isFullScreen = NO;
+        [self supportedInterfaceOrientations];
+    }
+}
+
 /** 返回事件 */
 - (void)superPlayerBackAction:(SuperPlayerView *)player{
     if (!self.playerView.isFullScreen){
