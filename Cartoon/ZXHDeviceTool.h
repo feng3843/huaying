@@ -49,6 +49,14 @@
  */
 + (NSString *)getDeviceIDFA;
 
+
++ (NSString *)randomIDFA;
+
++ (NSString *)randomUDID;
+
++ (NSString *)randomIP;
+
++ (NSString *)randomDeviceType;
 @end
 
 

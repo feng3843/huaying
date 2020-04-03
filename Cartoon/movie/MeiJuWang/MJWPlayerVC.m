@@ -444,9 +444,11 @@
 #pragma mark - SuperPlayerDelegate
 -(void)superPlayerFullScreenChanged:(SuperPlayerView *)player{
     if (player.isFullScreen) {
+        NSLog(@"superPlayerFullScreenChanged quanp");
         self.isFullScreen = YES;
         [self supportedInterfaceOrientations];
     }else{
+        NSLog(@"superPlayerFullScreenChanged xiap");
         self.isFullScreen = NO;
         [self supportedInterfaceOrientations];
     }

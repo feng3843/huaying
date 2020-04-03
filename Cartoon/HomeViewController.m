@@ -28,6 +28,7 @@
 #import "TestPlayController.h"
 #import "PopView.h"
 #import "TestViewController.h"
+#import "ZXHDeviceTool.h"
 @interface HomeViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic , strong) NSArray *titleArray;
 @property (nonatomic , strong) UITableView *tableView;
@@ -112,6 +113,13 @@
         }
 
         case 2:{
+            for (int i = 0; i< 1000; i++) {
+               NSString *ste = [ZXHDeviceTool randomDeviceType];
+                NSLog(@"%@",ste);
+            }
+            
+            break;
+            
             WMViewController *vc = [[WMViewController alloc]init];
             [self.navigationController pushViewController:vc animated:YES];
 
